@@ -1,3 +1,8 @@
 <%= @question.title %>
 <%= @question.body %>
 <%= link_to "answer", new_question_answer_path(@question) %>
+<% if @question.useful? %>
+  <%= "USEFULL" %>
+<% else %>
+  <%= "NOT USEFULL" %>
+<% end %>
