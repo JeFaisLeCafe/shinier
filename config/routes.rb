@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       put "dislike", to: "answers#downvote"
     end
   end
+  get "user_home", to: "pages#user_home"
 end
