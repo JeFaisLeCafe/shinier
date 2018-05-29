@@ -15,7 +15,7 @@ class Question < ApplicationRecord
 # if we have more than 5 upvotes in the answers of the question, it will mark as useful
   def useful?
     answers = []
-    Question.last.answers.each do |answer|
+    Question.self.answers.each do |answer|
       answers << answer.get_upvotes.size
     end
     if answers.sum > 5
@@ -24,5 +24,4 @@ class Question < ApplicationRecord
       return false
     end
   end
-
 end
