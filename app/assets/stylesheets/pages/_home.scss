@@ -50,9 +50,7 @@ p {
 .text1, .text3 {
   margin-top: -48px;
 }
-.row {
-  color: #484848;
-}
-h2 {
-  margin-bottom: 40px;
+
+.content-min-height {
+  min-height: calc(100vh - 70px);
 }
