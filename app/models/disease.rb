@@ -1,4 +1,5 @@
 class Disease < ApplicationRecord
+  searchkick
   has_many :questions, dependent: :nullify
   has_many :users, dependent: :nullify
 
