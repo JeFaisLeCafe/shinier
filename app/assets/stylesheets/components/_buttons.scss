@@ -1,0 +1,56 @@
+.btn-main {
+  color: $white;
+  border: 1px solid $blue;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  background: $blue;
+  transition: background 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+  opacity: 1;
+  background: $blue-pop;
+  border-color: $blue-pop;
+  }
+}
+
+
+.btn-secondary {
+  color: $white;
+  border: 1px solid $blue-pop;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  background: $blue-pop;
+  transition: background 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+  opacity: 1;
+  background: $white;
+  color: $black;
+  }
+}
+
+
+.btn-tertiary {
+  color: $black;
+  border: 1px solid $yellow;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  background: $yellow;
+  transition: background 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+  opacity: 1;
+  background: $white;
+  color: $black;
+  }
+}
+
