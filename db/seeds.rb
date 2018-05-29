@@ -28,5 +28,4 @@ end
 end
 
 Question.reindex
-Disease.reindex
 Answer.reindex
