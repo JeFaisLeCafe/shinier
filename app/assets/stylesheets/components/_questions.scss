@@ -17,6 +17,7 @@
   border-bottom: 1px solid $gray;
   border-top: 1px solid $gray;
   padding: 20px 0px;
+  font-weight: bolder;
 }
 
 .question-message {
@@ -60,24 +61,29 @@
   flex: 0 0 20%;
   padding-right: 10px;
   text-align: center;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: thin;
+  font-size: 32px;
   line-height: 50px;
 }
 
 .top-answer {
   flex: 0 0 80%;
   text-align: left;
+  border: 1px solid $gray;
+  border-radius: 3px;
+  background-color: $light-gray;
+  padding: 10px;
+
 }
 
 .link {
   flex: 0 0 15%;
   a {
   font-size: 48px;
-  color: $blue-pop;
+  color: $yellow;
   transition: color 0.3s ease;
     &:hover {
-    color: $blue;
+    color: $blue-pop;
     }
   }
 }
