@@ -1,0 +1,14 @@
+<div class="form">
+  <div class="form-title">
+    <h1>Question new</h1>
+  </div>
+
+  <div class="form-table">
+    <%= simple_form_for [@question] do |f| %>
+      <%= f.input :title, placeholder: 'What is your title' %>
+      <%= f.input :body, placeholder: 'What is your content' %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
+

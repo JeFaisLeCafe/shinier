@@ -1,5 +1,12 @@
 class AnswersController < ApplicationController
 
+  def index
+    # should implement the way how the answer will be display
+  end
+
+
+  # we ll handle the upvote later
+
   def new
     @user = current_user
     @question = Question.find(params[:question_id])
