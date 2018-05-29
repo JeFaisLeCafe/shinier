@@ -18,6 +18,9 @@ puts "#{user.firstname}2 created!"
 question = Question.create!(title: "#{Faker::GameOfThrones.character} x #{Faker::GameOfThrones.character} real?", body: Faker::GameOfThrones.quote, disease: disease, user: user)
 puts "#{question.title} created!"
 
+question = Question.create!(title: "#{Faker::GameOfThrones.character} x #{Faker::GameOfThrones.character} real?", body: Faker::GameOfThrones.quote, disease: disease, user: user)
+puts "#{question.title} created!"
+
 answer = Answer.create!(body: Faker::GameOfThrones.quote, upvotes: rand(*[0..42]), question: question, user: user2)
 puts "answer created!"
 

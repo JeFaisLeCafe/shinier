@@ -1,4 +1,6 @@
-<%= form_tag(tasks_path) do %>
-  <%= text_field_tag :query %>
+<h1>Posez-nous une question</h1>
+
+<%= form_tag(questions_path, method: :get) do %>
+  <%= text_field_tag :query, params[:query] %>
   <%= submit_tag 'Rechercher' %>
 <% end %>
