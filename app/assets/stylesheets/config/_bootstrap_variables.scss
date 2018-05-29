@@ -9,12 +9,13 @@ $headings-font-family:    $headers-font;
 $body-bg:                 $light-gray;
 $font-size-base: 16px;
 $btn-font:                $buttons-font;
+$body-color:              $black;
 
 // Fonts
 $font-size-h1: floor(($font-size-base * 3)) !default; // ~48px
 $font-size-h2: floor(($font-size-base * 2.5)) !default; // ~40px
 $font-size-h3: floor(($font-size-base * 2)) !default; // ~32px
-$font-size-h4: floor(($font-size-base * 1.5)) !default; // ~24px // NEED TO PASS FONT-WEIGHT: THIN
+$font-size-h4: floor(($font-size-base * 1.5)) !default; // ~24px
 $font-size-h5: floor(($font-size-base * 1)) !default; // ~16px // H5 == p
 $font-size-h6: floor(($font-size-base * 0.5)) !default; // ~8px
 
@@ -24,7 +25,7 @@ $gray-base:       $gray;
 $brand-primary:   $blue;
 $brand-success:   $blue-pop;
 $brand-info:      $yellow;
-$brand-danger:    $yellow;
+$brand-danger:    $dark-red;
 $brand-warning:   $yellow;
 
 // Buttons & inputs' radius

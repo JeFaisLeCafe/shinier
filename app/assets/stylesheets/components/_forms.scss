@@ -1,0 +1,64 @@
+
+.form {
+  padding: 30px;
+  background: $white none repeat scroll 0% 0%;
+  border-radius: 4px;
+  width: 40% ;
+  opacity: 0.9;
+  margin: 20px 0px;
+}
+
+.form-title h2 {
+  font-weight: bold;
+  color: $black;
+  margin: 0px;
+  margin-bottom: 20px;
+  padding: 0px;
+  padding-bottom: 20px;
+  line-height: 46px;
+  border-bottom: 1px solid $gray;
+}
+
+.form-content {
+  color: $black;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $medium-gray;
+}
+
+
+.btn-form {
+  color: $white;
+  border: 1px solid $blue;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  background: $blue;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  width: 100%;
+  height: 60px;
+
+  &:hover {
+  opacity: 1;
+  background: $blue-pop;
+  border-color: $blue-pop;
+  }
+
+}
+
+
+.form-control-label {
+  font-weight: normal;
+}
+
+.file {
+  font-weight: normal;
+}
+
+.form-check-label {
+  font-weight: normal;
+}
