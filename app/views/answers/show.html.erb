@@ -1,1 +1,5 @@
+
 <%= @answer.body %>
+<%= @answer.get_upvotes.size %>
+<%= link_to "Useful", like_answer_path(@answer), method: :put %>
+<%= link_to "Report", dislike_answer_path(@answer), method: :put %>

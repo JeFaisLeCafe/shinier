@@ -5,4 +5,10 @@ Rails.application.routes.draw do
     resources :answers
   end
   resources :diseases, except: [ :destroy ]
+  resources :answers do
+    member do
+      put "like", to: "answers#upvote"
+      put "dislike", to: "answers#downvote"
+    end
+  end
 end
