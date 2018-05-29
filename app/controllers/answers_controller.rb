@@ -52,6 +52,20 @@ class AnswersController < ApplicationController
     redirect_to question_answers_path
   end
 
+  def upvote
+    @answer = Answer.find(params[:id])
+    @answer.upvote_by current_user
+    redirect_back fallback_location: root_path
+  end
+
+  # it will act as a report button
+
+  def downvote
+    @answer = Answer.find(params[:id])
+    @answer.downvote_by current_user
+    redirect_back fallback_location: root_path
+  end
+
   private
 
   def answer_params
