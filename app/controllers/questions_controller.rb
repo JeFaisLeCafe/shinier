@@ -36,10 +36,14 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    @disease = Disease.find(params[:disease_id])
-    @question.update(question_params)
+    # @disease = Disease.find(params[:disease_id])
+    if params[:answered].present?
+      @question.answered = params[:answered]
+    else
+      @question.update(question_params)
+    end
     if @question.save
-      #redirect somewhere
+      redirect_to question_path(@question)
     else
       render :new
     end
@@ -50,6 +54,14 @@ class QuestionsController < ApplicationController
     @question.destroy
     # redirect to the index
     redirect_to questions_path
+  end
+
+  def toggle_answered
+    @question = Question.find(params[:question_id])
+    @question.answered = !@question.answered
+    if @question.save
+      redirect_to question_path(@question)
+    end
   end
 
   private
