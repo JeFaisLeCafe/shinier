@@ -1,9 +1,52 @@
-.banner {
-  color: white;
-  text-align: center;
+.banner-home {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover !important;
+  background-position: center;
+  text-align: center;
+  h1 {
+    color: white;
+    font-weight: bold;
+  }
+  h4 {
+    color: white;
+    opacity: .8;
+    font-weight: lighter;
+    margin-bottom: 30px;
+  }
+  .btn {
+    padding: 15px 50px;
+  }
+}
+
+.row {
+  text-align: center;
+}
+
+.home {
+  text-align: center;
+  height: 60vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+p {
+  line-height: 2em;
+}
+
+.text1 {
+  padding-left: 47px;
+}
+
+.text2 {
+  margin-right: 70px;
+  margin-top: 190px;
+  margin-left: 70px;
+}
+.text1, .text3 {
+  margin-top: -48px;
 }
