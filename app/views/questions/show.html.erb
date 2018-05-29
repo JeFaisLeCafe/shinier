@@ -67,4 +67,7 @@
   <%= "Solved" %>
 <% end %>
 
+<%= @question.get_upvotes.size %>
+
+
 <%= link_to 'Toggle', question_toggle_path(@question) %>

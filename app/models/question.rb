@@ -10,25 +10,19 @@ class Question < ApplicationRecord
   validates :user, presence: true
   acts_as_votable
 
-
-
-# if we have more than 5 upvotes in the answers of the question, it will mark as useful
+# if we have more than 0 upvotes in the answers of the question, it will mark as useful
 
 
   def number_votes
-    answers = []
-    Question.self.answers.each do |answer|
-    answers.each do |answer|
+   answers = []
+    self.answers.each do |answer|
       answers << answer.get_upvotes.size
     end
-    return answers.sum
+    return upvote = answers.sum
   end
 
-
-
   def useful?
-     answers_sum = number_votes
-    if answers_sum > 5
+    if number_votes > 0
       return true
     else
       return false
