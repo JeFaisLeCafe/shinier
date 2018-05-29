@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 
   def index
     #should list all the unanswered question
+    @questions = Question.all
   end
 
   def new
