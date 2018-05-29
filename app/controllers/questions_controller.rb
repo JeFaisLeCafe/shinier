@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     @question.disease = Disease.find(@disease)
     @question.user = current_user
     if @question.save
-      #redirect somewhere
+      redirect_to question_path(@question)
     else
       render :new
     end

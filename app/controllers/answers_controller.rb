@@ -19,13 +19,14 @@ class AnswersController < ApplicationController
     @answer.user = current_user
     @answer.question = @question
     if @answer.save
-      #redirect somewhere
+      redirect_to question_answer_path(@question, @answer)
     else
       render :new
     end
   end
 
   def show
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
   end
 

@@ -1,11 +1,10 @@
-
 <div class="form">
   <div class="form-title">
     <h1>Answer new</h1>
   </div>
 
   <div class="form-table">
-    <%= simple_form_for [@answer] do |f| %>
+    <%= simple_form_for [@question, @answer] do |f| %>
       <%= f.input :body, placeholder: 'What is your answer' %>
       <%= f.button :submit %>
     <% end %>
