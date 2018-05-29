@@ -7,3 +7,20 @@
   align-items: center;
   justify-content: center;
 }
+
+.row {
+  text-align: center;
+}
+
+.home {
+  text-align: center;
+  height: 60vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  line-height: 2em;
+}
