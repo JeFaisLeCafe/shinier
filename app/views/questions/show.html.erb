@@ -1,14 +1,70 @@
-<%= @question.title %>
-<%= @question.body %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="title">
+        <h1>Questions sur Shinier </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="results">
+      <div class="col-xs-12">
+        <div class="question-message">
+          <div class="question-content">
+
+            <div class="question-short">
+              <div class="question-title">
+                <h4>Question : <%= @question.title %></h4>
+              </div>
+              <div class="question-preview">
+                <p><%= @question.body %></p>
+              </div>
+            </div>
+
+            <div class="answers">
+              <% @question.answers.each do |answer| %>
+                <div class="upvotes">
+                  <div class="arrow"></div>
+                  <div class="counter"><%= @question.answers.count %></div>
+                </div>
+                <div class="top-answer">
+                  <p>Meilleure réponse :</p>
+                  <p><%= @question.answers.first.body %></p>
+                </div>
+              <% end %>
+            </div>
+
+            <% if current_user == @question.user %>
+              <div class="link">
+                <%= link_to question_toggle_path(@question) do %>
+                  <i class="fas fa-plus-circle"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
 <%= link_to "answer", new_question_answer_path(@question) %>
+
 <% if @question.useful? %>
   <%= "USEFULL" %>
 <% else %>
   <%= "NOT USEFULL" %>
 <% end %>
+
 <% if @question.answered == false %>
   <%= link_to "is it solved?", question_path(@question, answered: true), method: :patch %>
 <% else %>
   <%= "Solved" %>
 <% end %>
+
 <%= link_to 'Toggle', question_toggle_path(@question) %>
