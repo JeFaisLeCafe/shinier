@@ -50,3 +50,8 @@ p {
 .text1, .text3 {
   margin-top: -48px;
 }
+
+
+.content-min-height {
+  min-height: calc(100vh - 70px);
+}
