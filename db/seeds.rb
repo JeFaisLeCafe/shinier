@@ -25,3 +25,7 @@ end
 
   puts "Seed ok!"
 end
+
+Question.reindex
+Disease.reindex
+Answer.reindex

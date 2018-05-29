@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  searchkick
+  searchkick language: "english", match: :word_start
 
   belongs_to :disease
   has_many :answers

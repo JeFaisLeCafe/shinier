@@ -2,7 +2,9 @@ class QuestionsController < ApplicationController
 
   def index
     #should list all the unanswered question
-    @questions = Question.search(params[:query])
+    @questions = Question.search params[:query], misspellings: {edit_distance: 2}
+    @questions.each do |question|
+    end
   end
 
   def new
