@@ -1,4 +1,6 @@
 class Question < ApplicationRecord
+  searchkick
+
   belongs_to :disease
   has_many :answers
   belongs_to :user

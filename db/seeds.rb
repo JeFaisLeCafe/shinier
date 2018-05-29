@@ -17,7 +17,7 @@ end
   user2 = User.create!(firstname: Faker::Cat.name, lastname: Faker::OnePiece.island, email: Faker::Internet.email, password: "secret", disease: disease, location: Faker::Address.city, status_in_community: "Newbie", bio: Faker::Lorem.paragraph, secu_nb: "1 23 04 69 666 666 11" )
   puts "#{user2.firstname} created!"
 
-  question = Question.create!(title: "#{Faker::GameOfThrones.character} x #{Faker::GameOfThrones.character} real?", body: Faker::LeagueOfLegends.quote, disease: disease, user: user)
+  question = Question.create!(title: "#{Faker::GameOfThrones.character} x #{Faker::GameOfThrones.character} real?", body: Faker::GameOfThrones.quote, disease: disease, user: user)
   puts "#{question.title} created!"
 
   answer = Answer.create!(body: Faker::Hipster.paragraph, upvotes: rand(*[0..42]), question: question, user: user2)

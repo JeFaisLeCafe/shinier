@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
   def index
     #should list all the unanswered question
-    @questions = Question.all
+    @questions = Question.search(params[:query])
   end
 
   def new
@@ -53,7 +53,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :body, :disease_id, :user_id, :answered)
+    params.require(:question).permit(:title, :body, :disease_id, :user_id, :answered, :query)
   end
 
 end
