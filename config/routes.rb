@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :questions do
+    get 'toggle', to: 'questions#toggle_answered', as: :toggle
     resources :answers
   end
   resources :diseases, except: [ :destroy ]
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
     end
   end
   get "user_home", to: "pages#user_home"
+  # get "/questions/:id", to: "questions#mark_as_answered", as: :answered
 end
