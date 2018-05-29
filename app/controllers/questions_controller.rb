@@ -5,15 +5,15 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @disease = Disease.find(params[:disease_id])
-    @question = Question.new
     @user = current_user
+    @disease = current_user.disease_id
+    @question = Question.new
   end
 
   def create
-    @disease = Disease.find(params[:disease_id])
+    @disease = current_user.disease_id
     @question = Question.new(question_params)
-    @question.disease = @disease
+    @question.disease = Disease.find(@disease)
     @question.user = current_user
     if @question.save
       #redirect somewhere
