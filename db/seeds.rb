@@ -3,6 +3,7 @@ if Rails.env.development?
   Answer.destroy_all
   Question.destroy_all
   Disease.destroy_all
+  puts "Destroying"
 end
 
   a = Faker::GameOfThrones.house
