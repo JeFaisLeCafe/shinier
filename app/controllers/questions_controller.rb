@@ -2,7 +2,11 @@ class QuestionsController < ApplicationController
 
   def index
     #should list all the unanswered question
+<<<<<<< HEAD
     @questions = Question.search(params[:term])
+=======
+    @questions = Question.all
+>>>>>>> 92dffea57ca6d4d69694d478b32f8393496f1e41
   end
 
   def new

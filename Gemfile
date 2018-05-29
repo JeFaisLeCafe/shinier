@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'searchkick', '~> 3.0'
 gem 'faker'
+gem 'acts_as_votable', '~> 0.11.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

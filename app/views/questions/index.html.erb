@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div class="title">
+        <h1>Your questions are: </h1>
+      </div>
+
+      <div class="index-search-bar">
+
+      </div>
+
+      <div class="results">
+        <% @questions.each do |question| %>
+          <div class="col-xs-12">
+            <div class="question-message">
+
+              <div class="question-short">
+                <div class="question-title">
+                  <p><%= question.title %></p>
+                </div>
+                <div class="question-preview">
+                  <p><%= question.body.first(100) %>...</p>
+                </div>
+              </div>
+
+              <div class="answer">
+                <div class="upvotes">
+                  <div class="arrow"></div>
+                  <div class="counter"><%= question.answers.count %></div>
+                </div>
+                <div class="top-answer">
+                  <p><%= question.answers.first %></p>
+                </div>
+              </div>
+
+              <div class="link">
+                <%= link_to question_path(question) do %>
+                  <i class="fas fa-plus-circle"></i>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+
+          <li><%= question %></li>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
