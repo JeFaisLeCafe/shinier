@@ -6,3 +6,9 @@
 <% else %>
   <%= "NOT USEFULL" %>
 <% end %>
+<% if @question.answered == false %>
+  <%= link_to "is it solved?", question_path(@question, answered: true), method: :patch %>
+<% else %>
+  <%= "Solved" %>
+<% end %>
+<%= link_to 'Toggle', question_toggle_path(@question) %>

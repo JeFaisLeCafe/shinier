@@ -1,3 +1,4 @@
+
 if Rails.env.development?
   User.destroy_all
   Answer.destroy_all
@@ -5,12 +6,12 @@ if Rails.env.development?
   Disease.destroy_all
 end
 
+
   a = Faker::GameOfThrones.house
   disease = Disease.create!(name: a, symptomes: Faker::GameOfThrones.city, latin_name: "#{a}um")
   puts "#{disease.name} created!"
 
 10.times do
-
   user = User.create!(firstname: Faker::Cat.name, lastname: Faker::OnePiece.island, email: Faker::Internet.email, password: "secret", disease: disease, location: Faker::Address.city, status_in_community: "Newbie", bio: Faker::Lorem.paragraph, secu_nb: "1 23 04 69 666 666 11" )
   puts "#{user.firstname} created!"
 
