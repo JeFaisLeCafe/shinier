@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+  before_action :set_question, only: [ :show, :update, :destroy ]
+
   def index
     #should list all the unanswered question
     @questions = policy_scope(Question)
@@ -27,8 +29,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
-    authorize @question
   end
 
   def edit
@@ -37,7 +37,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
     # @disease = Disease.find(params[:disease_id])
     if params[:answered].present?
       @question.answered = params[:answered]
@@ -52,7 +51,6 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
     # redirect to the index
     redirect_to questions_path
@@ -60,7 +58,9 @@ class QuestionsController < ApplicationController
 
   def toggle_answered
     @question = Question.find(params[:question_id])
+    authorize @question
     @question.answered = !@question.answered
+
     if @question.save
       redirect_to question_path(@question)
     end
@@ -89,6 +89,11 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:title, :body, :disease_id, :user_id, :answered, :query)
+  end
+
+  def set_question
+    @question = Question.find(params[:id])
+    authorize @question
   end
 
 end
