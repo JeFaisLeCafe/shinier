@@ -1,11 +1,11 @@
 
-if Rails.env.development?
+# if Rails.env.development?
   User.destroy_all
   Answer.destroy_all
   Question.destroy_all
   Disease.destroy_all
   puts "Destroying"
-end
+# end
 
 
   a = Faker::GameOfThrones.house
