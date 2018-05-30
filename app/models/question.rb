@@ -19,10 +19,10 @@ class Question < ApplicationRecord
 # une question est useful si les reponses sont useful
 # apres on peut imaginer un truc qui serait un indice de demande de reponse, my 2 cents
 
-  def self.top_10_questions(disease)
+  def self.top_9_questions(disease)
     disease.questions.sort_by do |question|
       -question.total_upvotes
-    end.take(10)
+    end.take(9)
   end
 
   def number_votes

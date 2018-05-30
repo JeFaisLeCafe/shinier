@@ -29,37 +29,35 @@
 
 
   <div class="row">
-    <div class="results">
+    <div class="flip-results">
       <% @questions.each do |question| %>
-        <div class="col-xs-12">
-          <div class="question-message">
-            <div class="question-content">
-
-              <div class="question-short">
-                <div class="question-title">
-                  <h4>Question : <%= question.title %></h4>
-                </div>
-                <div class="question-preview">
-                  <p><%= question.body.first(100) %>...</p>
-                </div>
+        <div class="col-xs-4">
+          <div class='flip-content'>
+            <div class='flip_box'>
+              <div class='front'>
+                <h4 class='f_title'><%= question.title %></h4>
+                <p class='f_subline'><%= question.body.first(200) %>...</p>
+                <p class='f_headline'></p>
               </div>
 
-              <div class="answers">
-                <div class="upvotes">
-                  <div class="arrow"></div>
-                  <div class="counter"><%= question.answers.count %></div>
-                </div>
-                <div class="top-answer">
-                  <p>Meilleure réponse :</p>
-                  <p><%= question.answers.first.body %></p>
-                </div>
+              <div class='back'>
+                <h4 class='b_headline'>Meilleure réponse</h4>
+                <p class='b_text'>
+                  <% top_answer = question.answers.sort_by do |answer| %>
+                    <% -answer.upvotes %>
+                  <% end %>
+                   <%= top_answer.first.body %></p>
+                <button class='b_button'><span>Plus</span></button>
               </div>
 
             </div>
-            <div class="link">
-              <%= link_to question_path(question) do %>
-                <i class="fas fa-plus-circle"></i>
-              <% end %>
+
+            <div class='r_wrap'>
+
+              <div class='b_round'></div>
+              <div class='s_round'>
+                <div class='s_arrow'></div>
+              </div>
             </div>
 
           </div>

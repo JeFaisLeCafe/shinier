@@ -5,8 +5,7 @@ class PagesController < ApplicationController
   end
 
   def user_home
-
-    @questions = Question.top_10_questions(current_user.disease)
+    @questions = Question.top_9_questions(current_user.disease)
   end
 
 
