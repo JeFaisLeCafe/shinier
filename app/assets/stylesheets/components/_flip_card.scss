@@ -1,3 +1,6 @@
+.intro {
+  margin: 40px;
+}
 
 .flip-results {
   display: flex;
@@ -8,9 +11,10 @@
 .flip-box,
 .front,
 .back {
-  width: 380px;
+  width: 100%;
   height: 350px;
-  margin: 20px;
+  margin-bottom: 30px;
+  border-radius: 4px;
 }
 
 .flip-content,
@@ -39,16 +43,15 @@
  }
 
 .f_title {
-  padding: 30px 5px 5px 5px;
+  padding: 30px 10px 10px 10px;
 
 }
 
 .f_subline {
-  padding: 50px 5px 5px 5px;
+  padding: 30px 10px 10px 10px;
 }
 
 .f_headline {
-  line-height: 23px;
 }
 
 .back {
@@ -58,29 +61,35 @@
 }
 
 .b_headline {
-  padding: 50px 5px 5px 5px;
+  padding: 30px 10px 10px 10px;
 }
 
 .b_text {
-  font-size: 1.4em;
-  line-height: 28px;
-  padding-top: 10px;
-  opacity: 0.85;
+  padding: 30px 10px 10px 10px;
 }
 
 .b_button {
+  border: 1px solid #C30C3D;
+  border-radius: 50px;
+  padding-bottom: 2px;
   position: absolute;
+  font-weight: lighter;
   left: 36px;
   bottom: 38px;
   width: 150px;
   height: 52px;
   background-color: #C30C3D;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: $white;
+
+  &:hover {
+  opacity: 1;
+  background: $yellow;
+  border-color: $yellow;
+  }
 }
 
-.b_button:hover {
-  background-color: #E30143;
-}
 
 .flipped {
   transform: rotateY(-180deg);

@@ -2,4 +2,6 @@ import "bootstrap";
 
 import { flipCard } from '../components/flip_card';
 
-flipCard();
+document.addEventListener('DOMContentLoaded', (e) => {
+  flipCard();
+});
