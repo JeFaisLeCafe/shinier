@@ -1,0 +1,8 @@
+<%= current_user %> & <%= @user %>
+<h2>Welcome <%= current_user.firstname %></h2>
+<h4>Here you can see all your informations.</h4>
+<ul>
+  <% @user.attributes.each do |key, value| %>
+    <li><%= key %> : <%= value %></li>
+  <% end %>
+</ul>
