@@ -1,5 +1,5 @@
 .banner-home {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,4 +53,30 @@ p {
 
 .content-min-height {
   min-height: calc(100vh - 70px);
+}
+
+.video-with-filter {
+  position: relative;
+  overflow: hidden;
+  height: 80vh;
+}
+
+.video-container {
+  //height: 80vh;
+  position: absolute;
+  z-index: -1;
+  top: 70px;
+
+  video {
+    width: 100%;
+  }
+}
+
+.video-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
 }

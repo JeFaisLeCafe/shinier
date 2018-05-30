@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     end
   end
   get "user_home", to: "pages#user_home"
+  resources :users
   # get "/questions/:id", to: "questions#mark_as_answered", as: :answered
 end

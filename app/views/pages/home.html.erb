@@ -1,4 +1,10 @@
-<div class="banner-home" style="background-image: url(https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?cs=srgb&dl=adult-boy-child-325521.jpg&fm=jpg);">
+<div class="banner-home">
+  <div class="video-container">
+    <div class="video-with-filter">
+      <%= video_tag("video", autoplay: true, muted: true, loop: true) %>
+      <div class="video-filter"></div>
+    </div>
+  </div>
   <div class="banner-content">
     <h1>Shinier</h1>
     <h2>Et si la maladie chronique pouvait aussi réunir?</h2>

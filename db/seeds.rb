@@ -27,8 +27,12 @@ end
   end
   puts "answers created!"
 
-  puts "Seed ok!"
 end
+
+# Admin creation
+admin = User.create!(firstname: "Jean", lastname: "Merdelémouch", email: "jean@mail.com", password: "azerty", disease: disease, location: "Lyon, France", status_in_community: "God", bio: "J'aime pas les mouches", secu_nb: "1 23 04 69 666 666 11", admin: true)
+puts "#{admin.firstname} #{admin.lastname} created!"
+puts "Seed ok!"
 
 Question.reindex
 Answer.reindex
