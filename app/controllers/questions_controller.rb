@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   def index
     #should list all the unanswered question
     @questions = policy_scope(Question)
-    #@questions = @questions.search params[:query], misspellings: {edit_distance: 2}
+    #@questions = @questions.search params[:query], misspellings: {edit_distance: 1}
     @questions = if params[:query].present?
       Question.search(params[:query])
     else
@@ -82,25 +82,6 @@ class QuestionsController < ApplicationController
     })
     render json: questions.map { |question| render_to_string( partial: 'questions/autocomplete', locals: { question: question }) }
   end
-
-  # def number_votes
-  #   @question = Question.find(params[:id])
-  #   answers = []
-  #   @question.answers.each do |answer|
-  #     answers << answer.get_upvotes.size
-  #   end
-  #   return answers.sum
-  # end
-
-  #   def useful?(question)
-  #     @question = Question.find(params[:id])
-  #     answers_sum = number_votes(question)
-  #   if answers_sum > 5
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
 
   private
 
