@@ -23,6 +23,8 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'pundit'
+gem 'rails-assets-typeahead.js', source: 'https://rails-assets.org'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

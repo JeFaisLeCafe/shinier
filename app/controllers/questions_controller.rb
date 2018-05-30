@@ -3,7 +3,12 @@ class QuestionsController < ApplicationController
   def index
     #should list all the unanswered question
     @questions = policy_scope(Question)
-    @questions = @questions.search params[:query], misspellings: {edit_distance: 2}
+    #@questions = @questions.search params[:query], misspellings: {edit_distance: 2}
+    @questions = if params[:query].present?
+      Question.search(params[:query])
+    else
+      Question.all
+    end
   end
 
   def new
@@ -64,6 +69,18 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to question_path(@question)
     end
+  end
+
+  def autocomplete
+    authorize Question.new
+
+    questions = Question.search(params[:query], {
+      fields: ["title^5", "body"],
+      match: :word_start,
+      limit: 10,
+      misspellings: {below: 2}
+    })
+    render json: questions.map { |question| render_to_string( partial: 'questions/autocomplete', locals: { question: question }) }
   end
 
   # def number_votes

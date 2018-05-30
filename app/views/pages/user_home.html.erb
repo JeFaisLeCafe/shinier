@@ -5,7 +5,7 @@
   <h2>Posez-nous une question</h2>
 
   <%= form_tag(questions_path, method: :get) do %>
-    <%= text_field_tag :query, params[:query] %>
+    <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search" %>
     <%= submit_tag 'Rechercher' %>
   <% end %>
 </div>
