@@ -17,6 +17,11 @@
             <div class="question-short">
               <div class="question-title">
                 <h4>Question : <%= @question.title %></h4>
+                <% if @question.useful? %>
+                  <%= "USEFUL" %>
+                <% else %>
+                  <%= "NOT USEFUL" %>
+                <% end %>
               </div>
               <div class="question-preview">
                 <p><%= @question.body %></p>
@@ -48,7 +53,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 
@@ -56,9 +60,9 @@
 <%= link_to "answer", new_question_answer_path(@question) %>
 
 <% if @question.useful? %>
-  <%= "USEFULL" %>
+  <%= "USEFUL" %>
 <% else %>
-  <%= "NOT USEFULL" %>
+  <%= "NOT USEFUL" %>
 <% end %>
 
 <% if @question.answered == false %>
