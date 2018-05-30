@@ -34,7 +34,7 @@ class Question < ApplicationRecord
   end
 
   def useful?
-    if number_votes > 0 # il faudra changer le 0 cest juste pour que le test soit plus easy
+    if number_votes > 12 # il faudra changer le 0 cest juste pour que le test soit plus easy
       return true
     else
       return false
