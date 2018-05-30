@@ -10,9 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Poser une question", diseases_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Poser une question", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Aider la communauté", questions_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Pathologie", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Pathologie", disease_path(current_user.disease), class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

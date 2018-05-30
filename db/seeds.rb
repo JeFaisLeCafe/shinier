@@ -34,5 +34,8 @@ admin = User.create!(firstname: "Jean", lastname: "Merdelémouch", email: "jean@
 puts "#{admin.firstname} #{admin.lastname} created!"
 puts "Seed ok!"
 
+Question.search_index.delete
+Answer.search_index.delete
+
 Question.reindex
 Answer.reindex

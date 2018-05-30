@@ -1,1 +1,25 @@
+<div class="text-dis">
+  <div class="test"></div>
+  <div class="dis-container ">
+    <div>
+      <h2>La maladie, quelle saleté...</h2>
+      <h4>Vous n'êtes pas seul ici !</h4>
+      <p>Une étape pour se battre au quotidien et ne pas se laisser aller moins bien est de bien connaître son ennemi.</p>
+      <p>Ici, vous avez accès à des infos digestes validées par des professionnels.</p>
+    </div>
+
+    <div>
+      <h2>Bienvenue sur la page du dossier de votre ennemi : <%= @disease.name %></h2>
+      <div>
+        <p><%= @disease.disease_explanation %></p>
+        <p><%= @disease.name %>, ou <%= @disease.latin_name %> est une maladie chronique relou.</p>
+        <p>Vous la subissez avec ces symptomes : <%= @disease.symptomes %></p>
+        <h3>Combattre</h3>
+        <p>Mes armes : <%= @disease.usual_medication %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
