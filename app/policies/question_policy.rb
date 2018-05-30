@@ -5,6 +5,10 @@ class QuestionPolicy < ApplicationPolicy
     end
   end
 
+  def autocomplete?
+    true
+  end
+
   def create?
     return true
   end
