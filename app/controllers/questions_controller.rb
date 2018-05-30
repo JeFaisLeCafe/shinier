@@ -2,15 +2,15 @@ class QuestionsController < ApplicationController
 
   def index
     #should list all the unanswered question
-    @questions = Question.search params[:query], misspellings: {edit_distance: 2}
-    @questions.each do |question|
-    end
+    @questions = policy_scope(Question)
+    @questions = @questions.search params[:query], misspellings: {edit_distance: 2}
   end
 
   def new
     @user = current_user
     @disease = current_user.disease_id
     @question = Question.new
+    authorize @question
   end
 
   def create
@@ -18,6 +18,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.disease = Disease.find(@disease)
     @question.user = current_user
+    authorize @question
     if @question.save
       redirect_to question_path(@question)
     else
@@ -27,6 +28,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    authorize @question
   end
 
   def edit
