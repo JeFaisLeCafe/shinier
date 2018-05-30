@@ -1,11 +1,74 @@
-<div class="banner">
-
-</div>
 <div class="container">
-  <h2>Posez-nous une question</h2>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="title">
+        <h1>Hello USERNAME</h1>
+      </div>
+    </div>
+  </div>
 
-  <%= form_tag(questions_path, method: :get) do %>
-    <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search" %>
-    <%= submit_tag 'Rechercher' %>
-  <% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="index-search-bar">
+        <h3>Recherche ta question</h3>
+
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <div class="form-search">
+              <span class="icon"><i class="fa fa-search"></i></span>
+              <%= form_tag(questions_path, method: :get) do %>
+                <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="intro">
+      <h3>Top Questions sur Shinier</h3>
+      <p>Tourne la carte pour découvrir la réponse</p>
+    </div>
+
+    <div class="flip-results">
+      <% @questions.each do |question| %>
+        <div class="col-xs-4">
+          <div class='flip-content'>
+            <div class='flip_box'>
+              <div class='front'>
+                <h4 class='f_title'><%= question.title.first(50) %>...</h4>
+                <p class='f_subline'><%= question.body.first(150) %>...</p>
+                <p class='f_headline'></p>
+              </div>
+
+              <div class='back'>
+                <h4 class='b_headline'>Meilleure réponse</h4>
+                <p class='b_text'>
+                  <% top_answer = question.answers.sort_by do |answer| %>
+                    <% -answer.upvotes %>
+                  <% end %>
+                   <%= top_answer.first.body.first(100) %>...</p>
+                <%= link_to question_path(question) do %>
+                  <button class='b_button'><span>Plus</span></button>
+                <% end %>
+              </div>
+
+            </div>
+
+            <div class='r_wrap'>
+              <div class='b_round'></div>
+              <div class='s_round'>
+                <div class='s_arrow'></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
