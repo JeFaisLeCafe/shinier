@@ -17,7 +17,7 @@
             <div class="form-search">
               <span class="icon"><i class="fa fa-search"></i></span>
               <%= form_tag(questions_path, method: :get) do %>
-                <%= text_field_tag :query, params[:query], id:"search", placeholder: "Recherche..."%>
+                <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search"%>
               <% end %>
             </div>
           </div>
