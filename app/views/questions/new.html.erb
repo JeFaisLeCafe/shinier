@@ -1,14 +1,15 @@
-<div class="form">
-  <div class="form-title">
-    <h1>Question new</h1>
-  </div>
+<div class="container">
+  <div class="form">
+    <div class="form-title">
+      <h2>Nouvelle question</h2>
+    </div>
 
-  <div class="form-table">
-    <%= simple_form_for [@question] do |f| %>
-      <%= f.input :title, placeholder: 'What is your title' %>
-      <%= f.input :body, placeholder: 'What is your content' %>
-      <%= f.button :submit %>
-    <% end %>
+    <div class="form-table">
+      <%= simple_form_for [@question] do |f| %>
+        <%= f.input :title, label: 'Que voulez-vous savoir?', placeholder: 'Votre question' %>
+        <%= f.input :body, label: 'Description', placeholder: 'Ajoutez une description' %>
+        <%= f.button :submit, value: "Shine!", class: "btn-main"%>
+      <% end %>
+    </div>
   </div>
 </div>
-
