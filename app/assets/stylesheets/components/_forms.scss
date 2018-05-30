@@ -1,12 +1,13 @@
 
 .form {
-  padding: 30px;
+  padding: 10px 20px;
   background: $white none repeat scroll 0% 0%;
   border-radius: 4px;
   width: 40% ;
   opacity: 0.95;
-  margin: 20px 0px;
+  margin-top: 50px;
   color: $black;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .form-title h2 {
@@ -33,7 +34,7 @@
 .btn-form {
   color: $black;
   border: 1px solid $blue-pop;
-  padding: 10px 15px;
+  padding: 8px 15px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
@@ -41,8 +42,9 @@
   transition: background 0.3s ease;
   text-decoration: none;
   width: 100%;
-  height: 60px;
+  height: 50px;
   font-size: 24px;
+  margin-bottom: 20px;
 
   &:hover {
   opacity: 1;
@@ -64,4 +66,54 @@
 
 .form-check-label {
   font-weight: normal;
+}
+
+
+.form-search {
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+}
+
+.form-search #search{
+  width: 100%;
+  height: 50px;
+  background: $blue-pop;
+  border: none;
+  color: $white;
+  padding-left: 50px;
+  border-radius: 5px;
+}
+
+.form-search .icon{
+  position: absolute;
+  z-index: 1;
+  color: $black;
+  top: 15px;
+  left: 20px;
+}
+
+
+.btn-form-search {
+  color: $white;
+  border: 1px solid $blue-pop;
+  padding: 8px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  background: $blue-pop;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  width: 0%;
+  height: 50px;
+  font-size: 24px;
+  margin-bottom: 20px;
+
+  &:hover {
+  opacity: 1;
+  background: $blue;
+  border-color: $blue;
+  color: $white;
+  }
+
 }

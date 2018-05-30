@@ -3,4 +3,10 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def user_home
+    @questions = Question.top_9_questions(current_user.disease)
+  end
+
+
 end
