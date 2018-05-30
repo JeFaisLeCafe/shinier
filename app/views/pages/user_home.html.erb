@@ -1,6 +1,11 @@
-<h1>Posez-nous une question</h1>
+<div class="banner">
 
-<%= form_tag(questions_path, method: :get) do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag 'Rechercher' %>
-<% end %>
+</div>
+<div class="container">
+  <h2>Posez-nous une question</h2>
+
+  <%= form_tag(questions_path, method: :get) do %>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag 'Rechercher' %>
+  <% end %>
+</div>
