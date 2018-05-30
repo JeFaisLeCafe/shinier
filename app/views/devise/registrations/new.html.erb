@@ -1,33 +1,30 @@
-<div class="background-img" style="  background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.1) 50%), url('https://images.unsplash.com/photo-1519658422992-0c8495f08389?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f6353e8cd3cfc4e334f35696d0968645&auto=format&fit=crop&w=1337&q=80');">
+<div class="background-img" style="  background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.1) 50%), url('https://images.unsplash.com/photo-1523958876433-2efd85bb667f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7c0e88366ca715290f97778ca0f2e096&auto=format&fit=crop&w=1350&q=80');">
 
+        <div class="form">
 
-  <div class="form">
+          <div class="form-title">
+            <h2>Inscription</h2>
+          </div>
 
-    <div class="form-title">
-      <h2>Inscription</h2>
-    </div>
+          <div class="form-content">
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
 
-    <div class="form-content">
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+              <div class="form-inputs">
+                <%= f.input :email, required: true, autofocus: true, placeholder: "votre@email.com" %>
+                <%= f.input :password, required: true, placeholder: "Mot de passe ****", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, required: true, placeholder: "Mot de passe ****, à nouveau" %>
+                Select your disease:
+                <%= f.select :disease, Disease.all.map{ |disease| disease.name} %>
+                <%= f.input :photo %>
+                <%= f.input :photo_cache, as: :hidden %>
+              </div>
+              <div class="form-actions">
+                <%= f.button :submit, "Créer mon compte", class: "btn-form" %>
+              </div>
 
-        <div class="form-inputs">
-          <%= f.input :email, required: true, autofocus: true, placeholder: "your@email.com" %>
-          <%= f.input :password, required: true, placeholder: "your password ****", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-          <%= f.input :password_confirmation, required: true, placeholder: "your password ****, again" %>
-          Select your disease:
-          <%= f.select :disease, Disease.all.map{ |disease| disease.name} %>
-          <%= f.input :photo %>
-          <%= f.input :photo_cache, as: :hidden %>
+              <%= render "devise/shared/links" %>
+            <% end %>
+          </div>
         </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Créer mon compte", class: "btn-form" %>
-        </div>
-
-      <% end %>
-    </div>
-
-  </div>
 </div>
-        <!-- < # %= render "devise/shared/links" %> -->

@@ -66,25 +66,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # def number_votes
-  #   @question = Question.find(params[:id])
-  #   answers = []
-  #   @question.answers.each do |answer|
-  #     answers << answer.get_upvotes.size
-  #   end
-  #   return answers.sum
-  # end
-
-  #   def useful?(question)
-  #     @question = Question.find(params[:id])
-  #     answers_sum = number_votes(question)
-  #   if answers_sum > 5
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
-
   private
 
   def question_params
