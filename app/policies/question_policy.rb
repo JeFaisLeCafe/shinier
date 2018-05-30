@@ -13,4 +13,8 @@ class QuestionPolicy < ApplicationPolicy
     return true
   end
 
+  def toggle_answered?
+    true
+  end
+
 end
