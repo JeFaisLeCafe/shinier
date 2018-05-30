@@ -1,8 +1,10 @@
 .dis-container {
   // padding: auto;
-  border: dashed 2px red;
+  border: dashed 2px yellow;
   width: 80%;
-  margin: 0 auto;
+  margin: 3% auto;
+  background-color: rgba(254, 153, 0, 0.4);
+  border-radius: 10px;
 }
 
 .text-dis {
@@ -13,7 +15,14 @@
 }
 
 .test {
-  border: solid 1px darkgreen;
-  position: fixed;
-
+  border: solid 1px $blue-pop;
+  position: absolute;
+  width: 88%;
+  height: 65%;
+  margin: -3% 6%;
+  background-color: $blue-pop;
+  z-index: -1;
+  opacity: 0.4;
+  bottom: 24%;
+  border-radius: 5px;
 }
