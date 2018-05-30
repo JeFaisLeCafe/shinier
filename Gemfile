@@ -22,6 +22,7 @@ gem 'faker'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'acts_as_votable', '~> 0.11.1'
+gem 'pundit'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
