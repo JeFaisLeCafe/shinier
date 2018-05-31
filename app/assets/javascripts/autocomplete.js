@@ -9,9 +9,12 @@ var question = new Bloodhound({
 
 window.$('#question_search').typeahead(null, {
   source: question,
+  display: function(e) {
+    return $(e).text();
+  },
   templates: {
-    suggestion: function(view) {
-      return view;
+    suggestion: function(data) {
+      return data;
     }
   }
 });
