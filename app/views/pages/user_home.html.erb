@@ -13,11 +13,11 @@
         <h3>Recherche ta question</h3>
 
         <div class="row">
-          <div class="col-xs-8 col-xs-offset-2">
+          <div class="col-xs-10 col-xs-offset-1">
             <div class="form-search">
               <span class="icon"><i class="fa fa-search"></i></span>
               <%= form_tag(questions_path, method: :get) do %>
-                <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search" %>
+                <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search", placeholder:"Recherche..." %>
               <% end %>
             </div>
           </div>
