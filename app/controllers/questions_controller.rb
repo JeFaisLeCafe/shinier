@@ -78,7 +78,7 @@ class QuestionsController < ApplicationController
       fields: ["title^5", "body"],
       match: :word_start,
       limit: 10,
-      misspellings: {below: 2}
+      misspellings: {below: 1}
     })
     render json: questions.map { |question| render_to_string( partial: 'questions/autocomplete', locals: { question: question }) }
   end
