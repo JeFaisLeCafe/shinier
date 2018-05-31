@@ -24,23 +24,10 @@
                   <p>Validé par vous</p><i class="fas fa-check-circle"></i>
                 <% else %>
                 <!-- mettre un truc sympa pour montrer que cest useful, genre une image -->
-                   <p>Rejoins la conversation<i class="fas fa-rocket"></i></p>
+                   <p>Rejoins la conversation &nbsp;<i class="fas fa-rocket"></i></p>
                 <% end %>
                 </div>
               </div>
-              <% if current_user == top_answer.first.question.user %>
-                <% if top_answer.first.question.answered == false %>
-                  <%= link_to 'Resolu?', question_toggle_path(@question) %>
-                <% else %>
-                  <%= "Resolu!" %>
-                <% end %>
-              <% else %>
-                <% if top_answer.first.question.answered == false %>
-                  Pas encore resolue
-                <% else %>
-                  <%= "Resolu!" %>
-                <% end %>
-              <% end %>
               <% if policy(Answer).create? %>
                 <%= link_to "Proposer une autre réponse", new_question_answer_path(@question) %>
               <% end %>
@@ -50,6 +37,19 @@
                 <div class="upvotes">
                   <div><i class="fas fa-hands-helping"></i></div>
                   <div class="counter"><%= top_answer.first.get_upvotes.size %></div>
+                  <h4> <% if current_user == top_answer.first.question.user %>
+                    <% if top_answer.first.question.answered == false %>
+                      <%= link_to 'Resolu?', question_toggle_path(@question) %>
+                    <% else %>
+                      <%= "Resolu!" %>
+                    <% end %>
+                  <% else %>
+                    <% if top_answer.first.question.answered == false %>
+                      Pas encore resolue
+                    <% else %>
+                      <%= "Resolu!" %>
+                    <% end %>
+                  <% end %></h4>
                 </div>
                 <div class="top-answer">
                   <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
