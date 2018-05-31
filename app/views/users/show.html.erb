@@ -1,7 +1,9 @@
 <div class="container">
   <div class="two-boxes personal">
     <div class="big-box">
-      <i class="far fa-edit edit-tag"></i>
+      <%= link_to edit_user_path(current_user) do %>
+        <i class="far fa-edit edit-tag"></i>
+      <% end %>
       <div class="big-box-add">
         <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill, class: "card-avatar"%>
       </div>
@@ -12,48 +14,75 @@
     </div>
 
     <div class="small-box">
+      <%= link_to edit_user_path(current_user) do %>
+        <i class="far fa-edit edit-tag"></i>
+      <% end %>
       <h4>Tes notifications</h4>
       <p>Tes questions en attente : </p>
       <p>Tes réponses : </p>
-      <p>Ton status : <%= current_user.status_in_community %>
+      <p>Ton status : <%= current_user.status_in_community %> &nbsp;
         <i class="fas fa-bug <%= current_user.status_in_community %>"></i>
       </p>
     </div>
   </div>
 
-  <div class="two-boxes personal">
+  <div class="two-boxes inspiration">
     <div class="small-box">
-      <h4>Infos à rappeler</h4>
-      <p>Ton numéro de sécurité sociale : <%= current_user.secu_nb %> </p>
-      <p>Ton numéro de mutuelle : <%= current_user.mutuelle_nb %></p>
-      <p>Ton médecin traintant : <%= current_user.my_doctor %></p>
+      <%= link_to edit_user_path(current_user) do %>
+        <i class="far fa-edit edit-tag"></i>
+      <% end %>
+      <i class="fas fa-star"></i>
+      <h4>The way to get started is to quit talking and begin doing</h4>
+      <p>- Walt Disney</p>
     </div>
-    <div class="big-box">
-      <i class="far fa-edit edit-tag"></i>
-      <div class="big-box-add">
-        <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill, class: "card-avatar"%>
-      </div>
-      <div class="big-box-details">
-        <h4>Hello <%= current_user.firstname %></h4>
-        <p>Geographie : <%= current_user.location %></p>
+    <div class="big-box texte-circles">
+      <%= link_to edit_user_path(current_user) do %>
+        <i class="far fa-edit edit-tag"></i>
+      <% end %>
+      <h4>To Do de la semaine</h4>
+      <div class="circles">
+        <div class="card-circle">
+          <p>Réveil? <br> Teste sucre</br></p>
+        </div>
+        <div class="card-circle">
+          <p>Petit dej? <br> Healthy!</br></p>
+        </div>
+        <div class="card-circle">
+          <p>Sport? <br> 3X min! </br></p>
+        </div>
+        <div class="card-circle">
+          <p>Médocs? <br> 0 oublis!</br></p>
+        </div>
+        <div class="card-circle">
+          <p>EAU? <br> 3L par jour</br></p>
+        </div>
       </div>
     </div>
 
   </div>
 
+  <div class="two-boxes medical-data">
+    <div class="big-box">
+      <%= link_to edit_user_path(current_user) do %>
+        <i class="far fa-edit edit-tag"></i>
+      <% end %>
+      <div class="big-box-add">
+        <%= link_to "+", disease_path(current_user.disease), class: "btn-tertiary plus" %>
+      </div>
+      <div class="big-box-details">
+        <h4>Tes infos sauvegardées <%= current_user.bio %></h4>
+      </div>
+    </div>
 
+    <div class="small-box">
+      <%= link_to edit_user_path(current_user) do %>
+        <i class="far fa-edit edit-tag"></i>
+      <% end %>
+      <h4>Infos à rappeler</h4>
+      <p>Ton numéro de sécu : <%= current_user.secu_nb %> </p>
+      <p>Ton numéro de mutuelle : <%= current_user.mutuelle_nb %></p>
+      <p>Ton médecin traintant : <%= current_user.my_doctor %></p>
+    </div>
+  </div>
 
 </div>
-
-
-
-
-
-
-<h2>Welcome <%= current_user.firstname %></h2>
-<h4>Here you can see all your informations.</h4>
-<ul>
-  <% @user.attributes.each do |key, value| %>
-    <li><%= key %> : <%= value %></li>
-  <% end %>
-</ul>
