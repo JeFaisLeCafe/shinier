@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newAnswerForm = document.getElementById('new_answer');
+  newAnswerForm.innerHTML = innerHTML;
+}
+
+function addAnswer(reviewHTML) {
+  const answers = document.querySelector(".answers-container");
+  answers.insertAdjacentHTML('beforeend', reviewHTML);
+}
+
+<% if @answer.errors.any? %>
+  refreshForm('<%= j render "answers/form", question: @question, answer: @answer %>');
+<% else %>
+  addAnswer('<%= j render "answers/show", answer: @answer %>');
+  refreshForm('<%= j render "answers/form", question: @question, answer: Answer.new %>');
+<% end %>

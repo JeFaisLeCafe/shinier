@@ -19,9 +19,15 @@ class AnswersController < ApplicationController
     @answer.question = @question
     authorize @answer
     if @answer.save
-      redirect_to question_path(@question)
+      respond_to do |format|
+        format.html { redirect_to question_path(@question) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
