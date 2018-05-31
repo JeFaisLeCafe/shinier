@@ -1,10 +1,10 @@
-<div class="background-img" style="  background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.1) 50%), url('https://images.unsplash.com/photo-1519658422992-0c8495f08389?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f6353e8cd3cfc4e334f35696d0968645&auto=format&fit=crop&w=1337&q=80');">
+<div class="background-img" style="  background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.1) 50%), url('https://images.unsplash.com/photo-1520132108877-a600a22e602a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ce1e82f878196c13478fd45941b700b8&auto=format&fit=crop&w=1350&q=80');">
     <div class="form">
       <div class="form-title">
         <h2>Nouvelle question</h2>
       </div>
 
-      <div class="form-table">
+      <div class="form-content">
         <%= simple_form_for [@question] do |f| %>
           <%= f.input :title, label: 'Que voulez-vous savoir?', placeholder: 'Votre question' %>
           <%= f.input :body, label: 'Description', placeholder: 'Ajoutez une description' %>
