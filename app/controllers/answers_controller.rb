@@ -19,7 +19,7 @@ class AnswersController < ApplicationController
     @answer.question = @question
     authorize @answer
     if @answer.save
-      redirect_to question_answer_path(@question, @answer)
+      redirect_to question_path(@question)
     else
       render :new
     end
