@@ -13,32 +13,40 @@
       <div class="col-xs-12">
         <div class="question-message">
           <div class="question-content">
-
             <div class="question-short">
               <div class="question-title">
-                <h4>Question : <%= @question.title %></h4>
-                <% if @question.useful? %>
+                <% top_answer = @question.answers.sort_by do |answer| %>
+                  <% -answer.get_upvotes.size %>
+                <% end %>
+                <h4>Question : <%= top_answer.first.question.title %></h4>
+                <% if top_answer.first.question.useful? %>
                   <%= "USEFUL" %>
                 <% else %>
+                <!-- mettre un truc sympa pour montrer que cest useful, genre une image -->
                   <%= "NOT USEFUL" %>
                 <% end %>
               </div>
-              <div class="question-preview">
-                <p><%= @question.body %></p>
-              </div>
+              <% if current_user == top_answer.first.question.user %>
+                <% if top_answer.first.question.answered == false %>
+                  <%= link_to 'Is it solved?', question_toggle_path(@question) %>
+                <% else %>
+                  <%= "Solved" %>
+                <% end %>
+              <% end %>
+              <% if policy(Answer).create? %>
+                <%= link_to "Proposer une autre réponse", new_question_answer_path(@question) %>
+              <% end %>
             </div>
 
             <div class="answers">
-              <% @question.answers.each do |answer| %>
                 <div class="upvotes">
                   <div class="arrow"></div>
-                  <div class="counter"><%= @question.answers.count %></div>
+                  <div class="counter"><%= top_answer.first.get_upvotes.size %></div>
                 </div>
                 <div class="top-answer">
-                  <p>Meilleure réponse :</p>
-                  <p><%= @question.answers.first.body %></p>
+                  <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
+                  <p><%= top_answer.first.body %></p>
                 </div>
-              <% end %>
             </div>
 
             <% if current_user == @question.user %>
@@ -50,26 +58,37 @@
             <% end %>
           </div>
         </div>
+        <% @question.answers.each do |answer| %>
+          <div class="question-message">
+            <div class="question-content">
+              <div class="question-short">
+                <div class="question-title">
+                  <div class="answers">
+                     <div class="upvotes">
+                        <div class="arrow"></div>
+                        <div class="counter">
+                          <%= answer.get_upvotes.size %>
+                          <%= link_to "Useful", like_answer_path(answer), method: :put %>
+                          <%= link_to "Report", dislike_answer_path(answer), method: :put %>
+                        </div>
+                      </div>
+                      <div class="top-answer">
+                        <p>Repondu par <%= answer.user.firstname %> le <%= answer.created_at.strftime("%d/%m/%Y") %></p>
+                        <p><%= answer.body %></p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
-
+<div>
 <% if policy(Answer).create? %>
   <%= link_to "answer", new_question_answer_path(@question) %>
 <% end %>
-
-<% if @question.useful? %>
-  <%= "USEFUL" %>
-<% else %>
-  <%= "NOT USEFUL" %>
-<% end %>
-
-<% if @question.answered == false %>
-  <%= link_to "is it solved?", question_path(@question, answered: true), method: :patch %>
-<% else %>
-  <%= "Solved" %>
-<% end %>
-
-<%= link_to 'Toggle', question_toggle_path(@question) %>
+</div>

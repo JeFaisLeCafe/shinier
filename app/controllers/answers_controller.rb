@@ -5,8 +5,6 @@ class AnswersController < ApplicationController
   end
 
 
-  # we ll handle the upvote later
-
   def new
     @user = current_user
     @question = Question.find(params[:question_id])
@@ -65,10 +63,9 @@ class AnswersController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
-  # it will act as a report button
-  # NON ! cela ne marche pas commme ça
   def downvote
     @answer = Answer.find(params[:id])
+    authorize @answer
     @answer.downvote_by current_user
     redirect_back fallback_location: root_path
   end

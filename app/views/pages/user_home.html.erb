@@ -22,7 +22,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -44,12 +43,11 @@
                 <p class='f_subline'><%= question.body.first(150) %>...</p>
                 <p class='f_headline'></p>
               </div>
-
               <div class='back'>
                 <h4 class='b_headline'>Meilleure réponse</h4>
                 <p class='b_text'>
                   <% top_answer = question.answers.sort_by do |answer| %>
-                    <% -answer.upvotes %>
+                    <% -answer.get_upvotes.size %>
                   <% end %>
                    <%= top_answer.first.body.first(100) %>...</p>
                 <%= link_to question_path(question) do %>
