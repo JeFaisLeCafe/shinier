@@ -67,7 +67,8 @@
           </div>
         </div>
         <div class="answers-container">
-          <% @question.answers.each do |answer| %>
+          <%= paginate @answers %>
+          <% @answers.each do |answer| %>
             <%= render "answers/show", answer: answer %>
           <% end %>
         </div>
@@ -75,10 +76,4 @@
     </div>
   </div>
   <%= render 'answers/form', question: @question, answer: @answer %>
-</div>
-
-<div>
-<% if policy(Answer).create? %>
-  <%= link_to "answer", new_question_answer_path(@question) %>
-<% end %>
 </div>
