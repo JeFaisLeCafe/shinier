@@ -18,15 +18,12 @@
               <span class="icon"><i class="fa fa-search"></i></span>
               <%= form_tag(questions_path, method: :get) do %>
                 <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search"%>
+                <%= submit_tag 'Shine!' , class: 'search-btn' %>
               <% end %>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
+        <div class="row">
     <div class="col-xs-12">
       <div class="filters">
         <h3>Filtres </h3>
@@ -38,53 +35,57 @@
       </div>
     </div>
   </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
       <%= link_to new_question_path do %>
-        <li class="btn-tertiary">Pose une nouvelle question</li>
+        <li class="btn-new">Pose une nouvelle question</li>
       <% end %>
     </div>
   </div>
 
-
   <div class="row">
     <div class="results">
-      <% @questions.first(10).each do |question| %>
-        <div class="col-xs-12">
-          <div class="question-message">
-            <a class="question-show" href="/questions/<%= question.id %>" ></a>
-            <div class="question-content">
+       <% if @questions.blank? %>
+          <h3>Oups, aucune question en rapport avec "<%= params[:query] %>" ne semble exister.</h3>
+       <% else %>
+          <% @questions.first(10).each do |question| %>
+            <div class="col-xs-12">
+              <div class="question-message">
+                <a class="question-show" href="/questions/<%= question.id %>" ></a>
+                <div class="question-content">
 
-              <div class="question-short">
-                <div class="question-title">
-                  <h4>Question : <%= question.title %></h4>
-                </div>
-                <div class="question-preview">
-                  <p><%= question.body.first(100) %>...</p>
-                </div>
+                  <div class="question-short">
+                    <div class="question-title">
+                      <h4>Question : <%= question.title %></h4>
+                    </div>
+                    <div class="question-preview">
+                      <p><%= question.body.first(100) %>...</p>
+                    </div>
+                  </div>
+
+                  <div class="answers">
+                    <div class="upvotes">
+                      <div class="arrow"></div>
+                      <div class="counter"><%= question.answers.count %></div>
+                    </div>
+                    <div class="top-answer">
+                      <p>Meilleure réponse :</p>
+                      <p><%= question.answers.first.body %></p>
+                    </div>
+                  </div>
               </div>
-
-              <div class="answers">
-                <div class="upvotes">
-                  <div class="arrow"></div>
-                  <div class="counter"><%= question.answers.count %></div>
-                </div>
-                <div class="top-answer">
-                  <p>Meilleure réponse :</p>
-                  <p><%= question.answers.first.body %></p>
-                </div>
-              </div>
-
-            </div>
             <div class="link">
               <%= link_to question_path(question) do %>
                 <i class="fas fa-plus-circle"></i>
               <% end %>
             </div>
-
           </div>
         </div>
+      <% end %>
       <% end %>
     </div>
   </div>
