@@ -1,0 +1,113 @@
+// PERSONAL INFO AND NOTIFICATIONS
+
+.two-boxes {
+  display: flex;
+  height: 200px;
+  margin: 30px;
+}
+
+.big-box {
+  flex: 0 0 60%;
+  display: flex;
+  background-color: $blue-pop;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 10px 25px 10px 25px;
+  height: 200px;
+  position: relative;
+}
+
+.big-box-details {
+  flex: 0 0 80%;
+  margin: 10px;
+  padding: 10px 25px 10px 0px;
+  height: 200px;
+};
+
+.small-box {
+  flex: 0 0 40%;
+  background-color: $yellow;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 10px 25px 10px 25px;
+  height: 200px;
+  position: relative;
+}
+
+.big-box-add {
+  flex: 0 0 20%;
+  margin: 10px;
+  padding: 10px 0px 10px 10px;
+  display: flex;
+}
+
+
+.card-avatar {
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  border: 3px solid $yellow;
+  padding: 5px;
+  background-color: $white;
+
+}
+
+.card-circle {
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  background-color: $yellow;
+  color: $black;
+  margin: 3px;
+  text-align: center;
+  transition: all 0.5s ease;
+
+  p {
+    margin: 0;
+    padding-top: 22px;
+  }
+
+  &:hover {
+    background-color: $blue-pop;
+    color: $white;
+  }
+}
+
+.edit-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+}
+
+.circles {
+  display: flex;
+}
+
+.texte-circles {
+  flex-direction: column;
+}
+
+.card-circle .flip {
+  background-color: $blue;
+}
+
+.fa-star {
+  font-size: 30px;
+  padding-left: 170px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.btn-tertiary.plus {
+  width: 80%;
+  height: 50px;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 50px;
+  text-decoration: none;
+}
+
+.fa-bug {
+  font-size: 24px;
+}
