@@ -14,14 +14,10 @@ class Question < ApplicationRecord
   def total_upvotes
     self.answers.pluck(:upvotes).sum
   end
-# if we have more than 0 upvotes in the answers of the question, it will mark as useful
-# je pars du principe que lon ne peut pas useful une question
-# une question est useful si les reponses sont useful
-# apres on peut imaginer un truc qui serait un indice de demande de reponse, my 2 cents
 
   def self.top_9_questions(disease)
     disease.questions.sort_by do |question|
-      -question.total_upvotes
+      -question.number_votes
     end.take(9)
   end
 

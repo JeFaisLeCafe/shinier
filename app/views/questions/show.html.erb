@@ -13,32 +13,48 @@
       <div class="col-xs-12">
         <div class="question-message">
           <div class="question-content">
-
             <div class="question-short">
               <div class="question-title">
-                <h4>Question : <%= @question.title %></h4>
-                <% if @question.useful? %>
-                  <%= "USEFUL" %>
-                <% else %>
-                  <%= "NOT USEFUL" %>
+                <% top_answer = @question.answers.sort_by do |answer| %>
+                  <% -answer.get_upvotes.size %>
                 <% end %>
+                <h4>Question : <%= top_answer.first.question.title %></h4>
+                <div class="validation">
+                <% if top_answer.first.question.useful? %>
+                  <p>Validé par vous</p><i class="fas fa-check-circle"></i>
+                <% else %>
+                <!-- mettre un truc sympa pour montrer que cest useful, genre une image -->
+                   <p>Rejoins la conversation &nbsp;<i class="fas fa-rocket"></i></p>
+                <% end %>
+                </div>
               </div>
-              <div class="question-preview">
-                <p><%= @question.body %></p>
-              </div>
+              <% if policy(Answer).create? %>
+                <%= link_to "Proposer une autre réponse", new_question_answer_path(@question) %>
+              <% end %>
             </div>
 
             <div class="answers">
-              <% @question.answers.each do |answer| %>
                 <div class="upvotes">
-                  <div class="arrow"></div>
-                  <div class="counter"><%= @question.answers.count %></div>
+                  <div><i class="fas fa-hands-helping"></i></div>
+                  <div class="counter"><%= top_answer.first.get_upvotes.size %></div>
+                  <h4> <% if current_user == top_answer.first.question.user %>
+                    <% if top_answer.first.question.answered == false %>
+                      <%= link_to 'Resolu?', question_toggle_path(@question) %>
+                    <% else %>
+                      <%= "Resolu!" %>
+                    <% end %>
+                  <% else %>
+                    <% if top_answer.first.question.answered == false %>
+                      Pas encore resolue
+                    <% else %>
+                      <%= "Resolu!" %>
+                    <% end %>
+                  <% end %></h4>
                 </div>
                 <div class="top-answer">
-                  <p>Meilleure réponse :</p>
-                  <p><%= @question.answers.first.body %></p>
+                  <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
+                  <p><%= top_answer.first.body %></p>
                 </div>
-              <% end %>
             </div>
 
             <% if current_user == @question.user %>
@@ -50,26 +66,14 @@
             <% end %>
           </div>
         </div>
+        <div class="answers-container">
+          <%= paginate @answers %>
+          <% @answers.each do |answer| %>
+            <%= render "answers/show", answer: answer %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+  <%= render 'answers/form', question: @question, answer: @answer %>
 </div>
-
-
-<% if policy(Answer).create? %>
-  <%= link_to "answer", new_question_answer_path(@question) %>
-<% end %>
-
-<% if @question.useful? %>
-  <%= "USEFUL" %>
-<% else %>
-  <%= "NOT USEFUL" %>
-<% end %>
-
-<% if @question.answered == false %>
-  <%= link_to "is it solved?", question_path(@question, answered: true), method: :patch %>
-<% else %>
-  <%= "Solved" %>
-<% end %>
-
-<%= link_to 'Toggle', question_toggle_path(@question) %>

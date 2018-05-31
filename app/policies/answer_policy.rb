@@ -16,4 +16,8 @@ class AnswerPolicy < ApplicationPolicy
   def delete?
     user == record.user
   end
+
+  def upvote?
+    true
+  end
 end

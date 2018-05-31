@@ -34,6 +34,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find(params[:id])
+    @answer = Answer.new
+    @answers = @question.answers.page(params[:page]).per(5)
   end
 
   def edit

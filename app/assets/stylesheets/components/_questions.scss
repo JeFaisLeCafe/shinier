@@ -30,6 +30,7 @@
   background-color: $white;
   transition: 0.3s ease;
   position: relative;
+  margin-top: 30px;
   &:hover {
     background: $gray;
   }
@@ -68,7 +69,7 @@
 }
 
 .top-answer {
-  flex: 0 0 80%;
+  flex: 0 0 95%;
   text-align: left;
   border: 1px solid $gray;
   border-radius: 3px;
@@ -111,4 +112,11 @@
   right: 0;
   width: 100%;
   opacity: 0;
+}
+
+
+.validation {
+  position: absolute;
+  top: 34px;
+  right: 65px;
 }
