@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :questions, dependent: :nullify
   has_many :answers, dependent: :nullify
 
-  # validates :firstname, presence: true
+  validates :firstname, presence: true
   # validates :lastname, presence: true
   validates_format_of :email,:with => Devise::email_regexp
   validates :email, presence: true

@@ -1,0 +1,49 @@
+// PERSONAL INFO AND NOTIFICATIONS
+
+.two-boxes {
+  display: flex;
+  height: 200px;
+}
+
+.big-box {
+  flex: 0 0 60%;
+  display: flex;
+  background-color: $blue-pop;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 20px;
+  height: 200px;
+}
+
+.big-box-details {
+  flex: 0 0 50%;
+  margin: 10px;
+  padding: 10px;
+  height: 200px;
+};
+
+.small-box {
+  flex: 0 0 40%;
+  background-color: $yellow;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 20px;
+  height: 200px;
+}
+
+.big-box-add {
+  flex: 0 0 30%;
+  margin: 10px;
+  padding: 20px;
+}
+
+
+.card-avatar {
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  border: 3px solid $yellow;
+  padding: 5px;
+  background-color: $white;
+
+}

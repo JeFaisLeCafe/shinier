@@ -25,6 +25,18 @@ class Question < ApplicationRecord
     end.take(9)
   end
 
+  def number_resolved(user)
+    count = 0
+    user.questions.each do |question|
+      count += 1 if question.answered
+    end
+  end
+
+  def number_unresolved(user)
+    user.questions.count - number_resolved(user)
+  end
+
+
   def number_votes
    answers = []
     self.answers.each do |answer|

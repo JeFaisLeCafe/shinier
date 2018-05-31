@@ -60,6 +60,10 @@
           <li><%= link_to "Poser une question", diseases_path %></li>
           <li><%= link_to "Aider la communauté", questions_path%></li>
           <li><%= link_to "Pathologie", "#"%></li>
+          <li><%= link_to user_path(current_user) do %><%= t(".profile", default: "Profile") %>
+              <% end %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %><%= t(".sign_out", default: "Déconnexion") %>
+            <% end %></li>
         </ul>
       </div>
     </div>

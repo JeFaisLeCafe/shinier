@@ -78,7 +78,7 @@
   bottom: 38px;
   width: 150px;
   height: 52px;
-  background-color: #C30C3D;
+  background-color: $dark-red;
   transition: all 0.3s ease;
   text-decoration: none;
   color: $white;
@@ -109,13 +109,13 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background-color: #D21849;
+  background-color: $dark-red;
   transition: all 0.2s linear;
 }
 
 .b_round {
   opacity: 0;
-  background-color: #D21849;
+  background-color: $dark-red;
 }
 
 .b_round_hover {

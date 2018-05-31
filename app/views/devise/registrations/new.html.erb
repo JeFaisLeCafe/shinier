@@ -11,7 +11,8 @@
               <%= f.error_notification %>
 
               <div class="form-inputs">
-                <%= f.input :email, required: true, autofocus: true, placeholder: "votre@email.com" %>
+                <%= f.input :firstname, required: true, autofocus: true, placeholder: "ton prénom" %>
+                <%= f.input :email, required: true, autofocus: true, placeholder: "ton@email.com" %>
                 <%= f.input :password, required: true, placeholder: "Mot de passe ****", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
                 <%= f.input :password_confirmation, required: true, placeholder: "Mot de passe ****, à nouveau" %>
                 Select your disease:
@@ -20,7 +21,7 @@
                 <%= f.input :photo_cache, as: :hidden %>
               </div>
               <div class="form-actions">
-                <%= f.button :submit, "Créer mon compte", class: "btn-form" %>
+                <%= f.button :submit, "Créer ton compte", class: "btn-form" %>
               </div>
 
               <%= render "devise/shared/links" %>
