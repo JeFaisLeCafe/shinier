@@ -28,8 +28,10 @@
             <div class="filters">
               <h3>Filtres </h3>
                 <ul class="list-inline">
-                  <li class="btn-tertiary">Top Questions</li>
-                  <li class="btn-tertiary">Besoin de réponses</li>
+                  <li>
+                    <%= link_to "Top Questions", user_home_path, :class => "btn-tertiary" %>
+                  </li>
+                  <li class= "btn-tertiary">Proposer des réponses</li>
                   <li class="btn-tertiary">Le plus de votes</li>
                 </ul>
             </div>
