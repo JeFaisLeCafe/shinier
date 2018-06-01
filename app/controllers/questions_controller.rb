@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @questions = if params[:query].present?
       Question.search(params[:query])
     else
-      Question.all
+      Question.all.where(answered: false)
     end
   end
 
