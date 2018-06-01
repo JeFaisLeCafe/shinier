@@ -52,13 +52,15 @@
 
 }
 
+.question-title-resolue {
+  display: flex;
+}
 
 .question-message:last-child {
   border-bottom: none;
 }
 
 .question-content {
-  flex: 0 0 85%;
   width: 100%;
 }
 
@@ -69,6 +71,12 @@
 
 .question-title {
   text-align: left;
+  flex: 0 0 80%;
+}
+
+.resolue {
+  flex: 0 0 20%;
+  padding: 10px;
 }
 
 .link {
@@ -101,7 +109,7 @@
 }
 
 .top-answer {
-  flex: 0 0 95%;
+  flex: 0 0 80%;
   text-align: left;
   border: 1px solid $gray;
   border-radius: 3px;
@@ -109,7 +117,6 @@
   padding: 10px;
 
 }
-
 
 .count {
   margin: 10px 0 0;
@@ -149,10 +156,17 @@
 
 .validation {
   position: absolute;
-  top: 34px;
-  right: 65px;
+  top: 30px;
+  right: 30px;
+  i {
+    color: $yellow;
+  }
 }
 
 #need {
   color: $dark-red;
+}
+
+.big-icon {
+  font-size: 24px;
 }
