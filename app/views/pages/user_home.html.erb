@@ -50,7 +50,10 @@
                   <% top_answer = question.answers.sort_by do |answer| %>
                     <% -answer.get_upvotes.size %>
                   <% end %>
+                  <% if top_answer.blank? %>
+                  <% else %>
                    <%= top_answer.first.body.first(100) %>...</p>
+                  <% end %>
                 <%= link_to question_path(question) do %>
                   <button class='b_button'><span>Plus</span></button>
                 <% end %>
