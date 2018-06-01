@@ -2,7 +2,7 @@ class Question < ApplicationRecord
   searchkick language: "english", match: :word_start
 
   belongs_to :disease
-  has_many :answers
+  has_many :answers, dependent: :destroy
   belongs_to :user
 
   validates :title, presence: true
