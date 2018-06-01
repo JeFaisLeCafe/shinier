@@ -32,7 +32,7 @@
   position: relative;
   margin-top: 30px;
   &:hover {
-    background: $gray;
+    background: $yellow-light;
   }
 }
 
@@ -121,6 +121,7 @@
 .count {
   margin: 10px 0 0;
 }
+
 .arrow {
   width: 0;
   height: 0;
@@ -170,3 +171,4 @@
 .big-icon {
   font-size: 24px;
 }
+
