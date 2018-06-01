@@ -13,7 +13,8 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="content-min-height">
+    <% style = "background-image: linear-gradient(to top, transparent 0%, white 100%), url(#{image_path 'shine_monkeys.jpg'});" %>
+    <div class="content-min-height" style="<%= params[:controller] == "questions" && params[:action] == "show" ? style : "" %>">
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>
