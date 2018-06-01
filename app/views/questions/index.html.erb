@@ -87,6 +87,11 @@
                     <div class="question-preview">
                       <p><%= question.body.first(100) %>...</p>
                     </div>
+                    <div class="validation">
+                      <% if question.useful? %>
+                        <p>Super question &nbsp;<i class="fas fa-rocket big-icon"></i></p>
+                      <% end %>
+                    </div>
                   </div>
 
                   <div class="answers">
@@ -105,16 +110,16 @@
                     <div class="top-answer">
                       <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
                       <p><%= top_answer.first.body %></p>
-                      <p><em><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(top_answer), method: :put %></em></p>
+                      <h6><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(top_answer), method: :put %></h6>
                     </div>
                     <% end %>
                   </div>
                 </div>
-              <div class="link">
-                <%= link_to question_path(question) do %>
+<!--               <div class="link">
+                <#%= link_to question_path(question) do %>
                   <i class="fas fa-plus-circle"></i>
-                <% end %>
-              </div>
+                <#% end %>
+              </div> -->
             </div>
 
           <% end %>
