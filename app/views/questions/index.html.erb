@@ -88,6 +88,8 @@
                   </div>
 
                   <div class="answers">
+                    <% if top_answer.blank? %>
+                    <% else %>
                     <div class="upvotes">
                       <div class="arrow"></div>
                       <div class="counter">
@@ -103,6 +105,7 @@
                       <p><%= top_answer.first.body %></p>
                       <p><em><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(top_answer), method: :put %></em></p>
                     </div>
+                    <% end %>
                   </div>
                 </div>
               <div class="link">
