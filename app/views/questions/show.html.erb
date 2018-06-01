@@ -56,44 +56,24 @@
             </div>
 
             <div class="answers">
-              <div class="upvotes">
-                <div class="arrow-top"></div>
-                <div class="counter">
-                  <h4><%= top_answer.first.get_upvotes.size %></h4>
-                  <%= link_to like_answer_path(top_answer), method: :put do %>
-                    <i class="fas fa-hands-helping"></i>
-                  <% end %>
-                </div>
-              </div>
-              
-              <div class="question-title">
-                  <% top_answer = @question.answers.sort_by do |answer| %>
-                    <% -answer.get_upvotes.size %>
-                  <% end %>
-                  <% if top_answer.blank? %>
-                    Question, il faut render un truc
-                  <% else %>
-                  <h4>Question : <%= top_answer.first.question.title %></h4>
-                  <div class="validation">
-                  <% if top_answer.first.question.useful? %>
-                    <p>Validé par vous</p><i class="fas fa-check-circle"></i>
-                  <% else %>
-                  <!-- mettre un truc sympa pour montrer que cest useful, genre une image -->
-                     <p>Rejoins la conversation &nbsp;<i class="fas fa-rocket"></i></p>
-                  <% end %>
+              <% if top_answer.blank? %>
+              <% else %>
+                <div class="upvotes">
+                  <div class="arrow-top"></div>
+                  <div class="counter">
+                    <h4><%= top_answer.first.get_upvotes.size %></h4>
+                    <%= link_to like_answer_path(top_answer), method: :put do %>
+                      <i class="fas fa-hands-helping"></i>
+                    <% end %>
                   </div>
                 </div>
-                <% if policy(Answer).create? %>
-                  <%= link_to "Proposer une autre réponse", new_question_answer_path(@question) %>
-                <% end %>
-              </div>
 
-
-              <div class="top-answer">
-                <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
-                <p><%= top_answer.first.body %></p>
-                <p><em><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(top_answer), method: :put %></em></p>
-              </div>
+                <div class="top-answer">
+                  <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
+                  <p><%= top_answer.first.body %></p>
+                  <p><em><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(top_answer), method: :put %></em></p>
+                </div>
+              <% end %>
             </div>
 
           </div>
