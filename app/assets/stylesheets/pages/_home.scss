@@ -1,5 +1,5 @@
 .banner-home {
-  height: 80vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   background-position: center;
   text-align: center;
   h1 {
-    color: white;
+    color: $blue-pop;
     font-weight: bold;
   }
   h4 {
@@ -18,7 +18,22 @@
   }
   .btn {
     padding: 15px 50px;
+    background: $blue;
   }
+  h2 {
+    color: $yellow;
+  }
+}
+
+.btn-new {
+  margin: 25px 0 0 0;
+  display: inline-block;
+}
+
+.btn-main {
+  margin: 25px 0 0 0;
+  display: inline-block;
+  background-color: $blue-pop;
 }
 
 .row {
@@ -55,20 +70,17 @@ p {
   min-height: calc(100vh - 70px);
 }
 
-.video-with-filter {
-  position: relative;
-  overflow: hidden;
-  height: 80vh;
-}
 
 .video-container {
-  //height: 80vh;
+  height: 100vh;
   position: absolute;
   z-index: -1;
   top: 70px;
 
   video {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -78,5 +90,45 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-
 }
+
+
+.wrapper {
+  margin-top: 30px;
+  padding: 30px;
+}
+
+.card-icon {
+  margin: 0 auto;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: $yellow;
+  padding: 50px;
+  box-shadow: 1px 1px 3px #eaeaea;
+
+  p {
+    color: $blue;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

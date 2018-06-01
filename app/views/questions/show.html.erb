@@ -65,6 +65,29 @@
                   <% end %>
                 </div>
               </div>
+              
+              <div class="question-title">
+                  <% top_answer = @question.answers.sort_by do |answer| %>
+                    <% -answer.get_upvotes.size %>
+                  <% end %>
+                  <% if top_answer.blank? %>
+                    Question, il faut render un truc
+                  <% else %>
+                  <h4>Question : <%= top_answer.first.question.title %></h4>
+                  <div class="validation">
+                  <% if top_answer.first.question.useful? %>
+                    <p>Validé par vous</p><i class="fas fa-check-circle"></i>
+                  <% else %>
+                  <!-- mettre un truc sympa pour montrer que cest useful, genre une image -->
+                     <p>Rejoins la conversation &nbsp;<i class="fas fa-rocket"></i></p>
+                  <% end %>
+                  </div>
+                </div>
+                <% if policy(Answer).create? %>
+                  <%= link_to "Proposer une autre réponse", new_question_answer_path(@question) %>
+                <% end %>
+              </div>
+
 
               <div class="top-answer">
                 <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>

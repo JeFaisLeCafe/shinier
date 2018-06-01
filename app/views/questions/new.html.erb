@@ -6,8 +6,8 @@
 
       <div class="form-content">
         <%= simple_form_for [@question] do |f| %>
-          <%= f.input :title, label: 'Que voulez-vous savoir?', placeholder: 'Votre question' %>
-          <%= f.input :body, label: 'Description', placeholder: 'Ajoutez une description' %>
+          <%= f.input :title, label: 'Que veux-tu savoir?', placeholder: 'Ta question...' %>
+          <%= f.input :body, label: 'Description', placeholder: 'Ajoute une description...' %>
           <%= f.button :submit, value: "Shine!", class: "btn-form"%>
         <% end %>
       </div>
