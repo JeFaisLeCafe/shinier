@@ -1,9 +1,12 @@
 <div class="container">
+  <% top_answer = @question.answers.sort_by do |answer| %>
+    <% -answer.get_upvotes.size %>
+  <% end %>
 
   <div class="row">
     <div class="col-xs-12">
       <div class="title">
-        <h1>Questions sur Shinier </h1>
+        <h3> Question : <%= @question.title.first(100) %></h3>
       </div>
     </div>
   </div>
@@ -11,9 +14,58 @@
   <div class="row">
     <div class="results">
       <div class="col-xs-12">
-        <div class="question-message">
+        <div class="question-message-show">
           <div class="question-content">
             <div class="question-short">
+              <div class="question-assets">
+                <div class="question-title-resolue">
+                  <div class="question-title">
+                    <h4>Question : <%= @question.title %></h4>
+                  </div>
+                  <div class="resolue">
+                    <% if current_user == @question.user %>
+                      <% if @question.answered == false %>
+                        <%= link_to 'Resolue?', question_toggle_path(@question), class: "btn-tertiary" %>
+                      <% else %>
+                        <h4> <i class="fas fa-star"></i> &nbsp; Resolue!</h4>
+                      <% end %>
+                    <% else %>
+                      <% if @question.answered == false %>
+                        <h4><i id="need" class="fas fa-ambulance"></i> &nbsp; Besoin de réponses !</h4>
+                      <% else %>
+                        <h4> <i class="fas fa-star"></i> &nbsp; Resolue!</h4>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="question-details">
+                  <p> Détails : <%= @question.body %></p>
+                </div>
+
+                <div class="validation">
+                  <% if @question.useful? %>
+                    <p>Super question &nbsp;<i class="fas fa-rocket"></i></p>
+                  <% end %>
+                </div>
+<!--
+                <#% if policy(Answer).create? %>
+                  <#%= link_to "Rejoins la conversation avec ta réponse", new_question_answer_path(@question) %>
+                <#% end %> -->
+              </div>
+            </div>
+
+            <div class="answers">
+              <div class="upvotes">
+                <div class="arrow-top"></div>
+                <div class="counter">
+                  <h4><%= top_answer.first.get_upvotes.size %></h4>
+                  <%= link_to like_answer_path(top_answer), method: :put do %>
+                    <i class="fas fa-hands-helping"></i>
+                  <% end %>
+                </div>
+              </div>
+              
               <div class="question-title">
                   <% top_answer = @question.answers.sort_by do |answer| %>
                     <% -answer.get_upvotes.size %>
@@ -36,42 +88,21 @@
                 <% end %>
               </div>
 
-              <div class="answers">
-                <div class="upvotes">
-                  <div><i class="fas fa-hands-helping"></i></div>
-                  <div class="counter"><%= top_answer.first.get_upvotes.size %></div>
-                  <h4> <% if current_user == top_answer.first.question.user %>
-                    <% if top_answer.first.question.answered == false %>
-                      <%= link_to 'Resolu?', question_toggle_path(@question) %>
-                    <% else %>
-                      <%= "Resolu!" %>
-                    <% end %>
-                  <% else %>
-                    <% if top_answer.first.question.answered == false %>
-                      Pas encore resolue
-                    <% else %>
-                      <%= "Resolu!" %>
-                    <% end %>
-                  <% end %></h4>
-                </div>
-                <div class="top-answer">
-                  <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
-                  <p><%= top_answer.first.body %></p>
-                </div>
-              </div>
-              <% end %>
 
-            <% if current_user == @question.user %>
-              <div class="link">
-                <%= link_to question_toggle_path(@question) do %>
-                  <i class="fas fa-plus-circle"></i>
-                <% end %>
+              <div class="top-answer">
+                <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
+                <p><%= top_answer.first.body %></p>
+                <p><em><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(top_answer), method: :put %></em></p>
               </div>
-            <% end %>
+            </div>
+
           </div>
         </div>
         <div class="answers-container">
           <%= paginate @answers %>
+          <div class="answer-form">
+            <%= render 'answers/form', question: @question, answer: @answer %>
+          </div>
           <% @answers.each do |answer| %>
             <%= render "answers/show", answer: answer %>
           <% end %>
@@ -79,5 +110,4 @@
       </div>
     </div>
   </div>
-  <%= render 'answers/form', question: @question, answer: @answer %>
 </div>

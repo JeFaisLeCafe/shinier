@@ -15,6 +15,7 @@
   color: $black;
   margin: 0px;
   margin-bottom: 20px;
+  margin-top: 20px;
   padding: 0px;
   padding-bottom: 20px;
   line-height: 46px;
@@ -28,6 +29,10 @@
   padding: 0px;
   padding-bottom: 10px;
   border-bottom: 1px solid $gray;
+}
+
+.answer-form {
+  margin-top: 25px;
 }
 
 

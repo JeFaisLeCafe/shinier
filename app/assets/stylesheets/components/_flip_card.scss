@@ -38,7 +38,7 @@
 }
 
 .front {
-  background-color: $yellow;
+  background-color: $yellow-light;
   color: $black;
  }
 
@@ -85,8 +85,8 @@
 
   &:hover {
   opacity: 1;
-  background: $yellow;
-  border-color: $yellow;
+  background: $yellow-light;
+  border-color: $yellow-light;
   }
 }
 
