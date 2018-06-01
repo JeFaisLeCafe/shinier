@@ -5,7 +5,7 @@ function refreshForm(innerHTML) {
 
 function addAnswer(reviewHTML) {
   const answers = document.querySelector(".answers-container");
-  answers.insertAdjacentHTML('beforeend', reviewHTML);
+  answers.insertAdjacentHTML('afterbegin', reviewHTML);
 }
 
 <% if @answer.errors.any? %>
