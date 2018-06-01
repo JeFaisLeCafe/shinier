@@ -6,6 +6,8 @@
   background-size: cover !important;
   background-position: center;
   text-align: center;
+  top: -140px;
+  position: relative;
   h1 {
     color: $blue-pop;
     font-weight: bold;
@@ -22,6 +24,15 @@
   }
   h2 {
     color: $yellow;
+  }
+}
+
+
+.banner-content {
+  margin-top: 150px;
+
+  h1 {
+    font-size: 64px;
   }
 }
 
