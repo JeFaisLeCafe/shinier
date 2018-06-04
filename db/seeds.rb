@@ -31,7 +31,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user1.firstname} created!"
 
   firstname2 = "Marc"
   user2 = User.create!(
@@ -45,7 +45,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user2.firstname} created!"
 
   firstname3 = "Laurent"
   user3 = User.create!(
@@ -59,7 +59,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user3.firstname} created!"
 
   firstname4 = "Thibault"
   user4 = User.create!(
@@ -73,7 +73,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user4.firstname} created!"
 
   firstname5 = "Hervé"
   user5 = User.create!(
@@ -87,7 +87,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user5.firstname} created!"
 
   firstname6 = "Patricia"
   user6 = User.create!(
@@ -101,7 +101,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user6.firstname} created!"
 
   firstname7 = "Solange"
   user7 = User.create!(
@@ -115,7 +115,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user7.firstname} created!"
 
   firstname8 = "Etienne"
   user8 = User.create!(
@@ -129,7 +129,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user8.firstname} created!"
 
   firstname9 = "Tom"
   user9 = User.create!(
@@ -143,7 +143,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user9.firstname} created!"
 
   firstname10 = "Karl"
   user10 = User.create!(
@@ -157,7 +157,7 @@ end
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
-  puts "#{user.firstname} created!"
+  puts "#{user10.firstname} created!"
 
 
 # CREATING 10 QUESTIONS
@@ -169,7 +169,7 @@ end
     disease: disease,
     user: user1
   )
-  puts "#{question.title} created!"
+  puts "#{question1.title} created!"
 
   question2 = Question.create!(
     title: "Le rôle du thymus n’est pas celui que l’on croyait !",
@@ -177,7 +177,7 @@ end
     disease: disease,
     user: user1
   )
-  puts "#{question.title} created!"
+  puts "#{question2.title} created!"
 
   question3 = Question.create!(
     title: "Diabète et alcool, danger?",
@@ -185,7 +185,7 @@ end
     disease: disease,
     user: user3
   )
-  puts "#{question.title} created!"
+  puts "#{question3.title} created!"
 
   question4 = Question.create!(
     title: "Journée mondiale du diabète : comment y participer ?",
@@ -193,7 +193,7 @@ end
     disease: disease,
     user: user5
   )
-  puts "#{question.title} created!"
+  puts "#{question4.title} created!"
 
   question5 = Question.create!(
     title: "Connaissez-vous le lecteur de glycémie Freestyle Optium Neo ?",
@@ -201,7 +201,7 @@ end
     disease: disease,
     user: user7
   )
-  puts "#{question.title} created!"
+  puts "#{question5.title} created!"
 
   question6 = Question.create!(
     title: "Des noms de gynéco pro du diabète 1 sur Paris?",
@@ -209,7 +209,7 @@ end
     disease: disease,
     user: user7
   )
-  puts "#{question.title} created!"
+  puts "#{question6.title} created!"
 
   question7 = Question.create!(
     title: "Pillule + Diabète?",
@@ -217,7 +217,7 @@ end
     disease: disease,
     user: user6
   )
-  puts "#{question.title} created!"
+  puts "#{question7.title} created!"
 
   question8 = Question.create!(
     title: "Mains sèches et Humalog",
@@ -225,7 +225,7 @@ end
     disease: disease,
     user: user10
   )
-  puts "#{question.title} created!"
+  puts "#{question8.title} created!"
 
   question9 = Question.create!(
     title: "Insulines et lieu public..",
@@ -233,7 +233,7 @@ end
     disease: disease,
     user: user9
   )
-  puts "#{question.title} created!"
+  puts "#{question9.title} created!"
 
   question10 = Question.create!(
     title: "Est-il possible de vivre sans insuline avec le diabète?",
@@ -241,7 +241,7 @@ end
     disease: disease,
     user: user8
   )
-  puts "#{question.title} created!"
+  puts "#{question10.title} created!"
 
 
 # CREATING 20 ANSWERS
@@ -311,7 +311,7 @@ end
   puts "answers created!"
 
   answer8_ = Answer.create!(
-      body: "EAvène power!! définitivement les meilleures :)",
+      body: "Avène power!! définitivement les meilleures :)",
       upvotes: rand(*[0..42]),
       question: question4,
       user: user7
@@ -326,7 +326,6 @@ end
     )
   puts "answers created!"
 
-end
 
 # Admin creation
 admin = User.create!(firstname: "Jean", lastname: "Merdelémouch", email: "jean@mail.com", password: "azerty", disease: disease, location: "Lyon, France", status_in_community: "God", bio: "J'aime pas les mouches", secu_nb: "1 23 04 69 666 666 11", admin: true)
