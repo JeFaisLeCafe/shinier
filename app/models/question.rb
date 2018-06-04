@@ -9,7 +9,7 @@ class Question < ApplicationRecord
   validates :body, presence: true
   validates :user, presence: true
   acts_as_votable
-
+  acts_as_taggable
 
   def total_upvotes
     self.answers.pluck(:upvotes).sum

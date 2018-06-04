@@ -3,11 +3,12 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [ :show, :update, :destroy ]
 
   def index
-    #should list all the unanswered question
     @questions = policy_scope(Question)
     #@questions = @questions.search params[:query], misspellings: {edit_distance: 1}
     @questions = if params[:query].present?
       Question.search(params[:query])
+    elsif params[:tag].present?
+      Question.tagged_with(params[:tag])
     else
       Question.all.where(answered: false)
     end
@@ -89,7 +90,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :body, :disease_id, :user_id, :answered, :query)
+    params.require(:question).permit(:title, :body, :disease_id, :user_id, :answered, :query, :tag_list)
   end
 
   def set_question
