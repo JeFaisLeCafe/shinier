@@ -3,13 +3,10 @@
       <!-- <div class="question-short"> -->
         <div class="question-title">
           <div class="answers">
-             <div class="upvotes">
+             <div class="upvotes" data-answer-id="<%= answer.id %>">
                 <div class="arrow"></div>
                 <div class="counter">
-                  <div> <%= answer.get_upvotes.size %></div>
-                  <%= link_to like_answer_path(answer), method: :put do %>
-                    <i class="fas fa-hands-helping"></i>
-                  <% end %>
+                <%= render "answers/counter", answer: answer %>
                 </div>
               </div>
               <div class="top-answer">
