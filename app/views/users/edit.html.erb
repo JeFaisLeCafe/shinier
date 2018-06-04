@@ -8,10 +8,10 @@
         <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill, class: "card-avatar"%>
       </div>
       <div class="big-box-details">
-        <%= simple_form_for [@user] do |f|%>
-          <h4>Hello <%= f.input :firstname, value: "#{current_user.firstname}" %></h4>
-          <p>Geographie : <%= f.input :location, value: "#{current_user.location}" %></p>
-        <%= f.button :submit, value: "Shine!", class: "btn-form"%>
+        <%= form_for [@user] do |f|%>
+          <h4>Hello <%= f.text_field :firstname, placeholder: "Ton prénom", value: "#{current_user.firstname}", class: "edit_form" %></h4>
+          <p>Ville : <%= f.text_field :location, value: "#{current_user.location}", class: "edit_form" %></p>
+        <%= f.submit :submit, value: "enregistrer", class: "btn-tertiary"%>
         <% end %>
       </div>
     </div>
@@ -73,10 +73,10 @@
         <i class="far fa-edit edit-tag"></i>
       <% end %>
       <h4>Infos à rappeler</h4>
-      <%= simple_form_for @user do |f| %>
-        <p>Ton numéro de sécu : <%= f.input :secu_nb, value: "#{current_user.secu_nb}" %></p>
-        <p>Ton numéro de mutuelle : <%= f.input :mutuelle_nb, value: "#{current_user.mutuelle_nb}" %></p>
-        <p>Ton médecin traintant : <%= f.input :my_doctor, value: "#{current_user.my_doctor}" %> </p>
+      <%= form_for @user do |f| %>
+        <p>Ton numéro de sécu : <%= f.text_field :secu_nb, value: "#{current_user.secu_nb}", class: "edit_form" %></p>
+        <p>Ton numéro de mutuelle : <%= f.text_field :mutuelle_nb, value: "#{current_user.mutuelle_nb}", class: "edit_form" %></p>
+        <p>Ton médecin traintant : <%= f.text_field :my_doctor, value: "#{current_user.my_doctor}", class: "edit_form" %> </p>
       <% end %>
     </div>
   </div>
