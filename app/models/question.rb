@@ -9,6 +9,8 @@ class Question < ApplicationRecord
   validates :body, presence: true
   validates :user, presence: true
   acts_as_votable
+
+  after_create :post_new_question
   acts_as_taggable
 
   def total_upvotes
@@ -47,5 +49,11 @@ class Question < ApplicationRecord
     else
       return false
     end
+  end
+
+  private
+
+  def post_new_question
+    SlackPost.new.post_new_question(self).deliver
   end
 end

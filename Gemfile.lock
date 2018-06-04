@@ -297,6 +297,7 @@ DEPENDENCIES
   rails (= 5.2.0)
   rails-assets-typeahead.js!
   redis
+  rest-client
   sass-rails
   searchkick (~> 3.0)
   simple_form
