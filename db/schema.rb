@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2018_06_04_094807) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body"
-    t.integer "upvotes"
-    t.integer "reports"
+    t.integer "upvotes", default: 0
+    t.integer "reports", default: 0
     t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_06_04_094807) do
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.boolean "answered"
+    t.boolean "answered", default: false
     t.bigint "disease_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
