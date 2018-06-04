@@ -56,7 +56,7 @@ class SlackPost
           title: 'A new user is here ! Connect and shine together',
           fallback: 'new_user_here',
           color: GOOD,
-          text: "Welcome #{user.firstname}, here is your Slack space ! You can now connect with other Shiny people like you!"
+          text: "Welcome @#{user.slackname}, here is your Slack space ! You can now connect with other Shiny people like you!"
         }
       ]
     }

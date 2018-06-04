@@ -329,6 +329,16 @@ end
 # Admin creation
 admin = User.create!(firstname: "Jean", lastname: "Merdelémouch", email: "jean@mail.com", password: "azerty", disease: disease, location: "Lyon, France", status_in_community: "God", bio: "J'aime pas les mouches", secu_nb: "1 23 04 69 666 666 11", admin: true)
 puts "#{admin.firstname} #{admin.lastname} created!"
+
+  # adding their slackname
+
+  User.all.each do |user|
+    user.slackname = "#{user.firstname + user.lastname}"
+    user.save!
+  end
+  puts "slackname added if #{User.first.slackname} smthing here"
+
+
 puts "Seed ok!"
 
 Question.search_index.delete

@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_30_091711) do
+ActiveRecord::Schema.define(version: 2018_06_04_134802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.text "body"
-    t.integer "upvotes"
-    t.integer "reports"
+    t.integer "upvotes", default: 0
+    t.integer "reports", default: 0
     t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_05_30_091711) do
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.boolean "answered"
+    t.boolean "answered", default: false
     t.bigint "disease_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2018_05_30_091711) do
     t.string "my_doctor"
     t.string "status_in_community"
     t.boolean "admin"
+    t.string "slackname"
     t.index ["disease_id"], name: "index_users_on_disease_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
