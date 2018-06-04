@@ -40,24 +40,51 @@
         <div class="col-xs-4">
           <div class='flip-content'>
             <div class='flip_box'>
+
               <div class='front'>
-                <h4 class='f_title'><%= question.title.first(50) %>...</h4>
-                <p class='f_subline'><%= question.body.first(150) %>...</p>
-                <p class='f_headline'></p>
+                <div class="header-flip-card">
+                  <h4 class='f_title'><%= question.title.first(20) %>...</h4>
+                  <div class="picture-name">
+                    <%= cl_image_tag question.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-flip-card" %>
+                    <p><%= question.user.firstname %></p>
+                  </div>
+                </div>
+                <div class="middle-flip-card">
+                  <p class='f_headline'>QUESTION</p>
+                  <h4 class='f_subline'><%= question.body.first(50) %>...</h4>
+                  <p>Le <%= question.created_at.strftime("%d/%m/%Y")%></p>
+                </div>
+                <div class="footer-flip-card">
+                  <h4>Voir la réponse</h4>
+                </div>
               </div>
+
               <div class='back'>
-                <h4 class='b_headline'>Meilleure réponse</h4>
-                <p class='b_text'>
-                  <% top_answer = question.answers.sort_by do |answer| %>
-                    <% -answer.get_upvotes.size %>
-                  <% end %>
+                <% top_answer = question.answers.sort_by do |answer| %>
+                  <% -answer.get_upvotes.size %>
+                <% end %>
+                <div class="header-flip-card">
+                  <h4 class='b_headline'>Meilleure réponse</h4>
                   <% if top_answer.blank? %>
                   <% else %>
-                   <%= top_answer.first.body.first(100) %>...</p>
+                    <%= cl_image_tag top_answer.first.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-flip-card" %>
+                        <p><%= top_answer.first.user.firstname %></p>
+                </div>
+
+                <div class="middle-flip-card">
+                  <p class='f_headline'>REPONSE</p>
+                  <h4 class='f_subline'><%= top_answer.first.body.first(50) %>...</h4>
+                  <p>Le <%= top_answer.first.created_at.strftime("%d/%m/%Y")%></p>
                   <% end %>
-                <%= link_to question_path(question) do %>
-                  <button class='b_button'><span>Plus</span></button>
+                </div>
+
+                <div class="footer-flip-card">
+                  <p class='b_text'>
+                  <%= link_to question_path(question) do %>
+                  <button class='b_button'><span>Voir plus</span></button>
                 <% end %>
+                </div>
+
               </div>
 
             </div>
