@@ -60,8 +60,28 @@ class SlackPost
         }
       ]
     }
+    @params = generate_payload_admins(params)
+    self
+  end
+
+  def post_new_question(question)
+    params = {
+      attachments: [
+        {
+          title: 'A new question has been asked, somebody needs your help!',
+          fallback: 'new_question_asked',
+          color: WARNING,
+          text: "link to answer the question : " + Rails.application.routes.url_helpers.question_url(question.id)
+        }
+      ]
+    }
+
     @params = generate_payload(params)
     self
+  end
+
+  def send_invite(user)
+    RestClient.get("https://slack.com/api/users.admin.invite?token=xoxp-375277883781-376187137607-375361269461-13ba88eda799e449252bb0423e161a13&email=#{user.email}")
   end
 
   def deliver
@@ -79,6 +99,13 @@ class SlackPost
     {
         payload: NAME_AND_ICON
                      .merge(channel: @channel)
+                     .merge(params).to_json
+    }
+  end
+  def generate_payload_admins(params)
+    {
+        payload: NAME_AND_ICON
+                     .merge(channel: "#devteam")
                      .merge(params).to_json
     }
   end

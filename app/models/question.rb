@@ -10,6 +10,7 @@ class Question < ApplicationRecord
   validates :user, presence: true
   acts_as_votable
 
+  after_create :post_new_question
 
   def total_upvotes
     self.answers.pluck(:upvotes).sum
@@ -47,5 +48,11 @@ class Question < ApplicationRecord
     else
       return false
     end
+  end
+
+  private
+
+  def post_new_question
+    SlackPost.new.post_new_question(self).deliver
   end
 end

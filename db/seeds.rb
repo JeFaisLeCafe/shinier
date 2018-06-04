@@ -75,7 +75,7 @@ end
   )
   puts "#{user4.firstname} created!"
 
-  firstname5 = "Hervé"
+  firstname5 = "Herve"
   user5 = User.create!(
     firstname: firstname5,
     lastname: Faker::OnePiece.island,
@@ -331,12 +331,6 @@ admin = User.create!(firstname: "Jean", lastname: "Merdelémouch", email: "jean@
 puts "#{admin.firstname} #{admin.lastname} created!"
 
   # adding their slackname
-
-  User.all.each do |user|
-    user.slackname = "#{user.firstname + user.lastname}"
-    user.save!
-  end
-  puts "slackname added if #{User.first.slackname} smthing here"
 
 
 puts "Seed ok!"
