@@ -26,8 +26,7 @@ gem 'pundit'
 gem 'rails-assets-typeahead.js', source: 'https://rails-assets.org'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'slacked'
-
+gem 'rest-client'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -49,11 +49,27 @@ class SlackPost
     self
   end
 
+  def post_new_user(user)
+    params = {
+      attachments: [
+        {
+          title: 'A new user is here ! Connect and shine together',
+          fallback: 'new_user_here',
+          color: GOOD,
+          text: "Welcome #{user.firstname}, here is your Slack space ! You can now connect with other Shiny people like you!"
+        }
+      ]
+    }
+    @params = generate_payload(params)
+    self
+  end
+
   def deliver
     begin
-      Net::HTTP.post_form(@uri, @params)
+      # Net::HTTP.post_form(@uri, @params)
+      RestClient.post(ENV['SLACK_WEBHOOK_URL'], @params)
     rescue => e
-      Rails.logger.error("BespokeSlackbotService: Error when sending: #{e.message}")
+      Rails.logger.error("ShinierBot: Error when sending: #{e.message}")
     end
   end
 
