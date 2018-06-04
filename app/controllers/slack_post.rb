@@ -81,7 +81,7 @@ class SlackPost
   end
 
   def send_invite(user)
-    RestClient.get("https://slack.com/api/users.admin.invite?token=xoxp-375277883781-376187137607-375361269461-13ba88eda799e449252bb0423e161a13&email=#{user.email}")
+    RestClient.get("https://slack.com/api/users.admin.invite?token=#{ENV['SLACK_TOKEN_2']}&email=#{user.email}")
   end
 
   def deliver
