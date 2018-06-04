@@ -1,20 +1,22 @@
+
+
+// select the arrow , and change it to another class
 function refreshUpvote(className) {
-  const newUpvote = document.querySelector('.arrow');
-  newUpvote.className = className;
+  const newUpvote = document.querySelectorAll('[data-answer-id="<%= @answer.id %>"]');
+  newUpvote.forEach((upvote) => {
+    upvote.querySelector(".arrow").classList.add(className)
+  })
 }
 
-function addUpvote(reviewHTML) {
-  const upvotes = document.querySelector(".counter");
-  upvotes.insertAdjacentHTML('afterbegin', reviewHTML);
+// select the counter and update it
+function addUpvote(newCounter) {
+  const upvotes = document.querySelectorAll('[data-answer-id="<%= @answer.id %>"]');
+  upvotes.forEach((upvote) => {
+    upvote.querySelector(".counter").innerHTML = newCounter
+  })
 }
 
-
-<% if @answer.errors.any? %>
-  refreshForm('<%= j render "answers/form", question: @question, answer: @answer %>');
-<% else %>
-  addAnswer('<%= j render "answers/show", answer: @answer %>');
-  refreshForm('<%= j render "answers/form", question: @question, answer: Answer.new %>');
-<% end %>
-
+refreshUpvote('arrow-up')
+addUpvote('<%= j render "answers/counter", answer: @answer %>')
 
 

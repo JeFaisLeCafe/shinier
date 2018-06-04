@@ -168,6 +168,18 @@
   margin: auto;
 }
 
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 40px solid transparent;
+  border-bottom: 24px solid $red;
+  border-radius: 2px;
+  margin: auto;
+}
+
 .question-show {
   position: absolute;
   z-index: 1;
