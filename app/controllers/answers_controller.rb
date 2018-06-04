@@ -65,15 +65,23 @@ class AnswersController < ApplicationController
   def upvote
     @answer = Answer.find(params[:id])
     authorize @answer
-    @answer.upvote_by current_user
-    redirect_back fallback_location: root_path
+    if @answer.upvote_by current_user
+      respond_to do |format|
+        format.html { redirect_back fallback_location: root_path }
+        format.js
+      end
+    end
   end
 
   def downvote
     @answer = Answer.find(params[:id])
     authorize @answer
-    @answer.downvote_by current_user
-    redirect_back fallback_location: root_path
+    if @answer.downvote_by current_user
+      respond_to do |format|
+        format.html { redirect_back fallback_location: root_path }
+        format.js
+      end
+    end
   end
 
   private
