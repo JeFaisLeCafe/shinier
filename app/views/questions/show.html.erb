@@ -4,13 +4,41 @@
     <% end %>
 
     <div class="row">
-      <div class="col-xs-12">
-        <div class="title">
-          <h3> Question : <%= @question.title.first(100) %></h3>
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="question-big-box">
+          <div class="question-pic-name">
+            <%= cl_image_tag @question.user.photo, crop: :fill, class: "avatar-question-card" %>
+              <h4><%= @question.user.firstname %></h4>
+          </div>
+
+          <div class="question-msg-show">
+            <div class="question-msg-show-title-validation">
+              <div class="question-msg-show-title">
+                <h4><%= @question.title.capitalize %></h4>
+              </div>
+              <div class="validation">
+                <% if @question.useful? %>
+                  <p>SUPER QUESTION &nbsp;<i class="fas fa-rocket big-icon"></i></p>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="div-question-msg-show-details">
+              <p>Détails: <%= @question.body.capitalize %></p>
+            </div>
+            <div class="question-msg-show-date">
+              <p>Le <%= @question.created_at.strftime("%d/%m/%Y")%></p>
+            </div>
+            <div id='tag_cloud'>
+              <% tag_cloud Question.tag_counts, %w{s m l} do |tag| %>
+                <%= link_to tag.name, tag_path(tag.name)%>
+              <% end %>
+            </div>
+          </div>
           <div class="resolue">
             <% if current_user == @question.user %>
               <% if @question.answered == false %>
-                <%= link_to 'Résolue?', question_toggle_path(@question), class: "btn-tertiary" %>
+                <%= link_to 'Résolue?', question_toggle_path(@question), class: "btn-tag" %>
               <% else %>
                 <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Résolue!</h4>
               <% end %>
@@ -35,23 +63,16 @@
                 <div class="question-assets">
                   <div class="question-title-resolue">
                     <div class="question-title">
-                      <h4>Question : <%= @question.title %></h4>
-                      <div id='tag_cloud'>
-                        <% tag_cloud Question.tag_counts, %w{s m l} do |tag| %>
-                          <%= link_to tag.name, tag_path(tag.name) %>
-                        <% end %>
-                      </div>
+
                     </div>
                   </div>
 
                   <div class="question-details">
-                    <p> Détails : <%= @question.body %></p>
+
                   </div>
 
                   <div class="validation">
-                    <% if @question.useful? %>
-                      <p>Super question &nbsp;<i class="fas fa-rocket big-icon"></i></p>
-                    <% end %>
+
                   </div>
   <!--
                   <#% if policy(Answer).create? %>
@@ -94,6 +115,7 @@
             </div>
           </div>
           <div class="answer-form">
+
             <%= render 'answers/form', question: @question, answer: @answer %>
             <%= paginate @answers %>
           </div>
