@@ -43,43 +43,51 @@
 
               <div class='front'>
                 <div class="header-flip-card">
-                  <h4 class='f_title'><%= question.title.first(20) %>...</h4>
+                  <h4 class='flip-title'><%= question.title.first(30) %>...</h4>
                   <div class="picture-name">
                     <%= cl_image_tag question.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-flip-card" %>
                     <p><%= question.user.firstname %></p>
                   </div>
                 </div>
                 <div class="middle-flip-card">
-                  <p class='f_headline'>QUESTION</p>
-                  <h4 class='f_subline'><%= question.body.first(50) %>...</h4>
-                  <p>Le <%= question.created_at.strftime("%d/%m/%Y")%></p>
+                  <p class='flip-headline'>QUESTION</p>
+                  <h4 class='flip-subline'><%= question.body.first(100) %>...</h4>
+                  <p class='flip-date'>Le <%= question.created_at.strftime("%d/%m/%Y")%></p>
                 </div>
                 <div class="footer-flip-card">
-                  <h4>Voir la réponse</h4>
+                  <p class='footer-flip-link'>Voir la réponse</p>
                 </div>
               </div>
 
               <div class='back'>
-                <% top_answer = question.answers.sort_by do |answer| %>
-                  <% -answer.get_upvotes.size %>
-                <% end %>
                 <div class="header-flip-card">
-                  <h4 class='b_headline'>Meilleure réponse</h4>
-                  <% if top_answer.blank? %>
-                  <% else %>
-                    <%= cl_image_tag top_answer.first.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-flip-card" %>
-                        <p><%= top_answer.first.user.firstname %></p>
+                  <h4 class='flip-title'>Meilleure réponse</h4>
+                  <div class="picture-name">
+                    <% top_answer = question.answers.sort_by do |answer| %>
+                      <% -answer.get_upvotes.size %>
+                    <% end %>
+                    <% if top_answer.blank? %>
+                    <% else %>
+                      <%= cl_image_tag top_answer.first.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-flip-card" %>
+                      <p><%= top_answer.first.user.firstname %></p>
+                    <% end %>
+                  </div>
                 </div>
 
                 <div class="middle-flip-card">
-                  <p class='f_headline'>REPONSE</p>
-                  <h4 class='f_subline'><%= top_answer.first.body.first(50) %>...</h4>
-                  <p>Le <%= top_answer.first.created_at.strftime("%d/%m/%Y")%></p>
+                  <p class='flip-headline'>REPONSE</p>
+                  <% top_answer = question.answers.sort_by do |answer| %>
+                    <% -answer.get_upvotes.size %>
+                  <% end %>
+                  <% if top_answer.blank? %>
+                  <% else %>
+                    <h4 class='flip-subline'><%= top_answer.first.body.first(100) %>...</h4>
+                    <p class='flip-date'>Le <%= top_answer.first.created_at.strftime("%d/%m/%Y")%></p>
                   <% end %>
                 </div>
 
                 <div class="footer-flip-card">
-                  <p class='b_text'>
+                  <p class='flip-subline'>
                   <%= link_to question_path(question) do %>
                   <button class='b_button'><span>Voir plus</span></button>
                 <% end %>

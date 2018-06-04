@@ -1,0 +1,211 @@
+// GENERAL
+
+// .intro {
+//   margin: 40px;
+// }
+
+.flip-results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flipped {
+  transform: rotateY(-180deg);
+}
+
+.flip-content,
+.flip-box,
+.front,
+.back {
+  width: 100%;
+  height: 470px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  // box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+}
+
+.flip-content,
+.flip_box {
+  position: relative;
+}
+
+.front,
+.back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-content {
+  perspective: 1200px;
+}
+
+.flip_box {
+  transition: all 0.5s ease-out;
+  transform-style: preserve-3d;
+}
+
+// FRONT DESIGN
+
+.front {
+  background-image: url("<%= asset_path 'front-card.svg' %>");
+  background-position: center;
+  color: $black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+
+ // BACK DESIGN
+
+.back {
+  background-image: url("<%= asset_path 'back-card.svg' %>");
+  background-position: center;
+  color: $black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotateY(180deg);
+  color: $black;
+}
+
+ //HEADER
+
+.header-flip-card {
+  margin-top: 20px;
+  width: 90%;
+  display: flex;
+  background: $white;
+  border-radius: 5px;
+  min-height: 115px;
+  opacity: 0.8;
+}
+
+.flip-title {
+  flex: 0 0 75%;
+  margin-top: 0px;
+  padding: 30px 0px 0px 10px;
+  text-align: left;
+  color: $blue-text;
+  // min-height: 100px;
+}
+
+.picture-name {
+  flex: 0 0 25%;
+  margin-top: 20px;
+}
+
+//MIDDLE
+
+.middle-flip-card {
+  margin-top: 30px;
+  color: $white;
+  height: 200px;
+}
+
+.flip-subline {
+  padding: 5px 20px 5px 20px;
+  height: 125px;
+}
+
+.flip-headline {
+}
+
+//FOOTER
+
+.footer-flip-card {
+  margin-top: 30px;
+  border-top: 1px solid $light-gray;
+  width: 80%;
+}
+
+.footer-flip-link {
+  color: $white;
+  text-align: left;
+  margin-top: 10px;
+  padding: 10px 10px 10px 10px;
+}
+
+
+//BUTTON
+
+.b_button {
+  border: 1px solid #white;
+  border-radius: 50px;
+  padding-bottom: 2px;
+  position: absolute;
+  font-weight: lighter;
+  left: 36px;
+  bottom: 15px;
+  width: 150px;
+  height: 40px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: $white;
+
+  &:hover {
+  transform: scale(1.10);
+  border-color: $yellow-light;
+  background-color: $white;
+  opacity: 0.5;
+  color: $blue-text;
+  }
+}
+
+// FLIP ARROW
+
+
+.r_wrap {
+  position: absolute;
+  right: 40px;
+  bottom: 15px;
+}
+
+.b_round,
+.s_round {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $white;
+  transition: all 0.2s linear;
+}
+
+.b_round {
+  opacity: 0;
+  background-color: $white;
+}
+
+.b_round_hover {
+  transform: scale(1.37);
+  opacity: 0.4;
+}
+
+.b_round_back_hover {
+  background-color: $white;
+}
+
+.s_round_click {
+  transform: scale(1.7);
+}
+
+.s_round_back {
+  background-color: $white;
+}
+
+.s_arrow {
+  width: 40px;
+  height: 40px;
+  background-image: url("<%= asset_path 'arrow.svg' %>");
+  background-repeat: no-repeat;
+  background-position:center;
+  background-color: transparent;
+  transition: all 0.35s linear;
+}
+
+.s_arrow_rotate {
+  transform: rotate(-180deg);
+}
+
