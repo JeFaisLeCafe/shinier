@@ -10,14 +10,13 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="index-search-bar">
-        <h3>Recherche ta question</h3>
 
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
             <div class="form-search">
               <span class="icon"><i class="fa fa-search"></i></span>
               <%= form_tag(questions_path, method: :get) do %>
-                <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search"%>
+                <%= text_field_tag :query, params[:query], placeholder: "Recherche ta question", class: 'form-control typeahead', id: "question_search"%>
                 <%= submit_tag 'Shine!' , class: 'search-btn' %>
               <% end %>
             </div>
