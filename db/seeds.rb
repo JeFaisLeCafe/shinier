@@ -323,7 +323,7 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
   puts "answers created!"
 
   answer8_ = Answer.create!(
-      body: "EAvène power!! définitivement les meilleures :)",
+      body: "Avène power!! définitivement les meilleures :)",
       upvotes: rand(*[0..42]),
       question: question4,
       user: user7
