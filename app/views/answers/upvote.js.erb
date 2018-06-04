@@ -1,0 +1,20 @@
+function refreshUpvote(className) {
+  const newUpvote = document.querySelector('.arrow');
+  newUpvote.className = className;
+}
+
+function addUpvote(reviewHTML) {
+  const upvotes = document.querySelector(".counter");
+  upvotes.insertAdjacentHTML('afterbegin', reviewHTML);
+}
+
+
+<% if @answer.errors.any? %>
+  refreshForm('<%= j render "answers/form", question: @question, answer: @answer %>');
+<% else %>
+  addAnswer('<%= j render "answers/show", answer: @answer %>');
+  refreshForm('<%= j render "answers/form", question: @question, answer: Answer.new %>');
+<% end %>
+
+
+
