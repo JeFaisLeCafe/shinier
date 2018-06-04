@@ -11,6 +11,7 @@ class Question < ApplicationRecord
   acts_as_votable
 
   after_create :post_new_question
+  acts_as_taggable
 
   def total_upvotes
     self.answers.pluck(:upvotes).sum

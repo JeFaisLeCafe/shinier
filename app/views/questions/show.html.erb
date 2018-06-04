@@ -36,6 +36,11 @@
                   <div class="question-title-resolue">
                     <div class="question-title">
                       <h4>Question : <%= @question.title %></h4>
+                      <div id='tag_cloud'>
+                        <% tag_cloud Question.tag_counts, %w{s m l} do |tag| %>
+                          <%= link_to tag.name, tag_path(tag.name) %>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
 
@@ -71,13 +76,10 @@
                   </div>
 
                 <% else %>
-                  <div class="upvotes">
+                  <div class="upvotes" data-answer-id="<%= top_answer.first.id %>" >
                     <div class="arrow-top"></div>
                     <div class="counter">
-                      <h4><%= top_answer.first.get_upvotes.size %></h4>
-                      <%= link_to like_answer_path(top_answer), method: :put do %>
-                        <i class="fas fa-hands-helping"></i>
-                      <% end %>
+                      <%= render "answers/counter", answer: top_answer.first %>
                     </div>
                   </div>
 
@@ -97,7 +99,6 @@
           </div>
           <div class="answers-container">
             <% @answers.each do |answer| %>
-
               <%= render "answers/show", answer: answer %>
             <% end %>
           </div>

@@ -13,7 +13,19 @@ end
     name: a,
     symptomes: "une augmentation du besoin d’uriner ; une augmentation de la soif (polydipsie) ; une perte de poids malgré un appétit qui augmente ;
                 une fatigue importante ou une vision trouble",
-    latin_name: "#{a}um"
+    latin_name: "#{a}um",
+    disease_explanation: "Le diabète est une maladie qui empêche le corps d'utiliser correctement l'énergie fournie par les aliments ingérés. Par ailleurs, la maladie survient lorsque le pancréas ne sécrète plus d'insuline ou lorsque le corps devient résistant à l'insuline produite.
+
+Lorsque nous mangeons, les aliments sont dégradés en glucose (sucre). Ce glucose fournit de l'énergie au corps afin qu'il puisse fonctionner correctement en puisant dans ses ressources. Pendant la digestion, le sang transporte le glucose dans tout le corps et vient alimenter les cellules. Cependant, pour que le sucre présent dans le sang puisse ensuite être transmis aux cellules, le corps a besoin d'insuline, une hormone sécrétée par le pancréas. L'insuline agit donc comme une clé permettant au glucose de passer du sang aux cellules de notre corps.
+
+Chez les personnes diabétiques, une défaillance entre en jeu : le pancréas ne produit pas assez d'insuline pour remplir cette mission. Le glucose reste alors dans le sang et ne peut pas passer dans les cellules. Il ne peut donc pas fournir d'énergie aux muscles du corps.
+
+Si le glucose reste dans le sang, la glycémie augmente. À long terme, cela peut entraîner le dysfonctionnement et la détérioration de nombreux organes comme les yeux et les reins.",
+    usual_medication: "Chez les personnes diabétiques de type 1, le pancréas ne sécrète plus d'insuline. Les personnes atteintes d’un diabète de type 1 doivent apporter de l'insuline à leur organisme pour réguler leur glycémie (taux de sucre dans le sang) pour permettre au corps d'utiliser correctement le glucose ingéré. L’insuline ne peut pas être ingérée (par ex. sous forme de comprimés) car elle serait digérée comme n'importe quel aliment et détruite par l'acide de l'estomac. Elle doit être injectée par voie cutanée pour passer dans le sang.
+
+Chez les personnes avec un diabète de type 2, en revanche, l'organisme sécrète de l'insuline, mais ne l'utilise pas correctement. Sans insuline, le glucose reste dans le sang. Or des taux de glycémie constamment élevés peuvent provoquer différents types de dommages à l'organisme.
+
+Chaque personne souffrant d'un diabète est unique et les facteurs qui régissent sa maladie et son style de vie ont un impact sur le traitement. Plusieurs sortes d'insuline sont disponibles : elles diffèrent en termes de conception, de fonctionnement et de coût. La quasi-totalité des insulines actuelles sont fabriquées par imitation de l'insuline humaine (insulines de synthèse). "
   )
   puts "#{disease.name} created!"
 
@@ -311,7 +323,7 @@ end
   puts "answers created!"
 
   answer8_ = Answer.create!(
-      body: "EAvène power!! définitivement les meilleures :)",
+      body: "Avène power!! définitivement les meilleures :)",
       upvotes: rand(*[0..42]),
       question: question4,
       user: user7
@@ -334,6 +346,10 @@ puts "#{admin.firstname} #{admin.lastname} created!"
 
 
 puts "Seed ok!"
+
+
+# Scrapping for the Disease
+
 
 Question.search_index.delete
 Answer.search_index.delete

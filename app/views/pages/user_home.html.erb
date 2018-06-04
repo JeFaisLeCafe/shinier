@@ -10,14 +10,13 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="index-search-bar">
-        <h3>Recherche ta question</h3>
 
         <div class="row">
-          <div class="ccol-xs-8 col-xs-offset-2">
+          <div class="col-xs-8 col-xs-offset-2">
             <div class="form-search">
               <span class="icon"><i class="fa fa-search"></i></span>
               <%= form_tag(questions_path, method: :get) do %>
-                <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search", placeholder:"Recherche..." %>
+                <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search", placeholder:"Recherche ta question" %>
                 <%= submit_tag 'Shine!' , class: 'search-btn' %>
               <% end %>
             </div>
@@ -40,24 +39,59 @@
         <div class="col-xs-4">
           <div class='flip-content'>
             <div class='flip_box'>
+
               <div class='front'>
-                <h4 class='f_title'><%= question.title.first(50) %>...</h4>
-                <p class='f_subline'><%= question.body.first(150) %>...</p>
-                <p class='f_headline'></p>
+                <div class="header-flip-card">
+                  <h4 class='flip-title'><%= question.title.first(30) %>...</h4>
+                  <div class="picture-name">
+                    <%= cl_image_tag question.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-flip-card" %>
+                    <p><%= question.user.firstname %></p>
+                  </div>
+                </div>
+                <div class="middle-flip-card">
+                  <p class='flip-headline'>QUESTION</p>
+                  <h4 class='flip-subline'><%= question.body.first(100) %>...</h4>
+                  <p class='flip-date'>Le <%= question.created_at.strftime("%d/%m/%Y")%></p>
+                </div>
+                <div class="footer-flip-card">
+                  <p class='footer-flip-link'>Voir la réponse</p>
+                </div>
               </div>
+
               <div class='back'>
-                <h4 class='b_headline'>Meilleure réponse</h4>
-                <p class='b_text'>
+                <div class="header-flip-card">
+                  <h4 class='flip-title'>Meilleure réponse</h4>
+                  <div class="picture-name">
+                    <% top_answer = question.answers.sort_by do |answer| %>
+                      <% -answer.get_upvotes.size %>
+                    <% end %>
+                    <% if top_answer.blank? %>
+                    <% else %>
+                      <%= cl_image_tag top_answer.first.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-flip-card" %>
+                      <p><%= top_answer.first.user.firstname %></p>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="middle-flip-card">
+                  <p class='flip-headline'>REPONSE</p>
                   <% top_answer = question.answers.sort_by do |answer| %>
                     <% -answer.get_upvotes.size %>
                   <% end %>
                   <% if top_answer.blank? %>
                   <% else %>
-                   <%= top_answer.first.body.first(100) %>...</p>
+                    <h4 class='flip-subline'><%= top_answer.first.body.first(100) %>...</h4>
+                    <p class='flip-date'>Le <%= top_answer.first.created_at.strftime("%d/%m/%Y")%></p>
                   <% end %>
-                <%= link_to question_path(question) do %>
-                  <button class='b_button'><span>Plus</span></button>
+                </div>
+
+                <div class="footer-flip-card">
+                  <p class='flip-subline'>
+                  <%= link_to question_path(question) do %>
+                  <button class='b_button'><span>Voir plus</span></button>
                 <% end %>
+                </div>
+
               </div>
 
             </div>

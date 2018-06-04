@@ -8,7 +8,11 @@
         <%= simple_form_for [@question] do |f| %>
           <%= f.input :title, label: 'Que veux-tu savoir?', placeholder: 'Ta question...' %>
           <%= f.input :body, label: 'Description', placeholder: 'Ajoute une description...' %>
-          <%= f.button :submit, value: "Shine!", class: "btn-form"%>
+            <div>
+              <%= f.label :tag_list, 'Tags (utilises des virgules pour plusieurs tags):', class: "field"%>
+              <%= f.text_field :tag_list, class: "form-control" %>
+            </div>
+          <%= f.button :submit, value: "Shine!", class: "btn-form" %>
         <% end %>
       </div>
     </div>
