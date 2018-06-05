@@ -61,49 +61,13 @@
 
         <div class="no-answer">
           <i class="fas fa-question-circle big-pink-icon"></i>
-          <h3>Oups, aucune question en rapport avec "<%= params[:query] %>" ne semble exister</h3>
+          <h3>Oups, aucune question en rapport avec "<%= params[:query] %>" ne semble exister.</h3>
+          <h3>Pose ta question !</h3>
         </div>
 
       <% else %>
         <% @questions.each do |question| %>
-            <div class="question-index-msg">
-            <a class="question-show" href="/questions/<%= question.id %>" ></a>
-              <div class="question-index-avatar-title-tags">
-                <div class="question-index-avatar">
-                  <%= cl_image_tag question.user.photo, crop: :fill, class: "avatar-question-card" %>
-                  <p><%= question.user.firstname %></p>
-                </div>
-                <div class="question-index-title">
-                  <h4><%= question.title.capitalize %></h4>
-                </div>
-                <div class="question-index-tags">
-                  <div id='tag_cloud'>
-                    <% tag_cloud question.tag_counts, %w{s m l} do |tag| %>
-                      <%= link_to tag.name, tag_path(tag.name)%>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-              <div class="question-index-best-answer">
-                <div class="question-index-announce-best-answer">
-                  <h4>Meilleure réponse</h4>
-                </div>
-                <div class="question-index-answer">
-                  <p><%=  question.answers.the_top_answer %></p>
-                </div>
-              </div>
-              <div class="question-index-indicators">
-                <div class="question-index-validation">
-                  <% if question.useful? %>
-                    <h5>SUPER QUESTION &nbsp;<i class="fas fa-rocket big-blue-icon"></i></h5>
-                  <% end %>
-                </div>
-                <div class="question-index-resolue">
-                  <%= render "questions/resolue", question: question %>
-                </div>
-              </div>
-            </div>
-
+          <%= render "questions/index_card", question: question %>
         <% end %>
 
         <%= paginate @questions %>

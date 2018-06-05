@@ -6,9 +6,9 @@ class QuestionsController < ApplicationController
     @questions = policy_scope(Question)
     #@questions = @questions.search params[:query], misspellings: {edit_distance: 1}
     @questions = if params[:query].present?
-      Question.search(params[:query]).page(params[:page]).per(5)
+      Question.search(params[:query])
     elsif params[:tag].present?
-      Question.tagged_with(params[:tag]).page(params[:page]).per(5)
+      Question.tagged_with(params[:tag])
     else
       Question.all.where(answered: false).page(params[:page]).per(5)
     end

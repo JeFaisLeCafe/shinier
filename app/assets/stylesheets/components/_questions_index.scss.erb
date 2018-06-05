@@ -65,21 +65,23 @@
 
 .question-index-msg {
   width: 800px;
-  padding: 20px;
   background-image: url("<%= asset_path 'front-card.svg' %>");
   background-position: center;
   background-size: cover;
   color: $white;
   margin-top: 30px;
+  padding-top: 20px;
   height: 400px;
   margin-left: 15%;
   position: relative;
+  border-radius: 5px;
 }
 
 .question-index-title {
-  height: 60px;
-  width: 780px;
-  padding-top: 10px;
+  height: 50px;
+  width: 800px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   h4 {
     overflow: hidden;
     // white-space: nowrap;
@@ -90,21 +92,24 @@
 
 .question-index-best-answer {
   height: 100px;
-  margin-top: 30px;
-  padding-top: 30px;
+  margin-top: 10px;
+  padding-top: 20px;
   border-top: 1px solid $white;
   width: 600px;
-  margin-left: 10%;
+  margin-left: 12%;
   display: flex;
   align-items: center;
 }
 
 .question-index-answer {
-  height: 100px;
+  height: 80px;
   width: 600px;
   background: $white;
   color: $black;
   border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+
     p {
     overflow: hidden;
     // white-space: nowrap;
@@ -113,15 +118,42 @@
   }
 }
 
+.question-index-indicators {
+  position: absolute;
+  top: 10px;
+  right: 45px;
+}
+
+.question-index-resolue {
+  color: $white;
+}
+
+.question-index-tags {
+  height: 30px;
+  width: 800px;
+}
+
 // LINK
 
 
 .question-show {
   position: absolute;
   z-index: 1;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
+  top: 10px;
+  bottom: -10px;
+  right: 10px;
+  width: 90%;
   opacity: 0;
+}
+
+// NO ANSWER
+
+.no-answer {
+  margin: 30px;
+  padding: 30px;
+
+  i {
+    color: $pink-pop;
+    font-size: 48px;
+  }
 }
