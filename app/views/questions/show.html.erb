@@ -64,10 +64,11 @@
                 <% if top_answer.blank? %>
 
                   <div class="upvotes">
-                    <div class="arrow-top"></div>
+                    <div class="arrow-top arrow"></div>
                     <div class="counter">
                       <h4>0</h4>
                     </div>
+                    <i class="fas fa-hands-helping"></i>
                   </div>
 
                   <div class="top-answer">
@@ -77,7 +78,7 @@
 
                 <% else %>
                   <div class="upvotes" data-answer-id="<%= top_answer.first.id %>" >
-                    <div class="arrow-top"></div>
+                    <div class="arrow-top arrow"></div>
                     <div class="counter">
                       <%= render "answers/counter", answer: top_answer.first %>
                     </div>
