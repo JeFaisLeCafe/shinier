@@ -67,11 +67,11 @@
   box-shadow: 2px 2px 8px 2px rgba(217,223,235,1);
 }
 
-.form-control .answer-form-new {
-  width: 600px;
-  border-radius: 5px;
-  box-shadow: none;
-}
+// .form-control .answer-form-new {
+//   width: 600px;
+//   border-radius: 5px;
+//   box-shadow: none;
+// }
 
 
 
@@ -89,47 +89,45 @@
 
 
 .form-search {
-  width: 751px;
+  width: 655px;
   white-space: nowrap;
   position: relative;
 }
 
 .form-search #question_search{
-//   height: 50px;
+  height: 50px;
+  width: 655px;
   //background: white;
   //border: none;
   color: $blue-pop;
   padding-left: 50px;
-  border-radius: 19px;
-//   border-radius: 5px;
+  border-radius: 80px;
 }
 
 .form-search .icon{
   position: absolute;
   z-index: 1;
-  color: $white;
-  top: 10px;
-  left: 20px;
+  color: $gray;
+  top: 18px;
+  right: 20px;
 }
 
 .autocomplete-results {
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
+  width: 600px;
   margin-top: -1px;
-  background-color: white;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 15px;
-  color: $gray;
-  display: block;
-  border-radius: 4px;
-  width: 100%;
-  color: $blue-pop;
-  width: 720px;
   margin-left: 17px;
+  padding: 12px;
+  background-color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  color: $blue-pop;
+  display: block;
 }
 
 .autocomplete-results:hover {
-  background-color: $gray;
+  background-color: $light-gray;
 }
 
 .autocomplete-item {

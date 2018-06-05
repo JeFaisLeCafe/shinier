@@ -10,7 +10,7 @@
         <div class="answer-details">
         <% if top_answer %>
           <div class="top">
-            <p>TOP ANSWER</p>
+            <h5>TOP RÉPONSE</h5>
           </div>
         <% end %>
           <div class="answer-msg-show-body">
@@ -27,7 +27,7 @@
     </div>
     <div class="question-pic-name">
       <%= cl_image_tag answer.user.photo, crop: :fill, class: "avatar-question-card" %>
-      <h4><%= answer.user.firstname %></h4>
+      <p><%= answer.user.firstname %></p>
     </div>
   </div>
 </div>
