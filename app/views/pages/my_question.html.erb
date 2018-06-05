@@ -1,68 +1,15 @@
+
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="title">
-        <h1>Questions & Réponses</h1>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="index-search-bar">
-
-        <div class="row">
-          <div class="col-xs-8 col-xs-offset-2">
-            <div class="form-search">
-              <span class="icon"><i class="fa fa-search"></i></span>
-              <%= form_tag(questions_path, method: :get) do %>
-                <%= text_field_tag :query, params[:query], placeholder: "Recherche ta question", class: 'form-control typeahead', id: "question_search"%>
-                <%= submit_tag 'Shine!' , class: 'search-btn' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="filters">
-              <h3>Filtres </h3>
-                <ul class="list-inline">
-                  <li>
-                    <%= link_to "Top Questions", user_home_path, :class => "btn-tertiary" %>
-                  </li>
-                  <li>
-                    <%= link_to "Proposer des réponses", user_home_path, :class => "btn-tertiary" %>
-                  </li>
-                  <li>
-                    <%= link_to "Mes questions", my_question_path, :class => "btn-tertiary" %>
-                  </li>
-                </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-      <%= link_to new_question_path do %>
-        <li class="btn-new">Pose une nouvelle question</li>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
+ <div class="row">
     <div class="results">
       <% if @questions.blank? %>
-        <h3>Oups, aucune question en rapport avec "<%= params[:query] %>" ne semble exister.</h3>
+        <h3>Tu n'as pas encore posé de question.</h3>
+        <%= link_to "Poser une question", new_question_path, class: "btn-tertiary" %>
       <% else %>
           <% @questions.first(10).each do |question| %>
-
             <% top_answer = question.answers.sort_by do |answer| %>
               <% -answer.get_upvotes.size %>
             <% end %>
-
             <div class="col-xs-12">
               <div class="question-message">
                 <a class="question-show" href="/questions/<%= question.id %>" ></a>
@@ -138,5 +85,4 @@
       <% end %>
     </div>
   </div>
-
 </div>
