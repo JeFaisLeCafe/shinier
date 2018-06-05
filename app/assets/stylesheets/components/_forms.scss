@@ -39,12 +39,12 @@
 .btn-form {
   margin-top: 20px;
   color: $black;
-  border: 1px solid $blue-pop;
+  border: 1px solid $blue;
   padding: 8px 15px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
-  background: $blue-pop;
+  background: $blue;
   transition: background 0.3s ease;
   text-decoration: none;
   width: 100%;
@@ -54,8 +54,8 @@
 
   &:hover {
   opacity: 1;
-  background: $blue;
-  border-color: $blue;
+  background: $blue-pop;
+  border-color: $blue-pop;
   color: $white;
   }
 
@@ -66,6 +66,14 @@
   border-radius: 19px;
   box-shadow: 2px 2px 8px 2px rgba(217,223,235,1);
 }
+
+.form-control .answer-form-new {
+  width: 600px;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+
 
 .form-control-label {
   font-weight: normal;

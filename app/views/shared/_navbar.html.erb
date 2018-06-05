@@ -25,9 +25,10 @@
 
       <%= link_to "Poser une question", new_question_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Aider la communauté", questions_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Pathologie", disease_path(current_user.disease), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Slack", "slack://channel?id=CB186R4SH&team=UB25H41HV", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Mes questions", my_question_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+
+
+      <%= link_to "Tableau de bord", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
       <div class="navbar-wagon-item navbar-wagon-link" id="allo">
         <div class="dropdown">
           <p class="dropdown-toggle" data-toggle="dropdown" ><i class="material-icons">feedback</i>
@@ -48,21 +49,19 @@
       </div>
 
 
+
+
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
 
         <div class="dropdown">
           <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><%= link_to "Mes questions", my_question_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+            <li><%= link_to "Pathologie", disease_path(current_user.disease), class: "navbar-wagon-item navbar-wagon-link" %></li>
+            <li><%= link_to "Slack", "slack://channel?id=CB186R4SH&team=UB25H41HV", class: "navbar-wagon-item navbar-wagon-link" %></li>
             <li>
-              <%= link_to user_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
-              <% end %>
+              <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
             </li>
           </ul>
         </div>
