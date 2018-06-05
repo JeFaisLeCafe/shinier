@@ -56,4 +56,6 @@ class Question < ApplicationRecord
   def post_new_question
     SlackPost.new.post_new_question(self).deliver
   end
+
+
 end
