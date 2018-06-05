@@ -4,8 +4,9 @@
 
     <%= link_to user_home_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "logo-shinier.svg", height: 50%>
+      <p class="logo-name">Shinier</p>
     <% end %>
-    <p class="logo-name">Shinier</p>
+
 
   <% else %>
 
@@ -25,8 +26,9 @@
       <%= link_to "Poser une question", new_question_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Aider la communauté", questions_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Pathologie", disease_path(current_user.disease), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Slack", "slack://channel?id=CB186R4SH&team=UB25H41HV", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Mes questions", my_question_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Slack", user_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
+   
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
