@@ -26,6 +26,7 @@ gem 'pundit'
 gem 'rails-assets-typeahead.js', source: 'https://rails-assets.org'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'rest-client'
 gem 'acts-as-taggable-on', git: "git://github.com/Fodoj/acts-as-taggable-on.git", branch: "rails-5.2"
 
 group :development do

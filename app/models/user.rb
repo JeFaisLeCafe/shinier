@@ -17,4 +17,27 @@ class User < ApplicationRecord
   validates :bio, length: { minimum: 20 }, allow_nil: true
   mount_uploader :photo, PhotoUploader
   acts_as_voter
+
+
+  after_create do |user|
+    post_new_user(user)
+    invite_user(user)
+  end
+
+  private
+
+  def invite_user(user)
+    SlackPost.new.send_invite(user)
+  end
+
+  def post_new_user(user)
+    if user.firstname && user.lastname
+      user.slackname = "#{user.firstname + user.lastname}"
+    else
+      user.slackname = "Anonymous"
+    end
+
+    user.save!
+    SlackPost.new.post_new_user(user).deliver
+  end
 end

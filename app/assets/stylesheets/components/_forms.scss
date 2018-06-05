@@ -37,6 +37,7 @@
 
 
 .btn-form {
+  margin-top: 20px;
   color: $black;
   border: 1px solid $blue;
   padding: 8px 15px;
@@ -166,5 +167,8 @@
   border-radius: 6px;
 }
 
+.field {
+  font-weight: lighter;
+}
 
 

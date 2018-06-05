@@ -87,7 +87,7 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
   )
   puts "#{user4.firstname} created!"
 
-  firstname5 = "Hervé"
+  firstname5 = "Herve"
   user5 = User.create!(
     firstname: firstname5,
     lastname: Faker::OnePiece.island,
@@ -341,6 +341,10 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
 # Admin creation
 admin = User.create!(firstname: "Jean", lastname: "Merdelémouch", email: "jean@mail.com", password: "azerty", disease: disease, location: "Lyon, France", status_in_community: "God", bio: "J'aime pas les mouches", secu_nb: "1 23 04 69 666 666 11", admin: true)
 puts "#{admin.firstname} #{admin.lastname} created!"
+
+  # adding their slackname
+
+
 puts "Seed ok!"
 
 
