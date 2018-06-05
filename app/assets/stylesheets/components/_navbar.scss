@@ -1,5 +1,10 @@
 /* Main navbar */
 
+#allo {
+  padding-top: 22px
+}
+
+
 .navbar-home {
   position: absolute;
   width: 100%;
@@ -53,6 +58,11 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+}
+
+
+.navbar-wagon-item .material {
+  padding-top: 24px
 }
 
 /* Navbar link */

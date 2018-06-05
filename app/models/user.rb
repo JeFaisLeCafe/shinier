@@ -6,6 +6,7 @@ class User < ApplicationRecord
   belongs_to :disease, optional: true
   has_many :questions, dependent: :nullify
   has_many :answers, dependent: :nullify
+  has_many :notifications, foreign_key: :recipient_id
 
   validates :firstname, presence: true
   # validates :lastname, presence: true

@@ -28,10 +28,29 @@
       <%= link_to "Pathologie", disease_path(current_user.disease), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Slack", "slack://channel?id=CB186R4SH&team=UB25H41HV", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Mes questions", my_question_path, class: "navbar-wagon-item navbar-wagon-link" %>
-   
+      <div class="navbar-wagon-item navbar-wagon-link" id="allo">
+        <div class="dropdown">
+          <p class="dropdown-toggle" data-toggle="dropdown" ><i class="material-icons">feedback</i>
+            <% if current_user.notifications.pluck(:read_at).any? { |item| item.nil? } %>
+              <%= current_user.notifications.count - current_user.notifications.pluck(:read_at).count %>
+            <% end %>
+          </p>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% current_user.notifications.each do |notification| %>
+              <% if notification.read_at.nil? %>
+                <li><%= link_to "#{notification.recipient.firstname} answered to your question", question_path(notification.notifiable.question) %> <%= link_to "mark as read", mark_as_read_notification_path(notification), method: :post %>
+                </li>
+              <% end %>
+            <% end %>
+            <%= link_to "Mark as all read", mark_as_read_notifications_path, method: :post %>
+          </ul>
+        </div>
+      </div>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
+
         <div class="dropdown">
           <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
