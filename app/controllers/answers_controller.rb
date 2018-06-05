@@ -73,7 +73,7 @@ class AnswersController < ApplicationController
     end
   end
 
-  def downvote
+  def report
     @answer = Answer.find(params[:id])
     authorize @answer
     if @answer.downvote_by current_user
@@ -82,6 +82,8 @@ class AnswersController < ApplicationController
         format.js
       end
     end
+    @answer.reports = @answer.get_downvotes.size
+    @answer.save
   end
 
   private

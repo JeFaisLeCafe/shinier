@@ -20,7 +20,7 @@
             <p>Le <%= answer.created_at.strftime("%d/%m/%Y") %></p>
           </div>
           <div class="question-msg-show-report">
-            <h6><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(answer), method: :put %></h6>
+            <h6><%= link_to "Cette réponse te paraît inappropriée?", report_answer_path(answer), method: :put %></h6>
           </div>
         </div>
       </div>

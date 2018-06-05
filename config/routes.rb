@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :answers do
     member do
       put "like", to: "answers#upvote"
-      put "dislike", to: "answers#downvote"
+      put "report", to: "answers#report"
     end
   end
   get "user_home", to: "pages#user_home"

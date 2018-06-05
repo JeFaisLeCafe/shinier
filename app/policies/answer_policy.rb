@@ -20,4 +20,8 @@ class AnswerPolicy < ApplicationPolicy
   def upvote?
     true
   end
+
+  def report?
+    true
+  end
 end
