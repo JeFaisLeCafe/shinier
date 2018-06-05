@@ -1,6 +1,6 @@
 <div class="col-xs-10 col-xs-offset-1">
   <div class="question-big-box">
-    <div class="question-msg-show <%= 'top' if top_answer %>">
+    <div class="question-msg-show">
       <div class="answer-details-upvotes">
         <div class="upvotes" data-answer-id="<%= answer.id %>" >
           <div class="counter">
@@ -8,8 +8,13 @@
           </div>
         </div>
         <div class="answer-details">
+        <% if top_answer %>
+          <div class="top">
+            <p>TOP ANSWER</p>
+          </div>
+        <% end %>
           <div class="answer-msg-show-body">
-            <p><%= answer.body.first(300) %></p>
+            <p><%= answer.body %></p>
           </div>
           <div class="question-msg-show-date">
             <p>Le <%= answer.created_at.strftime("%d/%m/%Y") %></p>

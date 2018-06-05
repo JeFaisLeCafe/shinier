@@ -22,12 +22,14 @@
 
 .question-big-box {
   display: flex;
+  width: 1000px;
   align-items: center;
   margin-top: 40px;
 }
 
 .question-pic-name {
-  flex: 0 0 20%;
+  // flex: 0 0 20%;
+  width: 200px;
 }
 
 .avatar-question-card {
@@ -38,7 +40,8 @@
 }
 
 .question-msg-show {
-  flex: 0 0 75%;
+  // flex: 0 0 75%;
+  width: 800px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -53,17 +56,29 @@
 }
 
 .question-msg-show-title {
-  flex: 0 0 80%;
+  // flex: 0 0 80%;
+  width: 600px;
   color: $blue-purple;
   font-weight: bold;
   margin-top: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  p {
+    overflow: hidden;
+    // white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+  }
 }
 
 .validation {
-  flex: 0 0 25%;
+  width: 150px;
+  // flex: 0 0 25%;
   margin-top: 11px;
   color: $pink-pop;
   font-size: 12px;
+  text-align: right;
   i {
     color: $pink-pop;
     font-size: 16px;
@@ -71,7 +86,14 @@
 }
 
 .question-msg-show-details {
+  width: 600px;
   color: $black;
+  p {
+    overflow: hidden;
+    // white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+  }
 }
 
 .question-msg-show-date {
@@ -83,7 +105,8 @@
 }
 
 #tag_cloud {
-  flex: 0 0 80%;
+  width: 550px;
+  // flex: 0 0 80%;
   a {
   color: $black;
   border: 1px solid $pink-pop;
@@ -110,12 +133,14 @@
 }
 
 .resolue {
-  flex: 0 0 20%;
+  width: 200px;
+  // flex: 0 0 20%;
   text-align: right;
 }
 
 .question-message-show {
   display: flex;
+  // max-width:
   align-items: center;
   padding: 20px;
   margin: 10px;
@@ -203,14 +228,28 @@
 
 .answer-details-upvotes {
   display: flex;
+  width: 800px;
+  align-items: center;
+}
+
+.top {
+  color: $pink-pop;
 }
 
 .answer-details {
-  flex: 0 0 80%;
+  // flex: 0 0 80%;
+  width: 600px;
+  p {
+    overflow: hidden;
+    // white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+  }
 }
 
 .upvotes {
-  flex: 0 0 10%;
+  // flex: 0 0 10%;
+  width: 100px;
   padding-top: 10px;
   padding-right: 10px;
   text-align: center;
@@ -223,16 +262,22 @@
   margin: 10px 0 0;
 }
 
-
-.question-show {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  opacity: 0;
+.answer-form-new {
+  width: 600px;
+  border-radius: 5px;
+  box-shadow: none;
 }
+
+
+// .question-show {
+//   position: absolute;
+//   z-index: 1;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   opacity: 0;
+// }
 
 
 
