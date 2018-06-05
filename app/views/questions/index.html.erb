@@ -17,7 +17,8 @@
               <span class="icon"><i class="fa fa-search"></i></span>
               <%= form_tag(questions_path, method: :get) do %>
                 <%= text_field_tag :query, params[:query], placeholder: "Pose ta question", class: 'form-control typeahead', id: "question_search"%>
-                <%= submit_tag 'Shine!' , class: 'search-btn' %>
+                <%= submit_tag 'Shine' , class: 'search-btn shake-slow' %>
+
               <% end %>
             </div>
           </div>
@@ -71,19 +72,24 @@
                   <div class="question-short">
                     <div class="question-title">
                       <h4>Question : <%= question.title %></h4>
+                      <div id='tag_cloud'>
+                        <% tag_cloud Question.tag_counts, %w{s m l} do |tag| %>
+                          <%= link_to tag.name, tag_path(tag.name) %>
+                        <% end %>
+                      </div>
                     </div>
                     <div class="resolue">
                       <% if current_user == question.user %>
                         <% if question.answered == false %>
-                          <%= link_to 'Resolue?', question_toggle_path(question), class: "btn-tertiary" %>
+                          <%= link_to 'Résolue?', question_toggle_path(question), class: "btn-tertiary" %>
                         <% else %>
-                          <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Resolue!</h4>
+                          <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Résolue!</h4>
                         <% end %>
                       <% else %>
                         <% if question.answered == false %>
                           <h4><i id="need" class="fas fa-ambulance"></i> &nbsp; Besoin de réponses !</h4>
                         <% else %>
-                          <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Resolue!</h4>
+                          <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Résolue!</h4>
                         <% end %>
                       <% end %>
                     </div>
@@ -110,7 +116,7 @@
 
                     <div class="top-answer">
                       <p>Meilleure réponse: pas encore donnée...</p>
-                      <p>A toi de donner une nouvelle réponse ! <i class="far fa-smile big-icon"></i></p>
+                      <p>À toi de donner une nouvelle réponse ! <i class="far fa-smile big-icon"></i></p>
                     </div>
 
                     <% else %>
