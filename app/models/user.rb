@@ -24,6 +24,39 @@ class User < ApplicationRecord
     invite_user(user)
   end
 
+  def set_status_in_community
+    self.user_number_votes
+    if self.user_number_votes > 29
+      self.status_in_community = "god"
+      self.save
+    elsif self.user_number_votes > 9
+      self.status_in_community = "fighter"
+      self.save
+    else
+      self.status_in_community = "newbie"
+      self.save
+    end
+  end
+
+  def user_number_votes
+    questions = Question.where(user_id: self.id)
+    upvotes = 0
+    if questions
+      questions.each do |question|
+        answers = []
+        self.answers.each do |answer|
+          answers << answer.get_upvotes.size
+        end
+        upvotes += answers.sum
+      end
+    end
+    return upvotes
+  end
+
+  def waiting_questions
+    questions = Question.where(user_id: self.id, answered: false)
+  end
+
   private
 
   def invite_user(user)
