@@ -31,7 +31,12 @@ class User < ApplicationRecord
   end
 
   def post_new_user(user)
-    user.slackname = "#{user.firstname + user.lastname}"
+    if user.firstname && user.lastname
+      user.slackname = "#{user.firstname + user.lastname}"
+    else
+      user.slackname = "Anonymous"
+    end
+
     user.save!
     SlackPost.new.post_new_user(user).deliver
   end

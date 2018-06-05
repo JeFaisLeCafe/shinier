@@ -10,7 +10,11 @@ class SlackPost
 
   def initialize(channel = ENV['SLACK_WEBHOOK_CHANNEL'])
     @uri = URI(ENV['SLACK_WEBHOOK_URL'])
-    @channel = channel
+    if Rails.env.development?
+      @channel = "#diabete-dev"
+    else
+      @channel = channel
+    end
   end
 
   def clicky_clicky(user, some, other, info)
