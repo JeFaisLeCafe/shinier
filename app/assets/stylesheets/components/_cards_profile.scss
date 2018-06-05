@@ -9,8 +9,8 @@
 .big-box {
   flex: 0 0 60%;
   display: flex;
-  background-color: $blue-pop;
-  border-radius: 4px;
+  border: $blue-pop 4px solid;
+  border-radius: 8px;
   margin: 10px;
   padding: 10px 25px 10px 25px;
   height: 200px;
@@ -26,8 +26,8 @@
 
 .small-box {
   flex: 0 0 40%;
-  background-color: $yellow-light;
-  border-radius: 4px;
+  border: $blue 4px solid;
+  border-radius: 8px;
   margin: 10px;
   padding: 10px 25px 10px 25px;
   height: 200px;
@@ -46,7 +46,7 @@
   height: 125px;
   width: 125px;
   border-radius: 50%;
-  border: 3px solid $yellow;
+  border: 3px solid $blue-pop;
   padding: 5px;
   background-color: $white;
 
@@ -56,12 +56,13 @@
   height: 110px;
   width: 110px;
   border-radius: 50%;
-  background-color: $yellow-light;
-  color: $black;
+  background-color: $blue-purple;
+  color: $white;
   margin-left: 10px;
   margin-top: 10px;
   text-align: center;
   transition: all 0.5s ease;
+  opacity: 0.6;
 
   p {
     margin: 0;
@@ -98,6 +99,7 @@
   padding-left: 50%;
   padding-top: 20px;
   padding-bottom: 20px;
+  color: $pink-pop;
 }
 
 .btn-tertiary.plus {
@@ -111,4 +113,5 @@
 
 .fa-bug {
   font-size: 24px;
+  color: $pink-pop;
 }

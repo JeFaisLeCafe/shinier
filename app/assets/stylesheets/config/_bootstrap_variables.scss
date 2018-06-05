@@ -24,9 +24,9 @@ $font-size-h6: floor(($font-size-base * 0.8)) !default; // ~13px
 $gray-base:       $gray;
 $brand-primary:   $blue;
 $brand-success:   $blue-pop;
-$brand-info:      $yellow;
+$brand-info:      $blue-purple;
 $brand-danger:    $dark-red;
-$brand-warning:   $yellow;
+$brand-warning:   $blue-purple;
 
 // Buttons & inputs' radius
 $border-radius-base:  2px;
@@ -40,14 +40,14 @@ $border-radius-small: 2px;
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
-  color: $yellow;
+  color: $blue-purple;
 }
 
 .was-validated .form-control:invalid,
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
-  border-color: $yellow;
+  border-color: $blue-purple;
 }
 
 .was-validated .form-control:invalid ~ .invalid-feedback,
