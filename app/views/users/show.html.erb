@@ -15,11 +15,9 @@
 
     <div class="small-box">
       <h4>Tes notifications</h4>
-      <p>Tes questions en attente : </p>
-      <p>Tes réponses : </p>
-      <p>Ton status : <%= current_user.status_in_community %> &nbsp;
-        <i class="fas fa-bug <%= current_user.status_in_community %>"></i>
-      </p>
+      <p>Tes questions en attente : <%= current_user.waiting_questions.size %></p>
+      <p>Valeur de tes réponses : <%= current_user.user_number_votes %></p>
+      <%= render 'status_pic' %>
     </div>
   </div>
 

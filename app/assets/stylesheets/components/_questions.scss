@@ -129,6 +129,15 @@
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
+}
+
+
+.filters {
+  .list-inline > li {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 15px;
   }
 }
 

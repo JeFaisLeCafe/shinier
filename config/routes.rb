@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :users
   get 'tags/:tag', to: 'questions#index', as: :tag
   # get "/questions/:id", to: "questions#mark_as_answered", as: :answered
+  get 'my_question', to: "pages#my_question"
 end

@@ -1,5 +1,5 @@
 
   <%= simple_form_for [question, answer], remote: true do |f| %>
-    <%= f.input :body, label: 'Et toi, quelle est ta réponse?', placeholder: 'Ma réponse...', class: "answer-form-new" %>
-    <%= f.button :submit, "Crée ta réponse", class: "btn-new" %>
+    <%= f.input :body, label: 'Et toi, quelle est ta réponse?', placeholder: 'Ma réponse...' %>
+    <%= f.button :submit, "Ajoute ta réponse", class: "btn-new" %>
   <% end %>

@@ -1,0 +1,13 @@
+<p>Ton statut : &nbsp;
+  <% current_user.set_status_in_community %>
+  <% case current_user.status_in_community %>
+  <% when "newbie" %>
+    <i class="fas fa-bug "></i> Débutant
+  <% when "god" %>
+    <i class="fas fa-chess-king"></i> Expert
+  <% when "fighter" %>
+    <i class="fas fa-chess-knight"></i> Expérimenté
+  <% when "doctor" %>
+    <i class="fas fa-user-md"></i> Médecin
+  <% end %>
+</p>
