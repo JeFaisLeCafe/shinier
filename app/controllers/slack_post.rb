@@ -57,10 +57,10 @@ class SlackPost
     params = {
       attachments: [
         {
-          title: 'A new user is here ! Connect and shine together',
+          title: 'Un nouvel utilisateur ! Brillons ensemble',
           fallback: 'new_user_here',
           color: GOOD,
-          text: "Welcome @#{user.slackname}, here is your Slack space ! You can now connect with other Shiny people like you!"
+          text: "Bienvenue @#{user.slackname} ! Tu peux maintenant te connecter avec d'autre Shiny personnes !"
         }
       ]
     }
@@ -72,7 +72,7 @@ class SlackPost
     params = {
       attachments: [
         {
-          title: 'A new question has been asked, somebody needs your help!',
+          title: 'Une nouvelle question a ete posee, on a besoin de toi!',
           fallback: 'new_question_asked',
           color: WARNING,
           text: "link to answer the question : " + Rails.application.routes.url_helpers.question_url(question.id)

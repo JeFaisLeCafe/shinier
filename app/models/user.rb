@@ -31,8 +31,8 @@ class User < ApplicationRecord
   end
 
   def post_new_user(user)
-    if user.firstname && user.lastname
-      user.slackname = "#{user.firstname + user.lastname}"
+    if user.firstname
+      user.slackname = "#{user.firstname}"
     else
       user.slackname = "Anonymous"
     end
