@@ -32,8 +32,8 @@
       <div class="navbar-wagon-item navbar-wagon-link" id="allo">
         <div class="dropdown">
           <p class="dropdown-toggle" data-toggle="dropdown" ><i class="material-icons">feedback</i>
-            <% if current_user.notifications.pluck(:read_at).any? { |item| item.nil? } %>
-              <%= current_user.notifications.count - current_user.notifications.pluck(:read_at).count %>
+            <% if current_user.notifications.where(read_at: nil).any? %>
+              <%= current_user.notifications.where(read_at: nil).count %>
             <% end %>
           </p>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -47,8 +47,6 @@
           </ul>
         </div>
       </div>
-
-
 
 
       <!-- Avatar with dropdown menu -->

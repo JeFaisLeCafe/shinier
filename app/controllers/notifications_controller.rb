@@ -16,18 +16,13 @@ class NotificationsController < ApplicationController
     else
       @notifications.update_all({read_at: Time.zone.now})
     end
-
-    # respond_to do |format|
-    #   format.js
-    #   format.json { render json: { success: true } }
-    # end
+    redirect_back fallback_location: root_path
   end
 
   private
 
   def set_notifications
     @notifications = Notification.where(recipient: current_user).unread
-
   end
 
 end
