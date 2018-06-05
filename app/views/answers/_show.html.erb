@@ -1,21 +1,35 @@
- <div class="question-message">
-    <div class="question-content">
-      <!-- <div class="question-short"> -->
-        <div class="question-title">
-          <div class="answers">
-             <div class="upvotes" data-answer-id="<%= answer.id %>">
-                <div class="arrow"></div>
-                <div class="counter">
-                <%= render "answers/counter", answer: answer %>
-                </div>
-              </div>
-              <div class="top-answer">
-                <p>Repondu par <%= answer.user.firstname %> le <%= answer.created_at.strftime("%d/%m/%Y") %></p>
-                <p><%= answer.body %></p>
-                <h6><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(answer), method: :put %></h6>
-              </div>
+<div class="col-xs-10 col-xs-offset-1">
+  <div class="question-big-box">
+    <div class="question-msg-show">
+      <div class="answer-details-upvotes">
+        <div class="upvotes" data-answer-id="<%= answer.id %>" >
+          <div class="counter">
+            <%= render "answers/counter", answer: answer %>
           </div>
         </div>
-      <!-- </div> -->
+        <div class="answer-details">
+        <% if top_answer %>
+          <div class="top">
+            <p>TOP ANSWER</p>
+          </div>
+        <% end %>
+          <div class="answer-msg-show-body">
+            <p><%= answer.body %></p>
+          </div>
+          <div class="question-msg-show-date">
+            <p>Le <%= answer.created_at.strftime("%d/%m/%Y") %></p>
+          </div>
+          <div class="question-msg-show-report">
+            <h6><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(answer), method: :put %></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="question-pic-name">
+      <%= cl_image_tag answer.user.photo, crop: :fill, class: "avatar-question-card" %>
+      <h4><%= answer.user.firstname %></h4>
     </div>
   </div>
+</div>
+
+

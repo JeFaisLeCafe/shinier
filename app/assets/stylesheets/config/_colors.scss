@@ -2,17 +2,30 @@
 
 // For example:
 
-
+// BASIC COLORS:
 $black: #484848;
 $white: #ffffff;
-$light-gray: #f7f7F7;
+$light-gray: #f7f7F7; // MAIN
 $gray: #dfdfdf; // medium-gray
-$blue: #101e3d; // dark blue
-$blue-pop: #4FC3F7;
-$blue-text: #139AD6;
+
+// BLUE COLORS:
+$blue: #5F96ED; // MAIN
+$blue-pop: #139AD6; // MAIN
+$previous-dark-blue: #101e3d; // PREVIOUS dark blue
+$previous-pop-blue: #4FC3F7; // PREVIOUS pop
+
+//PURPLE COLORS:
+$blue-purple: #6E81E6; // MAIN PURPLE
+$purple-light: #AD82E1;
+
+// PINK COLORS:
+$pink-pop: #F33E7D; // MAIN
+$pink-mid: #DA6EBA;
+$dark-red: #D21849; // NOT MAIN
+
+// NOT IN USE:
 $yellow: #FEA300;
 $yellow-light: #fec45c;
-$dark-red: #D21849; // NOT MAIN
 $red: #D21849;
 $orange: #E67E22; // DONT'T USE
 $green: #32B796; // DONT'T USE
