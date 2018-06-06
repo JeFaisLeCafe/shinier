@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
 
+
   def index
     # should implement the way how the answer will be display
   end
