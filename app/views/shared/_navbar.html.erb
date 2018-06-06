@@ -2,17 +2,21 @@
   <!-- Logo -->
   <% if user_signed_in? %>
 
-    <%= link_to user_home_path, class: "navbar-wagon-brand" do %>
+    <div class="logo-box">
+      <%= link_to user_home_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "logo-shinier.svg", height: 50%>
-      <p class="logo-name">Shinier</p>
-    <% end %>
-
+        <p class="logo-name">Shinier</p>
+      <% end %>
+    </div>
 
   <% else %>
 
-    <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo-shinier.svg", height: 50 %>
-    <% end %>
+    <div class="logo-box">
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
+        <%= image_tag "logo-shinier.svg", height: 50 %>
+        <p class="logo-name">Shinier</p>
+      <% end %>
+    </div>
 
   <% end %>
 

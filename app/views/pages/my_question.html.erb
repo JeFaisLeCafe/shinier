@@ -1,98 +1,27 @@
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <div class="title">
-        <h1>Mes questions</h1>
+        <h1>Tes questions</h1>
       </div>
     </div>
   </div>
 
-
-
- <div class="row">
+  <div class="row">
     <div class="results">
       <% if @questions.blank? %>
-        <h3>Tu n'as pas encore posé de question.</h3>
-        <%= link_to "Poser une question", new_question_path, class: "btn-tertiary" %>
+        <div class="no-answer">
+          <i class="fas fa-question-circle big-pink-icon"></i>
+          <h3>Tu n'as pas encore posé de question.</h3>
+          <%= link_to "Poser une question", new_question_path, class: "btn-big" %>
+        </div>
       <% else %>
-          <% @questions.first(10).each do |question| %>
-            <% top_answer = question.answers.sort_by do |answer| %>
-              <% -answer.get_upvotes.size %>
-            <% end %>
-            <div class="col-xs-12">
-              <div class="question-message">
-                <a class="question-show" href="/questions/<%= question.id %>" ></a>
-                <div class="question-content">
-
-                  <div class="question-short">
-                    <div class="question-title">
-                      <h4>Question : <%= question.title %></h4>
-                    </div>
-                    <div class="resolue">
-                      <% if current_user == question.user %>
-                        <% if question.answered == false %>
-                          <%= link_to 'Resolue?', question_toggle_path(question), class: "btn-tertiary" %>
-                        <% else %>
-                          <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Resolue!</h4>
-                        <% end %>
-                      <% else %>
-                        <% if question.answered == false %>
-                          <h4><i id="need" class="fas fa-ambulance"></i> &nbsp; Besoin de réponses !</h4>
-                        <% else %>
-                          <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Resolue!</h4>
-                        <% end %>
-                      <% end %>
-                    </div>
-                    <div class="question-preview">
-                      <p><%= question.body.first(100) %>...</p>
-                    </div>
-                    <div class="validation">
-                      <% if question.useful? %>
-                        <p>Super question &nbsp;<i class="fas fa-rocket big-icon"></i></p>
-                      <% end %>
-                    </div>
-                  </div>
-
-                  <div class="answers">
-                    <% if top_answer.blank? %>
-
-                    <div class="upvotes">
-                      <div class="arrow"></div>
-                      <div class="counter">
-                        <h4>0</h4>
-                      </div>
-                      <i class="fas fa-hands-helping"></i>
-                    </div>
-
-                    <div class="top-answer">
-                      <p>Meilleure réponse: pas encore donnée...</p>
-                      <p>A toi de donner une nouvelle réponse ! <i class="far fa-smile big-icon"></i></p>
-                    </div>
-
-                    <% else %>
-                    <div class="upvotes">
-                      <div class="arrow"></div>
-                      <div class="counter">
-                        <h4><%= top_answer.first.get_upvotes.size %></h4>
-                        <%= link_to like_answer_path(top_answer), method: :put do %>
-                          <i class="fas fa-hands-helping"></i>
-                        <% end %>
-                      </div>
-                    </div>
-
-                    <div class="top-answer">
-                      <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
-                      <p><%= top_answer.first.body %></p>
-                      <h6><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(top_answer), method: :put %></h6>
-                    </div>
-                    <% end %>
-                  </div>
-                </div>
-            </div>
-          </div>
+        <% @questions.each do |question| %>
+          <%= render "questions/index_card", question: question %>
         <% end %>
+        <%= paginate @questions %>
       <% end %>
     </div>
   </div>
 </div>
+
