@@ -11,6 +11,7 @@
         <%= form_for [@user] do |f|%>
           <h4>Hello <%= f.text_field :firstname, placeholder: "Ton prénom", value: "#{current_user.firstname}", class: "edit_form" %></h4>
           <p>Ville : <%= f.text_field :location, value: "#{current_user.location}", class: "edit_form" %></p>
+          <p>Photo : <%= f.file_field :photo, class: "edit_form" %></p>
         <%= f.submit :submit, value: "enregistrer", class: "btn-tertiary"%>
         <% end %>
       </div>

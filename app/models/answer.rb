@@ -9,11 +9,10 @@ class Answer < ApplicationRecord
   after_create :create_notifications
 
   def create_notifications
-    answer_user = self.question.answers.map(&:user).uniq
-    answer_user.each do |recipient|
-      Notification.create(recipient: recipient, actor: self.user,
-        action: 'posted', notifiable: self)
-    end
+
+    recipient = self.question.user
+    # answer_user = self.question.answers.map(&:user)
+    Notification.create(recipient: recipient, actor: self.user, action: 'posted', notifiable: self)
   end
 
   def top_answer
