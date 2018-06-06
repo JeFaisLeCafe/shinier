@@ -10,34 +10,14 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="index-search-bar">
-
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
             <div class="form-search">
               <span class="icon"><i class="fa fa-search"></i></span>
               <%= form_tag(questions_path, method: :get) do %>
-                <%= text_field_tag :query, params[:query], placeholder: "Pose ta question", class: 'form-control typeahead', id: "question_search"%>
-                <%= submit_tag 'Shine' , class: 'search-btn shake-slow' %>
-
+                <%= text_field_tag :query, params[:query], class: 'form-control typeahead', id: "question_search", placeholder:"Recherche ta question" %>
+                <%= submit_tag 'Shine' , class: 'search-btn shake-slow'  %>
               <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="filters">
-              <h3>Filtres </h3>
-                <ul class="list-inline">
-                  <li>
-                    <%= link_to "Top Questions", user_home_path, :class => "btn-tertiary" %>
-                  </li>
-                  <li>
-                    <%= link_to "Proposer des réponses", user_home_path, :class => "btn-tertiary" %>
-                  </li>
-                  <li>
-                    <%= link_to "Mes questions", my_question_path, :class => "btn-tertiary" %>
-                  </li>
-                </ul>
             </div>
           </div>
         </div>
@@ -46,103 +26,53 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-      <%= link_to new_question_path do %>
-        <li class="btn-new">Pose une nouvelle question</li>
-      <% end %>
+    <div class="col-xs-12">
+      <div class="filters">
+        <h3>Filtres </h3>
+          <ul class="list-inline">
+            <li>
+              <%= link_to "Top Questions", user_home_path, :class => "btn-tertiary" %>
+            </li>
+            <li>
+              <%= link_to "Proposer des réponses", user_home_path, :class => "btn-tertiary" %>
+            </li>
+            <li>
+              <%= link_to "Mes questions", my_question_path, :class => "btn-tertiary" %>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="ask-new-question">
+        <%= link_to new_question_path do %>
+          <li class="btn-big">Pose une nouvelle question</li>
+        <% end %>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="results">
       <% if @questions.blank? %>
-        <h3>Oups, aucune question en rapport avec "<%= params[:query] %>" ne semble exister.</h3>
+
+        <div class="no-answer">
+          <i class="fas fa-question-circle big-pink-icon"></i>
+          <h3>Oups, aucune question en rapport avec "<%= params[:query] %>" ne semble exister.</h3>
+          <h3>Pose ta question !</h3>
+        </div>
+
       <% else %>
-          <% @questions.first(10).each do |question| %>
-
-            <% top_answer = question.answers.sort_by do |answer| %>
-              <% -answer.get_upvotes.size %>
-            <% end %>
-
-            <div class="col-xs-12">
-              <div class="question-message">
-                <a class="question-show" href="/questions/<%= question.id %>" ></a>
-                <div class="question-content">
-
-                  <div class="question-short">
-                    <div class="question-title">
-                      <h4>Question : <%= question.title %></h4>
-                      <div id='tag_cloud'>
-                        <% tag_cloud Question.tag_counts, %w{s m l} do |tag| %>
-                          <%= link_to tag.name, tag_path(tag.name) %>
-                        <% end %>
-                      </div>
-                    </div>
-                    <div class="resolue">
-                      <% if current_user == question.user %>
-                        <% if question.answered == false %>
-                          <%= link_to 'Résolue?', question_toggle_path(question), class: "btn-tertiary" %>
-                        <% else %>
-                          <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Résolue!</h4>
-                        <% end %>
-                      <% else %>
-                        <% if question.answered == false %>
-                          <h4><i id="need" class="fas fa-ambulance"></i> &nbsp; Besoin de réponses !</h4>
-                        <% else %>
-                          <h4> <i class="fas fa-crown big-icon"></i> &nbsp; Résolue!</h4>
-                        <% end %>
-                      <% end %>
-                    </div>
-                    <div class="question-preview">
-                      <p><%= question.body.first(100) %>...</p>
-                    </div>
-                    <div class="validation">
-                      <% if question.useful? %>
-                        <p>Super question &nbsp;<i class="fas fa-rocket big-icon"></i></p>
-                      <% end %>
-                    </div>
-                  </div>
-
-                  <div class="answers">
-                    <% if top_answer.blank? %>
-
-                    <div class="upvotes">
-                      <div class="arrow"></div>
-                      <div class="counter">
-                        <h4>0</h4>
-                      </div>
-                      <i class="fas fa-hands-helping"></i>
-                    </div>
-
-                    <div class="top-answer">
-                      <p>Meilleure réponse: pas encore donnée...</p>
-                      <p>À toi de donner une nouvelle réponse ! <i class="far fa-smile big-icon"></i></p>
-                    </div>
-
-                    <% else %>
-                    <div class="upvotes">
-                      <div class="arrow"></div>
-                      <div class="counter">
-                        <h4><%= top_answer.first.get_upvotes.size %></h4>
-                        <%= link_to like_answer_path(top_answer), method: :put do %>
-                          <i class="fas fa-hands-helping"></i>
-                        <% end %>
-                      </div>
-                    </div>
-
-                    <div class="top-answer">
-                      <p>Meilleure réponse par <%= top_answer.first.user.firstname %> le <%= top_answer.first.created_at.strftime("%d/%m/%Y") %></p>
-                      <p><%= top_answer.first.body %></p>
-                      <h6><%= link_to "Cette réponse te paraît inappropriée?", dislike_answer_path(top_answer), method: :put %></h6>
-                    </div>
-                    <% end %>
-                  </div>
-                </div>
-            </div>
-          </div>
+        <% @questions.each do |question| %>
+          <%= render "questions/index_card", question: question %>
         <% end %>
+
+        <%= paginate @questions %>
       <% end %>
     </div>
   </div>
-
 </div>
+

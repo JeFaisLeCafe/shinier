@@ -6,6 +6,15 @@ class Answer < ApplicationRecord
   validates :body, presence: true
   validates :user, presence: true
   acts_as_votable
+  after_create :create_notifications
+
+  def create_notifications
+    answer_user = self.question.answers.map(&:user).uniq
+    answer_user.each do |recipient|
+      Notification.create(recipient: recipient, actor: self.user,
+        action: 'posted', notifiable: self)
+    end
+  end
 
   def top_answer
     question = self.question
@@ -14,5 +23,4 @@ class Answer < ApplicationRecord
     end
     question_sorted.first == self
   end
-
 end

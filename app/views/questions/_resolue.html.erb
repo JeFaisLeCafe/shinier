@@ -1,0 +1,13 @@
+<% if current_user == question.user %>
+  <% if question.answered == false %>
+    <%= link_to 'Résolue?', question_toggle_path(question), class: "btn-tertiary" %>
+  <% else %>
+    <h5> <i class="fas fa-crown big-blue-icon"></i> &nbsp; RÉSOLUE !</h5>
+  <% end %>
+<% else %>
+  <% if question.answered == false %>
+    <h5 class="h5-pink"><i id="need" class="fas fa-ambulance big-pink-icon"></i> &nbsp; BESOIN DE RÉPONSES !</h5>
+  <% else %>
+    <h5> <i class="fas fa-crown big-icon big-blue-icon"></i> &nbsp; RÉSOLUE !</h5>
+  <% end %>
+<% end %>

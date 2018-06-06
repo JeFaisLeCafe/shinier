@@ -21,4 +21,9 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'questions#index', as: :tag
   # get "/questions/:id", to: "questions#mark_as_answered", as: :answered
   get 'my_question', to: "pages#my_question"
+
+  resources :notifications, only: [:index] do
+    post :mark_as_read, on: :collection
+    post :mark_as_read, on: :member
+  end
 end
