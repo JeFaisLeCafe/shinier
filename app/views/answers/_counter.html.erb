@@ -1,4 +1,4 @@
 <div> <%= answer.get_upvotes.size %></div>
 <%= link_to like_answer_path(answer), method: :put, remote: true do %>
-  <i class="fa fa-heart big-icon"></i>
+  <div tooltip = "Vous avez trouvé cette réponse utile? cliquez ici pour le dire à a communauté !"><i class="fas fa-hands-helping"></i></div>
 <% end %>
