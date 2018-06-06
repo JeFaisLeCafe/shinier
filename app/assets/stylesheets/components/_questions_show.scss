@@ -49,6 +49,10 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  overflow: hidden;
+  // white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
   p {
     overflow: hidden;
     // white-space: nowrap;
@@ -73,6 +77,10 @@
 .question-msg-show-details {
   width: 750px;
   color: $black;
+  overflow: hidden;
+  // white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
   p {
     overflow: hidden;
     // white-space: nowrap;
@@ -174,6 +182,10 @@
 .answer-details {
   // flex: 0 0 80%;
   width: 600px;
+  overflow: hidden;
+  // white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
   p {
     overflow: hidden;
     // white-space: nowrap;
