@@ -1,19 +1,22 @@
 .btn-main {
   color: $white;
-  border: 1px solid $blue;
-  padding: 10px 15px;
+  border: 1px solid $blue-pop;;
+  padding: 10px 20px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
-  background: $blue;
+  opacity: 1;
+  background: $blue-pop;;
   transition: background 0.3s ease;
   text-decoration: none;
   list-style: none;
+  font-family: $buttons-font;
+  margin: 25px 0 0 0;
+  display: inline-block;
 
   &:hover {
-  opacity: 1;
-  background: $blue-pop;
-  border-color: $blue-pop;
+  opacity: 0.6;
+  background: $blue;
+  color: $white;
   text-decoration: none;
   }
 }
@@ -21,15 +24,17 @@
 
 .btn-secondary {
   color: $white;
-  border: 1px solid $blue-pop;
-  padding: 10px 15px;
+  border: 1px solid $blue;
+  padding: 10px 20px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
-  background: $blue-pop;
+  opacity: 1;
+  background: $blue;
   transition: background 0.3s ease;
   text-decoration: none;
   list-style: none;
+  margin: 5px;
+  font-family: $buttons-font;
 
   &:hover {
   opacity: 1;
@@ -41,21 +46,23 @@
 
 
 .btn-tertiary {
-  color: $white;
-  border: 1px solid $blue-purple;
-  padding: 10px 15px;
+  color: $black;
+  border: 1px solid $blue-pop;
+  padding: 10px 20px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
-  background: $blue-purple;
+  opacity: 1;
+  background: $white;
   transition: background 0.3s ease;
   text-decoration: none;
   list-style: none;
+  margin: 5px;
+  font-family: $buttons-font;
 
   &:hover {
-  opacity: 1;
-  background: $white;
-  color: $black;
+  opacity: 0.2;
+  background: $blue-pop;
+  color: $white;
   text-decoration: none;
   }
 }
@@ -63,34 +70,40 @@
 .search-btn {
   color: $white;
   border: 1px solid $blue-pop;
-  padding: 6px 15px;
-  border-radius: 19px;
+  padding: 10px 20px;
+  border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
+  opacity: 1;
   background: $blue-pop;
   transition: background 0.3s ease;
   text-decoration: none;
   list-style: none;
+  margin: 5px;
+  font-family: $buttons-font;
 
   &:hover {
-  opacity: 1;
+  opacity: 0.6;
   background: $white;
   color: $black;
   text-decoration: none;
 
   }
 }
+
 .btn-new {
   color: $white;
   border: 1px solid $blue-pop;
-  padding: 12px 30px;
+  padding: 10px 20px;
   border-radius: 50px;
   font-weight: lighter;
   background: $blue-pop;
   transition: background 0.3s ease;
   text-decoration: none;
   list-style: none;
-  margin-top: 10px;
+  opacity: 1;
+  font-family: $buttons-font;
+  margin: 25px 0 0 0;
+  display: inline-block;
 
   &:hover {
   opacity: 1;
@@ -99,20 +112,47 @@
   text-decoration: none;
   }
 }
+
+.btn-big {
+  color: $white;
+  border: 1px solid $blue-pop;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  background: $blue-pop;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  list-style: none;
+  opacity: 1;
+  font-family: $buttons-font;
+  margin: 5px 0 0 0;
+  display: inline-block;
+
+  &:hover {
+  opacity: 1;
+  background: $white;
+  color: $black;
+  text-decoration: none;
+  }
+}
+
 
 .btn-tag {
   color: $black;
   border: 1px solid $pink-pop;
-  padding: 5px 16px;
+  padding: 10px 20px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
+  opacity: 1;
   background: $white;
   transition: background 0.3s ease;
   text-decoration: none;
   list-style: none;
+  font-family: $buttons-font;
+
   &:hover {
-  opacity: 1;
+  opacity: 0.6;
   background: $white;
   color: $black;
   text-decoration: none;

@@ -4,7 +4,7 @@
       <div class="question-big-box">
         <div class="question-pic-name">
           <%= cl_image_tag @question.user.photo, crop: :fill, class: "avatar-question-card" %>
-            <h4><%= @question.user.firstname %></h4>
+            <p><%= @question.user.firstname %></p>
         </div>
 
         <div class="question-msg-show">
@@ -14,37 +14,25 @@
             </div>
             <div class="validation">
               <% if @question.useful? %>
-                <p>SUPER QUESTION &nbsp;<i class="fas fa-rocket big-icon"></i></p>
+                <h5>SUPER QUESTION &nbsp;<i class="fas fa-rocket big-blue-icon"></i></h5>
               <% end %>
             </div>
           </div>
 
-          <div class="div-question-msg-show-details">
-            <p>Détails: <%= @question.body.capitalize.first(300) %></p>
+          <div class="question-msg-show-details">
+            <p>Détails: <%= @question.body.capitalize %></p>
           </div>
           <div class="question-msg-show-date">
             <p>Le <%= @question.created_at.strftime("%d/%m/%Y")%></p>
           </div>
           <div class="tag-and-resolue">
             <div id='tag_cloud'>
-              <% tag_cloud Question.tag_counts, %w{s m l} do |tag| %>
+              <% tag_cloud @question.tag_counts, %w{s m l} do |tag| %>
                 <%= link_to tag.name, tag_path(tag.name)%>
               <% end %>
             </div>
             <div class="resolue">
-              <% if current_user == @question.user %>
-                <% if @question.answered == false %>
-                  <%= link_to 'Résolue?', question_toggle_path(@question), class: "btn-tertiary" %>
-                <% else %>
-                  <p> <i class="fas fa-crown big-icon"></i> &nbsp; Résolue!</p>
-                <% end %>
-              <% else %>
-                <% if @question.answered == false %>
-                  <p><i id="need" class="fas fa-ambulance"></i> &nbsp; Besoin de réponses !</p>
-                <% else %>
-                  <p> <i class="fas fa-crown big-icon"></i> &nbsp; Résolue!</p>
-                <% end %>
-              <% end %>
+              <%= render "questions/resolue", question: @question %>
             </div>
           </div>
         </div>

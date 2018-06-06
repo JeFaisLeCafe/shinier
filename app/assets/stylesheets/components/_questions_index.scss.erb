@@ -1,0 +1,159 @@
+// TITLE
+
+.title {
+  border-bottom: 1px solid $gray;
+  width: 100%;
+  border-top: 1px solid $gray;
+  padding: 20px 0px;
+  font-weight: bolder;
+}
+
+
+// SEARCH BAR
+
+
+.index-search-bar {
+  border-bottom: 1px solid $gray;
+  padding: 20px 0px;
+  h3 {
+    margin: 5px;
+  }
+}
+
+
+// FILTERS
+
+.filters {
+  border-bottom: 1px solid $gray;
+  padding: 20px 0px;
+  .list-inline > li {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  h3 {
+    margin: 5px;
+  }
+}
+
+// ASK NEW QUESTION
+
+.ask-new-question {
+  border-bottom: 1px solid $gray;
+  padding: 20px 0px;
+  h3 {
+    margin: 5px;
+  }
+  .btn-new .big{
+    margin: 5px !important;
+    padding: 30px !important;
+    font-size: 24px !important; }
+}
+
+
+
+
+// RESULTS
+
+.results {
+  display: flex;
+  flex-direction: column;
+  display: bloc;
+}
+
+// QUESTION CARD
+
+.question-index-msg {
+  width: 800px;
+  background-image: url("<%= asset_path 'front-card.svg' %>");
+  background-position: center;
+  background-size: cover;
+  color: $white;
+  margin-top: 30px;
+  padding-top: 20px;
+  height: 400px;
+  margin-left: 15%;
+  position: relative;
+  border-radius: 5px;
+}
+
+.question-index-title {
+  height: 50px;
+  width: 800px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  h4 {
+    overflow: hidden;
+    // white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+  }
+}
+
+.question-index-best-answer {
+  height: 100px;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid $white;
+  width: 600px;
+  margin-left: 12%;
+  display: flex;
+  align-items: center;
+}
+
+.question-index-answer {
+  height: 80px;
+  width: 600px;
+  background: $white;
+  color: $black;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+
+    p {
+    overflow: hidden;
+    // white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+  }
+}
+
+.question-index-indicators {
+  position: absolute;
+  top: 10px;
+  right: 45px;
+}
+
+.question-index-resolue {
+  color: $white;
+}
+
+.question-index-tags {
+  height: 30px;
+  width: 800px;
+}
+
+// LINK
+
+
+.question-show {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  bottom: -10px;
+  right: 10px;
+  width: 90%;
+  opacity: 0;
+}
+
+// NO ANSWER
+
+.no-answer {
+  margin: 30px;
+  padding: 30px;
+
+  i {
+    color: $pink-pop;
+    font-size: 48px;
+  }
+}

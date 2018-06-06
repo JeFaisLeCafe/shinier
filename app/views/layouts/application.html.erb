@@ -35,7 +35,7 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <% style = "background-image: linear-gradient(to bottom, transparent 20%, white 100%), url(#{asset_path 'background-show.svg'});" %>
+    <% style = "background-image: linear-gradient(to bottom, transparent 2%, transparent 100%), url(#{asset_path 'shinier-background.png'});" %>
     <div class="content-min-height" style="<%= params[:controller] == "questions" && params[:action] == "show" ? style : "" %>">
       <%= yield %>
     </div>
