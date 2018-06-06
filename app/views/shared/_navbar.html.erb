@@ -43,7 +43,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <% current_user.notifications.each do |notification| %>
               <% if notification.read_at.nil? %>
-                <li> <div> <%= link_to "#{notification.recipient.firstname} a repondu", question_path(notification.notifiable.question), class: "navbar-wagon-item navbar-wagon-link" %> <%= link_to "lu?", mark_as_read_notification_path(notification), method: :post, class: "navbar-wagon-item navbar-wagon-link", id: "lu" %> </div>
+                <li> <div> <%= link_to "#{notification.actor.firstname} a repondu", question_path(notification.notifiable.question), class: "navbar-wagon-item navbar-wagon-link" %> <%= link_to "lu?", mark_as_read_notification_path(notification), method: :post, class: "navbar-wagon-item navbar-wagon-link", id: "lu" %> </div>
                 </li>
               <% end %>
             <% end %>
