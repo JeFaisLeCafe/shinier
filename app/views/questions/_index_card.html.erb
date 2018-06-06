@@ -3,7 +3,7 @@
   <div class="question-index-avatar-title-tags">
     <div class="question-index-avatar">
       <%= cl_image_tag question.user.photo, crop: :fill, class: "avatar-question-card" %>
-      <p><%= question.user.firstname %></p>
+      <h5><%= question.user.firstname %></h5>
     </div>
     <div class="question-index-tags">
       <div id='tag_cloud'>
@@ -33,7 +33,7 @@
   <div class="question-index-indicators">
     <div class="question-index-validation">
       <% if question.useful? %>
-        <h5>SUPER QUESTION &nbsp;<i class="fas fa-rocket big-blue-icon"></i></h5>
+        <h5>SUPER QUESTION &nbsp;<i class="fas fa-rocket big-pink-icon"></i></h5>
       <% end %>
     </div>
     <div class="question-index-resolue">

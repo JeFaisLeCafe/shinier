@@ -41,7 +41,7 @@
 
               <div class='front'>
                 <div class="header-flip-card">
-                  <h4 class='flip-title'><%= question.title.first(30) %>...</h4>
+                  <h4 class='flip-title'><%= question.title.first(35) %>...</h4>
                   <div class="picture-name">
                     <%= cl_image_tag question.user.photo, height: 50, width: 50, crop: :fill, class: "avatar-flip-card" %>
                     <p><%= question.user.firstname %></p>

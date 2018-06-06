@@ -1,10 +1,11 @@
+<div class="background-img" style="  background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.1) 50%), url('#{asset_path('shinier-background.png')}');">
 <div class="container">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
       <div class="question-big-box">
         <div class="question-pic-name">
           <%= cl_image_tag @question.user.photo, crop: :fill, class: "avatar-question-card" %>
-            <p><%= @question.user.firstname %></p>
+            <h5><%= @question.user.firstname %></h5>
         </div>
 
         <div class="question-msg-show">
@@ -50,11 +51,14 @@
   </div>
 
   <div class="row">
-    <div class="answer-form">
-      <%= render 'answers/form', question: @question, answer: @answer %>
-      <%= paginate @answers %>
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="answer-form">
+        <%= render 'answers/form', question: @question, answer: @answer %>
+        <%= paginate @answers %>
+      </div>
     </div>
   </div>
+</div>
 </div>
 
 

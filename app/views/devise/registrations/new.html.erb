@@ -1,29 +1,29 @@
 <div class="background-img" style="  background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.1) 50%), url('https://images.unsplash.com/photo-1523958876433-2efd85bb667f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7c0e88366ca715290f97778ca0f2e096&auto=format&fit=crop&w=1350&q=80');">
 
-        <div class="form">
+  <div class="form">
 
-          <div class="form-title">
-            <h2>Inscription</h2>
-          </div>
+    <div class="form-title">
+      <h2>Inscription</h2>
+    </div>
 
-          <div class="form-content">
-            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= f.error_notification %>
+    <div class="form-content">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-              <div class="form-inputs">
-                <%= f.input :firstname, required: true, autofocus: true, label: 'Ton prénom ?', placeholder: "mon prénom..." %>
-                <%= f.input :email, required: true, autofocus: true, label: 'Ton email ?', placeholder: "mon@gmail.com" %>
-                <%= f.input :password, required: true, label: 'Ton mot de passe ?', placeholder: "****", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-                <%= f.input :password_confirmation, required: true, label: 'Ton mot de passe, à nouveau ?', placeholder: "****" %>
+        <div class="form-inputs">
+          <%= f.input :firstname, required: true, autofocus: true, label: 'Ton prénom ?', placeholder: "mon prénom..." %>
+          <%= f.input :email, required: true, autofocus: true, label: 'Ton email ?', placeholder: "mon@gmail.com" %>
+          <%= f.input :password, required: true, label: 'Ton mot de passe ?', placeholder: "****", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true, label: 'Ton mot de passe, à nouveau ?', placeholder: "****" %>
 
-                <%= f.input :disease_id, label: "Choisis ta pathologie :", as: :select, collection: Disease.all, include_blank: false %>
-                <%= f.input :photo %>
-                <%= f.input :photo_cache, as: :hidden %>
-              </div>
-              <div class="form-actions">
-                <%= f.button :submit, "Créer ton compte", class: "btn-form" %>
-              </div>
-            <% end %>
-          </div>
+          <%= f.input :disease_id, label: "Choisis ta pathologie :", as: :select, collection: Disease.all, include_blank: false %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
         </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Créer ton compte", class: "btn-form" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

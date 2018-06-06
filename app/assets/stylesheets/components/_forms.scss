@@ -39,12 +39,12 @@
 .btn-form {
   margin-top: 20px;
   color: $black;
-  border: 1px solid $blue;
+  border: 1px solid $blue-pop;
   padding: 8px 15px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
-  background: $blue;
+  opacity: 1;
+  background: $blue-pop;
   transition: background 0.3s ease;
   text-decoration: none;
   width: 100%;
@@ -53,9 +53,9 @@
   margin-bottom: 20px;
 
   &:hover {
-  opacity: 1;
-  background: $blue-pop;
-  border-color: $blue-pop;
+  opacity: 0.6;
+  background: $blue;
+  border-color: $blue;
   color: $white;
   }
 
