@@ -68,7 +68,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li><%= link_to "Mes questions", my_question_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
             <li><%= link_to "Pathologie", disease_path(current_user.disease), class: "navbar-wagon-item navbar-wagon-link" %></li>
-            <li><%= link_to "Slack", "slack://channel?id=CB186R4SH&team=UB25H41HV", class: "navbar-wagon-item navbar-wagon-link" %></li>
+            <li><%= link_to "Slack", "https://shinier.slack.com/messages/diabete/", target: "_blank", class: "navbar-wagon-item navbar-wagon-link" %></li>
             <li>
               <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
             </li>
