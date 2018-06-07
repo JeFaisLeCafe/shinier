@@ -10,6 +10,6 @@ class PagesController < ApplicationController
 
   def my_question
     @questions = current_user.questions.all
+    @pages = @questions.page(params[:page]).per(5)
   end
-
 end
