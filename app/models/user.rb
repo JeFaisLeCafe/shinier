@@ -29,7 +29,7 @@ class User < ApplicationRecord
 
   def get_user_slack_id
     slack_users = JSON.parse(RestClient.get("https://slack.com/api/users.list?token=#{ENV["SLACK_TOKEN2"]}"))
-    self.slack_id = slack_users["members"].select { |member| member["profile"]["email"] == self.email  }.first["id"]
+    self.slack_id = slack_users["members"].find { |member| member["profile"]["email"] == self.email  }&["id"]
   end
 
   def set_status_in_community
