@@ -13,6 +13,11 @@ div#allo ul {
   background: $blue-pop;
   color: white;
   text-align: center;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+  }
+
 }
 
 #allo {
