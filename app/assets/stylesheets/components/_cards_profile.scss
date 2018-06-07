@@ -9,12 +9,14 @@
 .big-box {
   flex: 0 0 60%;
   display: flex;
-  border: $blue-pop 4px solid;
+  border-bottom: $blue-pop 12px solid;
   border-radius: 8px;
   margin: 10px;
   padding: 10px 25px 10px 25px;
   height: 200px;
   position: relative;
+  background-color: white;
+
 }
 
 .big-box-details {
@@ -33,7 +35,8 @@
 
 .small-box {
   flex: 0 0 40%;
-  border: $blue 4px solid;
+  border-bottom: $blue 12px solid;
+  background-color: white;
   border-radius: 8px;
   margin: 10px;
   padding: 10px 25px 10px 25px;
@@ -63,13 +66,13 @@
   height: 110px;
   width: 110px;
   border-radius: 50%;
-  background-color: $blue-purple;
+  background-color: $blue-pop;
   color: $white;
   margin-left: 10px;
   margin-top: 10px;
   text-align: center;
   transition: all 0.5s ease;
-  opacity: 0.6;
+  opacity: 0.9;
 
   p {
     margin: 0;
@@ -77,7 +80,7 @@
   }
 
   &:hover {
-    background-color: $blue-pop;
+    background-color: $blue;
     color: $white;
   }
 }
@@ -103,7 +106,7 @@
 
 .fa-star {
   font-size: 30px;
-  padding-left: 50%;
+  padding-left: 35%;
   padding-top: 20px;
   padding-bottom: 20px;
   color: $pink-pop;
