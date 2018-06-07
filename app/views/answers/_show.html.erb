@@ -29,9 +29,19 @@
       <%= cl_image_tag answer.user.photo, crop: :fill, class: "avatar-question-card" %>
       <h5><%= answer.user.firstname %></h5>
       <% if current_user.slack_id %>
-      <p><%= link_to "Contact this user", "https://shinier.slack.com/messages/#{current_user.slack_id}/", target: "_blank" %></p>
+        <div class="contact">
+          <%= link_to "https://shinier.slack.com/messages/#{current_user.slack_id}/", target: "_blank" do %>
+            <i class="fas fa-comments"></i>
+            <h6>Contact</h6>
+          <% end %>
+        </div>
       <% else %>
-        <p><%= link_to "Contact this user", "https://shinier.slack.com/messages/diabete/", target: "_blank" %></p>
+        <div class="contact">
+          <%= link_to "https://shinier.slack.com/messages/diabete/", target: "_blank" do %>
+            <i class="fas fa-comments"></i>
+            <h6>Contact</h6>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
