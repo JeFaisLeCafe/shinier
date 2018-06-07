@@ -36,30 +36,31 @@
 
       <div class="navbar-wagon-item navbar-wagon-link" id="allo">
         <div class="dropdown">
-          <p class="dropdown-toggle" data-toggle="dropdown">
+          <div class="dropdown-toggle" data-toggle="dropdown">
             <% if current_user.notifications.where(read_at: nil).any? %>
                 <i class="fas fa-bell shake bell-full-pink"></i>
                 <span class="bell-full-pink"><%= current_user.notifications.where(read_at: nil).count %></span>
             <% else %>
               <i class="far fa-bell"></i>
             <% end %>
-          </p>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <% current_user.notifications.each do |notification| %>
-              <% if notification.read_at.nil? %>
-                <li>
-                  <div class="notification-inline">
-                    <%= link_to "#{notification.actor.firstname} a repondu", question_path(notification.notifiable.question), class: "navbar-wagon-item navbar-wagon-link" %>
-                    <%= link_to "lu?", mark_as_read_notification_path(notification), method: :post, class: "navbar-wagon-item navbar-wagon-link lu"%>
-                  </div>
-                </li>
-                <%= link_to "Tout lu?", mark_as_read_notifications_path, method: :post, class: "tout-lu" %>
-              <% else %>
-                <p class="navbar-wagon-item navbar-wagon-link ">Pas de notifications</p>
+          </div>
+          <% if current_user.notifications.where(read_at: nil).any? %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <% current_user.notifications.each do |notification| %>
+                <% if notification.read_at.nil? %>
+                  <li>
+                    <div class="notification-inline">
+                      <%= link_to "#{notification.actor.firstname} a repondu", question_path(notification.notifiable.question), class: "navbar-wagon-item navbar-wagon-link" %>
+                      <%= link_to "lu?", mark_as_read_notification_path(notification), method: :post, class: "navbar-wagon-item navbar-wagon-link lu"%>
+                    </div>
+                  </li>
+                <% end %>
               <% end %>
-
-            <% end %>
-          </ul>
+              <div>
+               <%= link_to "Tout lu?", mark_as_read_notifications_path, method: :post, class: "tout-lu" %>
+              </div>
+            </ul>
+          <% end %>
         </div>
       </div>
 

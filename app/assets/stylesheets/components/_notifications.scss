@@ -1,48 +1,38 @@
+
 div#allo ul {
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
+  width: 250px;
+  padding: 0;
 }
+
 
 .lu {
   font-size: 12px;
+  float: right;
+  margin-top: 3px;
 }
 
 .tout-lu {
   background: $blue-pop;
   color: white;
   text-align: center;
+  display: block;
+  padding: 10px;
   &:hover {
     text-decoration: none;
     color: $white;
   }
-
 }
 
-#allo {
-  padding-top: 22px
-}
 
 #bob {
   display: inline-block;
 }
 
 
-div#allo ul > * {
-    width: 100%;
-    padding: 10px;
-}
-
-div#allo ul li a {
-    padding: 0;
-}
-
-
 .notification-inline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 10px;
+  // flex-direction: column;
+  // justify-content: space-between;
 }
 
 
