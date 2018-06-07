@@ -1,6 +1,5 @@
 /* Main navbar */
 
-
 .navbar-home {
   position: absolute;
   width: 100%;
@@ -13,11 +12,6 @@
     font-weight: bold;
   }
 }
-
-.lu {
-  font-size: 8px;
-}
-
 
 .navbar-wagon {
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
@@ -60,34 +54,6 @@
   padding: 0 20px;
 }
 
-
-.navbar-wagon-item .fa-bell {
-  font-size: 24px;
-  padding: 0px !important;
-}
-
-.bell-full-pink {
-  color: $pink-pop !important;
-}
-
-#notification-bell {
-  padding-top: 15px;
-}
-
-#lu {
-  font-size: 12px;
-  margin: -30px;
-  padding-right: 20px;
-}
-
-.notification-text {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-#bob {
-  display: inline-block;
-}
 
 
 /* Navbar link */

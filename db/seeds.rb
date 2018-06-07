@@ -43,6 +43,8 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user1.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ne5jwxwgjjpcig0q6hds.jpg"
+  user1.save
   puts "#{user1.firstname} created!"
 
   firstname2 = "Marc"
@@ -57,6 +59,8 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user2.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/giirlbhp92mlrrqcadi6.jpg"
+  user2.save
   puts "#{user2.firstname} created!"
 
   firstname3 = "Laurent"
@@ -71,6 +75,8 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user3.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/pvgdcafyubjbsqm00slm.jpg"
+  user3.save
   puts "#{user3.firstname} created!"
 
   firstname4 = "Thibault"
@@ -85,6 +91,8 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user4.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ajhwwcp5g0rjrjybky0v.jpg"
+  user4.save
   puts "#{user4.firstname} created!"
 
   firstname5 = "Herve"
@@ -99,9 +107,11 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user5.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/akl8fhx69ezqb0vk62zk.jpg"
+  user5.save
   puts "#{user5.firstname} created!"
 
-  firstname6 = "Patricia"
+  firstname6 = "Sophie"
   user6 = User.create!(
     firstname: firstname6,
     lastname: Faker::OnePiece.island,
@@ -113,6 +123,8 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user6.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/h16ouwa2bz1faf4gxgpe.jpg"
+  user6.save
   puts "#{user6.firstname} created!"
 
   firstname7 = "Solange"
@@ -127,6 +139,8 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user7.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/p2sykhfbnarhxatd9avz.jpg"
+  user7.save
   puts "#{user7.firstname} created!"
 
   firstname8 = "Etienne"
@@ -141,6 +155,8 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user8.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/enuja2tvfqfcvflivb8s.jpg"
+  user8.save
   puts "#{user8.firstname} created!"
 
   firstname9 = "Tom"
@@ -155,6 +171,8 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user9.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/lqupe9b6grukw2wwrvgj.jpg"
+  user9.save
   puts "#{user9.firstname} created!"
 
   firstname10 = "Karl"
@@ -169,7 +187,26 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     bio: Faker::Lorem.paragraph,
     secu_nb: "1 23 04 69 666 666 11"
   )
+  user10.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/jjdda3qjv7gpodd4u5ov.jpg"
+  user10.save
   puts "#{user10.firstname} created!"
+
+
+  firstname11 = "Marie"
+  user11 = User.create!(
+    firstname: firstname11,
+    lastname: Faker::OnePiece.island,
+    email: "#{firstname11}@gmail.com",
+    password: "secret",
+    disease: disease,
+    location: Faker::Address.city,
+    status_in_community: "Newbie",
+    bio: Faker::Lorem.paragraph,
+    secu_nb: "1 23 04 69 666 666 11"
+  )
+  user11.remote_photo_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/p2sykhfbnarhxatd9avz.jpg"
+  user11.save
+  puts "#{user11.firstname} created!"
 
 
 # CREATING 10 QUESTIONS
@@ -255,6 +292,14 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
   )
   puts "#{question10.title} created!"
 
+  question11 = Question.create!(
+    title: "Des conseils alimentaires (glycémie)?",
+    body: "Détails: J'aimerai avoir vos avis concernant une alimentation saine vis-à-vis de la glycémie",
+    disease: disease,
+    user: user8
+  )
+  puts "#{question11.title} created!"
+
 
 # CREATING 20 ANSWERS
 
@@ -262,7 +307,7 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
       body: "Quelle belle avancée !! Reste à mieux identifier la source de ce basculement qui nous fait passer de l'auto-immun bénin à DT1.",
       upvotes: rand(*[0..42]),
       question: question2,
-      user: user1
+      user: user4
     )
   puts "answers created!"
 
@@ -278,7 +323,7 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
       body: "Quelle belle histoire! ",
       upvotes: rand(*[0..42]),
       question: question1,
-      user: user1
+      user: user5
     )
   puts "answers created!"
 
@@ -302,7 +347,7 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
       body: "Moi aussi je suis sur Cerazette! Tout à fait d'accord c'est super!",
       upvotes: rand(*[0..42]),
       question: question7,
-      user: user6
+      user: user11
     )
   puts "answers created!"
 
@@ -322,19 +367,84 @@ Chaque personne souffrant d'un diabète est unique et les facteurs qui régissen
     )
   puts "answers created!"
 
-  answer8_ = Answer.create!(
+  answer9_8_7 = Answer.create!(
       body: "Avène power!! définitivement les meilleures :)",
       upvotes: rand(*[0..42]),
-      question: question4,
+      question: question8,
       user: user7
     )
   puts "answers created!"
 
-  answer8_ = Answer.create!(
+  answer10_8_9 = Answer.create!(
       body: "La gamme Même est vraiment bien",
       upvotes: rand(*[0..42]),
-      question: question4,
+      question: question8,
       user: user9
+    )
+  puts "answers created!"
+
+
+  answer11_ = Answer.create!(
+      body: "Le gin est censé être le moins sucré des alcools fort et le cidre l'est moins que la bière!",
+      upvotes: rand(*[0..42]),
+      question: question3,
+      user: user7
+    )
+  puts "answers created!"
+
+   answer12_ = Answer.create!(
+      body: "Je recommande vivement le Dr Hocquemiller dans le 5ème à Paris",
+      upvotes: rand(*[0..42]),
+      question: question6,
+      user: user11
+    )
+  puts "answers created!"
+
+   answer13_ = Answer.create!(
+      body: "Salut Etienne, consomme en priorité fruits et légumes, évite à tout prix les produits transformés industriels, ils sont bourrés de sucre! Je te conseille plus particulièrement l'avocat, il aide à réguler la glycémie lors de la digestion.",
+      upvotes: rand(*[0..42]),
+      question: question8,
+      user: user11
+    )
+  puts "answers created!"
+
+   answer14_ = Answer.create!(
+      body: "Comme le dit Marie, les produits industriels sont notre ennemi n°1!! Rien n'est meilleur que de se faire à manger soit-même avec des produits frais. Il faut également varier son alimentation et boire de l'eau en quantité suffisante, c'est la clef de la santé ;)",
+      upvotes: rand(*[0..42]),
+      question: question8,
+      user: user7
+    )
+  puts "answers created!"
+
+   answer15_ = Answer.create!(
+      body: "FreeStyle Optium Neo est un lecteur de glycémie destiné à l'autosurveillance de la glycémie et de la cétonémie à domicile ou bien pour l'utilisation par des professionnels de santé. Afin de suivre parfaitement votre glycémie, il vous sera possible de transférer vos résultats sur ordinateur, via le câble USB fourni avec votre lecteur de glycémie. Le lecteur de glycémie FreeStyle Optium Neo est également capable d'enregistrer un maximum de 1000 évènements.",
+      upvotes: rand(*[0..42]),
+      question: question5,
+      user: user8
+    )
+  puts "answers created!"
+
+   answer16_ = Answer.create!(
+      body: "Alors que l'on pensait l'insuline indispensable à la vie des mammifères, il a été montré que des souris déficientes en cette hormone pouvaient survivre. Mais pour cela, elles ont besoin de leptine, une autre hormone impliquée dans le métabolisme. Une piste à creuser pour déterminer si l'on peut remplacer l'insuline qui provoque quelques effets secondaires, dans le traitement du diabète.",
+      upvotes: rand(*[0..42]),
+      question: question10,
+      user: user3
+    )
+  puts "answers created!"
+
+   answer13_ = Answer.create!(
+      body: "J'y suis allée l'année dernière c'était super intéressant avec plein de bons intervenants.",
+      upvotes: rand(*[0..42]),
+      question: question4,
+      user: user2
+    )
+  puts "answers created!"
+
+   answer13_ = Answer.create!(
+      body: "C'est assez difficile d'en trouver qui s'y connaissent sur le diabète mais je recommande l'institut Alfred Fournier",
+      upvotes: rand(*[0..42]),
+      question: question6,
+      user: user7
     )
   puts "answers created!"
 

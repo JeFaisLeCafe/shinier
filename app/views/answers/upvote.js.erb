@@ -1,11 +1,12 @@
 
 
 // select the arrow , and change it to another class
-function refreshUpvote(className) {
+function refreshUpvote(olderClass, newClass) {
   const newUpvote = document.querySelectorAll('[data-answer-id="<%= @answer.id %>"]');
-  // newUpvote.forEach((upvote) => {
-  //   upvote.querySelector(".arrow").classList.add(className)
-  // })
+  newUpvote.forEach((upvote) => {
+    console.log("titi", upvote.querySelector(".big-icon"))
+    upvote.querySelector(".big-icon").classList.replace(olderClass, newClass)
+  })
 }
 
 // select the counter and update it
@@ -16,7 +17,7 @@ function addUpvote(newCounter) {
   })
 }
 
-refreshUpvote('arrow-up')
 addUpvote('<%= j render "answers/counter", answer: @answer %>')
+
 
 

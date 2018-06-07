@@ -1,0 +1,46 @@
+
+div#allo ul {
+  width: 250px;
+  padding: 0;
+}
+
+
+.lu {
+  font-size: 12px;
+  float: right;
+  margin-top: 3px;
+}
+
+.tout-lu {
+  background: $blue-pop;
+  color: white;
+  text-align: center;
+  display: block;
+  padding: 10px;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+
+#bob {
+  display: inline-block;
+}
+
+
+.notification-inline {
+  padding: 10px;
+  // flex-direction: column;
+  // justify-content: space-between;
+}
+
+
+.navbar-wagon-item .fa-bell {
+  font-size: 24px;
+  padding: 0px !important;
+}
+
+.bell-full-pink {
+  color: $pink-pop !important;
+}
