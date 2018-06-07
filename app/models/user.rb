@@ -28,7 +28,7 @@ class User < ApplicationRecord
   after_update :get_user_slack_id
 
   def get_user_slack_id
-    slack_users = JSON.parse(RestClient.get("https://slack.com/api/users.list?token=xoxp-375277883781-376187137607-375361269461-13ba88eda799e449252bb0423e161a13&pretty=1"))
+    slack_users = JSON.parse(RestClient.get("https://slack.com/api/users.list?token=#{ENV["SLACK_TOKEN2"]}"))
     self.slack_id = slack_users["members"].select { |member| member["profile"]["email"] == self.email  }.first["id"]
   end
 
