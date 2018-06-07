@@ -29,13 +29,17 @@ class User < ApplicationRecord
 
   def get_user_slack_id
     if self.slack_id.nil?
+      begin
       slack_users = JSON.parse(RestClient.get("https://slack.com/api/users.list?token=#{ENV["SLACK_TOKEN2"]}"))
-      if self.slack_id = slack_users["members"].find { |member| member["profile"]["email"] == self.email  }&["id"]
+      if slack_data = slack_users["members"].find { |member| member["profile"]["email"] == self.email  }
+        self.slack_id = slack_data["id"]
         self.save
       else
         self.slack_id = nil
         self.save
       end
+    rescue RestClient::TooManyRequests
+    end
     end
   end
 
