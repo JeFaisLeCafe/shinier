@@ -30,7 +30,7 @@
       <h5><%= answer.user.firstname %></h5>
       <% if answer.user.slack_id %>
         <div class="contact">
-          <%= link_to "https://shinier.slack.com/messages/#{current_user.slack_id}/", target: "_blank" do %>
+          <%= link_to "https://shinier.slack.com/messages/#{answer.user.slack_id}/", target: "_blank" do %>
             <i class="fas fa-comments"></i>
             <h6>Contact</h6>
           <% end %>
