@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @questions = if params[:query].present?
       Question.search(params[:query])
     elsif params[:tag].present?
-      Question.tagged_with(params[:tag])
+      Question.tagged_with(params[:tag]).page(params[:page]).per(5)
     else
       Question.all.where(answered: false).page(params[:page]).per(5)
     end
