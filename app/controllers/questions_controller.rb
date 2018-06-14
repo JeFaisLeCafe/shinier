@@ -38,6 +38,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answer = Answer.new
     @answers = @question.answers.page(params[:page]).per(5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
