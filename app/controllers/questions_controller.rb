@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @questions = if params[:query].present?
       Question.search(params[:query])
     elsif params[:tag].present?
-      Question.tagged_with(params[:tag])
+      Question.tagged_with(params[:tag]).page(params[:page]).per(5)
     else
       Question.all.where(answered: false).page(params[:page]).per(5)
     end
@@ -38,6 +38,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answer = Answer.new
     @answers = @question.answers.page(params[:page]).per(5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit

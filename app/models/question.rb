@@ -51,6 +51,7 @@ class Question < ApplicationRecord
     end
   end
 
+
   private
 
   def post_new_question
