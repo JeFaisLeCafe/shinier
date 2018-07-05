@@ -2,7 +2,7 @@
 .card {
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 180px;
   border-radius: 1px;
   margin: 15px 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -11,10 +11,8 @@
   justify-content: space-around;
   font-size: 25px;
   color: white;
-  font-weight: bolder;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
 .card:hover{
-  background-color: $blue-pop;
+  background-color: $pink-pop;
 }
