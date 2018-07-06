@@ -10,18 +10,17 @@
       <!-- Scrap data  -->
       <div class="col-md-4">
         <div class="card">
-
-          <h2><%= link_to "Diabete", disease_path(@disease) %></h2>
+          <%= link_to "Diabète", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <h2><%= link_to "Diabete de type 1", disease_path(@disease) %></h2>
+          <%= link_to "Diabète de type 1", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <h2><%= link_to "Diabete de type 2", disease_path(@disease) %></h2>
+          <%= link_to "Diabète de type 2", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
     </div>
@@ -30,20 +29,20 @@
       <div class="col-md-4">
         <div class="card">
 
-          <h2><%= link_to "Diabete gestationnel", disease_path(@disease) %></h2>
+          <%= link_to "Diabète gestationnel", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="card">
 
-          <h2><%= link_to "Diabete et grossesse", disease_path(@disease) %></h2>
+          <%= link_to "Diabète et grossesse", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="card">
-           <h2><%= link_to "Hyperglycemie", disease_path(@disease) %></h2>
+           <%= link_to "Hyperglycemie", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
     </div>
@@ -51,24 +50,26 @@
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <h2><%= link_to "Hypoglycemie", disease_path(@disease) %></h2>
+          <%= link_to "Hypoglycemie", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="card">
-          <h2><%= link_to "Complications", disease_path(@disease) %></h2>
+          <%= link_to "Complications", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="card">
-          <h2><%= link_to "Prise en charge", disease_path(@disease) %></h2>
+          <%= link_to "Prise en charge", disease_path(@disease), class: "disease-link" %>
         </div>
       </div>
     </div>
     <div class="row">
-        <p style="font-size: 28px">Plus de 3 millions de français sont touchés par le diabète. Un chiffre qui ne cesse d’augmenter. D’après les études, près d’un million de personnes vivent avec une forme de diabète en France sans le savoir. Pour t'aider à décrypter les enjeux de la maladie dans sa globalité et plus précisément le diabète de type 1, le diabète de type 2, ou le diabète gestationnel, on mets a ta disposition des ressources sures et verifées</p>
+      <div class="col-xs-12">
+        <p class="disease-txt">Plus de 3 millions de français sont touchés par le diabète. Un chiffre qui ne cesse d’augmenter. D’après les études, près d’un million de personnes vivent avec une forme de diabète en France sans le savoir. Pour t'aider à décrypter les enjeux de la maladie dans sa globalité et plus précisément le diabète de type 1, le diabète de type 2, ou le diabète gestationnel, on mets a ta disposition des ressources sures et verifées</p>
+      </div>
     </div>
   </div>
 </div>

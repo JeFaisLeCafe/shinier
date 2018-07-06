@@ -2,7 +2,7 @@
 .card {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 150px;
   border-radius: 1px;
   margin: 15px 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -15,4 +15,21 @@
 
 .card:hover{
   background-color: $pink-pop;
+  transition: background-color 500ms;
+}
+
+.disease-link {
+  color: $blue-pop;
+  font-size: 28px;
+  font-family: "Fjalla One", sans-serif;
+}
+.disease-link:hover {
+  color: $blue-purple;
+  text-decoration: none;
+}
+
+.disease-txt {
+  text-align: justify;
+  font-size: 16px;
+  margin: 15px 10px;
 }
