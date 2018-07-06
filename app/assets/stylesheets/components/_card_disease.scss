@@ -15,6 +15,7 @@
 
 .card:hover{
   background-color: $pink-pop;
+  transition: background-color 500ms;
 }
 
 .disease-link {
