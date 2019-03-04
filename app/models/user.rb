@@ -22,10 +22,10 @@ class User < ApplicationRecord
 
   after_create do |user|
     post_new_user(user)
-    invite_user(user)
+    # invite_user(user)
   end
 
-  after_update :get_user_slack_id
+  # after_update :get_user_slack_id
 
   def get_user_slack_id
     if self.slack_id.nil?
@@ -88,6 +88,6 @@ class User < ApplicationRecord
     end
 
     user.save!
-    SlackPost.new.post_new_user(user).deliver
+    # SlackPost.new.post_new_user(user).deliver
   end
 end

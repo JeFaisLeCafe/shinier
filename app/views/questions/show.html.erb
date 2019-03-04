@@ -1,3 +1,21 @@
+<script type="text/javascript">
+    (function(){
+        function loadOwnpageScript(e){var t="https://script.ownpage.fr/v1/",a=document.createElement("script"),n=document.getElementsByTagName("script")[0];a.type="text/javascript",a.defer=1,a.async=1,a.src=t+"ownpage.js",a.onload=e,a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,e&&"function"==typeof e&&e())}:a.onload=function(){e&&"function"==typeof e&&e()},n.parentNode.insertBefore(a,n)}
+
+        loadOwnpageScript(function () {
+            Ownpage.trackPage('aeb86d31fc184897', "<%= current_user ? Digest::MD5.hexdigest(current_user.email) : nil%>" );
+        });
+    })();
+  console.log("test", "<%= true ? 12 : 1 %>")
+</script>
+<head>
+  <meta property="og:title" content="<%= @question.title %>">
+  <meta property="og:description" content="<%= @question.body %>">
+  <meta property="og:image" content="<%= cl_image_tag @question.user.photo, crop: :fill, class: "avatar-question-card" %>">
+  <meta property="article:published_time" content="<%= @question.created_at %>">
+  <meta property="article:section" content="<%= @question.tags.first.name %>">
+
+</head>
 <div class="container">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
