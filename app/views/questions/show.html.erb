@@ -1,13 +1,4 @@
 <script type="text/javascript">
-  console.log(document.getElementsByTagName('META'));
-  document.getElementById('og:title').content = "<%= @question.title %>";
-  document.getElementById("og:description").content = "<%= @question.body %>";
-  // document.getElementById("og:image").content = "<%= cl_image_tag @question.user.photo %>";
-  document.getElementById("article:published_time").content = "<%= @question.created_at %>";
-  document.getElementById("article:section").content = "<%= @question.tags&.first&.name %>";
-</script>
-
-<script type="text/javascript">
     (function(){
         function loadOwnpageScript(e){var t="https://script.ownpage.fr/v1/",a=document.createElement("script"),n=document.getElementsByTagName("script")[0];a.type="text/javascript",a.defer=1,a.async=1,a.src=t+"ownpage.js",a.onload=e,a.readyState?a.onreadystatechange=function(){("loaded"==a.readyState||"complete"==a.readyState)&&(a.onreadystatechange=null,e&&"function"==typeof e&&e())}:a.onload=function(){e&&"function"==typeof e&&e()},n.parentNode.insertBefore(a,n)}
 
